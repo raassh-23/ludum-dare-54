@@ -5,11 +5,96 @@
 			"eventType": "variable",
 			"name": "DISTANCE_TO_TURN",
 			"type": "number",
-			"initialValue": "32",
+			"initialValue": "16",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 642666225297339
+		},
+		{
+			"eventType": "variable",
+			"name": "coins",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 829320221935173
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 384847487906974,
+					"parameters": {
+						"key": 65
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "Player",
+					"sid": 693413273851963,
+					"behaviorType": "Platform",
+					"parameters": {
+						"control": "left"
+					}
+				}
+			],
+			"sid": 419554755564732
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 857932826970341,
+					"parameters": {
+						"key": 68
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "Player",
+					"sid": 512812005876731,
+					"behaviorType": "Platform",
+					"parameters": {
+						"control": "right"
+					}
+				}
+			],
+			"sid": 460584586481386
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 865988639564683,
+					"parameters": {
+						"key": 87
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "Player",
+					"sid": 664069826847548,
+					"behaviorType": "Platform",
+					"parameters": {
+						"control": "jump"
+					}
+				}
+			],
+			"sid": 917809904050479
 		},
 		{
 			"eventType": "block",
@@ -51,12 +136,20 @@
 					}
 				},
 				{
-					"id": "set-angle",
+					"id": "set-vector-y",
 					"objectClass": "Player",
-					"sid": 833138206557074,
+					"sid": 806742428100330,
+					"behaviorType": "Platform",
 					"parameters": {
-						"angle": "anglerotate(Self.Angle, Self.Angle + 180, 180)"
+						"vector-y": "0"
 					}
+				},
+				{
+					"callFunction": "tweenRotate",
+					"sid": 157613632409166,
+					"parameters": [
+						"180"
+					]
 				}
 			],
 			"sid": 413509462177021
@@ -101,12 +194,11 @@
 					}
 				},
 				{
-					"id": "set-angle",
-					"objectClass": "Player",
-					"sid": 917474177446897,
-					"parameters": {
-						"angle": "anglerotate(Self.Angle, Self.Angle - 90, 90)"
-					}
+					"callFunction": "tweenRotate",
+					"sid": 911681386372998,
+					"parameters": [
+						"-90"
+					]
 				}
 			],
 			"sid": 428104741898816
@@ -151,12 +243,11 @@
 					}
 				},
 				{
-					"id": "set-angle",
-					"objectClass": "Player",
-					"sid": 335236277523613,
-					"parameters": {
-						"angle": "anglerotate(Self.Angle, Self.Angle + 90, 90)"
-					}
+					"callFunction": "tweenRotate",
+					"sid": 346464812742728,
+					"parameters": [
+						"90"
+					]
 				}
 			],
 			"sid": 296090558676041
@@ -222,6 +313,465 @@
 				}
 			],
 			"sid": 115444947626198
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-jump",
+					"objectClass": "Player",
+					"sid": 655299137060893,
+					"behaviorType": "Platform"
+				}
+			],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 975730727168819,
+					"parameters": {
+						"type": "log",
+						"message": "\"test\""
+					}
+				}
+			],
+			"sid": 304211009685428
+		},
+		{
+			"functionName": "tweenRotate",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "diffAngle",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 996003018075376
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 334640325828680,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-playing",
+							"objectClass": "Player",
+							"sid": 849821658691653,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"rotate\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-tweens",
+							"objectClass": "Player",
+							"sid": 383353543767734,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"rotate\""
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Player",
+							"sid": 571972186210059,
+							"parameters": {
+								"angle": "Self.targetDisplayAngle"
+							}
+						}
+					],
+					"sid": 990033280829425
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 782962482510916,
+							"parameters": {
+								"instance-variable": "targetDisplayAngle",
+								"value": "anglerotate(Self.Angle, Self.Angle + diffAngle, abs(diffAngle))"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Player",
+							"sid": 785148909447238,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"rotate\"",
+								"property": "offsetAngle",
+								"end-value": "Self.targetDisplayAngle",
+								"time": "abs(diffAngle)/90 * 0.1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 500613081405017
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 417083881265090
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 700303354735063,
+					"parameters": {
+						"variable": "coins",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 219883150148054
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Coin",
+					"sid": 264045130085231
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Coin",
+					"sid": 358444654739749,
+					"parameters": {
+						"x": "random(48, LayoutWidth-48)",
+						"y": "random(48, LayoutHeight-48)"
+					}
+				}
+			],
+			"sid": 837113497822543
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 855020511617826,
+					"parameters": {
+						"object": "Coin"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Coin",
+					"sid": 544163982692493
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 818818576787446,
+					"parameters": {
+						"variable": "coins",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Text",
+					"sid": 659341339580682,
+					"parameters": {
+						"text": "coins"
+					}
+				},
+				{
+					"customAction": "AnimateText",
+					"objectClass": "Text",
+					"sid": 738296355031308,
+					"parameters": [
+						"0.2"
+					]
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 859667036865939,
+					"parameters": {
+						"object-to-create": "Coin",
+						"layer": "\"Game\"",
+						"x": "random(48, LayoutWidth-48)",
+						"y": "random(48, LayoutHeight-48)",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 675182153147456
+		},
+		{
+			"aceType": "action",
+			"aceName": "AnimateText",
+			"objectClass": "Text",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "duration",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 644164162414466
+				}
+			],
+			"eventType": "custom-ace-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 100809963538882,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-any-playing",
+							"objectClass": "Text",
+							"sid": 188105056494000,
+							"behaviorType": "Tween"
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-tweens",
+							"objectClass": "Text",
+							"sid": 892873616061473,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"AnimateFontSize\""
+							}
+						},
+						{
+							"id": "stop-tweens",
+							"objectClass": "Text",
+							"sid": 872504890602264,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"AnimateAngle\""
+							}
+						}
+					],
+					"sid": 502317293550786
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 588009107602423
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Text",
+							"sid": 876880711499131,
+							"parameters": {
+								"instance-variable": "initialAngle",
+								"value": "Self.Angle"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Text",
+							"sid": 980893259032734,
+							"parameters": {
+								"instance-variable": "initialX",
+								"value": "Self.X"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Text",
+							"sid": 500426225999136,
+							"parameters": {
+								"instance-variable": "initialY",
+								"value": "Self.Y"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Text",
+							"sid": 134316942152083,
+							"parameters": {
+								"instance-variable": "initialFontSize",
+								"value": "self.FaceSize"
+							}
+						}
+					],
+					"sid": 427645267415071
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "tween-value",
+							"objectClass": "Text",
+							"sid": 634235009386850,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"AnimateFontSize\"",
+								"start-value": "Self.initialFontSize * 1.5",
+								"end-value": "Self.initialFontSize",
+								"time": "duration",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Text",
+							"sid": 427756613234446,
+							"parameters": {
+								"angle": "anglerotate(Self.Angle, Self.Angle + random(-30, 30), 30)"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Text",
+							"sid": 817524949041583,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"AnimateAngle\"",
+								"property": "offsetAngle",
+								"end-value": "Self.initialAngle",
+								"time": "duration",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 297248751905964
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-playing",
+					"objectClass": "Text",
+					"sid": 741168122049642,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"AnimateFontSize\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-font-size",
+					"objectClass": "Text",
+					"sid": 209050035692942,
+					"parameters": {
+						"size-pt": "Self.Tween.Value(\"AnimateFontSize\")"
+					}
+				}
+			],
+			"sid": 469501754011486
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tweens-finished",
+					"objectClass": "Text",
+					"sid": 966481985261660,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"AnimateFontSize\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"customAction": "ResetText",
+					"objectClass": "Text",
+					"sid": 615937951353136
+				}
+			],
+			"sid": 255592825454588
+		},
+		{
+			"aceType": "action",
+			"aceName": "ResetText",
+			"objectClass": "Text",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "custom-ace-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Text",
+					"sid": 100238834135522,
+					"parameters": {
+						"x": "Self.initialX",
+						"y": "Self.initialY"
+					}
+				},
+				{
+					"id": "set-font-size",
+					"objectClass": "Text",
+					"sid": 582120464203663,
+					"parameters": {
+						"size-pt": "Self.initialFontSize"
+					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "Text",
+					"sid": 335512436898322,
+					"parameters": {
+						"angle": "Self.initialAngle"
+					}
+				}
+			],
+			"sid": 335497068523596
 		}
 	],
 	"sid": 461194139659853

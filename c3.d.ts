@@ -1,5 +1,5 @@
 // NOTE: This definition file is auto generated - any changes you make will not be saved
-// 9/30/2023 9:38:38 AM
+// 9/30/2023 10:26:00 AM
 
 declare function runOnStartup(cb: (runtime: IRuntime) => void): void;
 
@@ -42,12 +42,17 @@ declare var IRuntime:  { new(): IRuntime };
 type VariableType = Record<string, string | boolean | number | null | undefined>;
 
 interface IRuntimeObjects {
+	['Text']: IObjectClass<IText>;
 	['Player']: IObjectClass<IPlayer>;
+	['Keyboard']: IObjectClass<IKeyboard>;
 	['Ground']: IObjectClass<IGround>;
+	['Coin']: IObjectClass<ICoin>;
 	['Browser']: IObjectClass<IBrowser>;
 }
 
 interface IGlobalVars extends VariableType {
+	/**  **/
+	["coins"]: number
 	/**  **/
 	["DISTANCE_TO_TURN"]: number
 }
@@ -172,15 +177,46 @@ interface IObjectClass<T = IInstance> {
 }
 declare var IObjectClass: { new(): IObjectClass };
 
+interface ITextVars extends VariableType {
+	/**  **/
+	['initialX']: number;
+	/**  **/
+	['initialY']: number;
+	/**  **/
+	['initialFontSize']: number;
+	/**  **/
+	['initialAngle']: number;
+}
+interface ITextBehaviors extends Record<string, IBehaviorInstance> {
+	['Tween']: IBehaviorInstance
+}
+interface IText extends ITextInstance {
+	instVars: ITextVars;
+	behaviors: ITextBehaviors;
+}
+
 interface IPlayerVars extends VariableType {
-	
+	/**  **/
+	['targetDisplayAngle']: number;
 }
 interface IPlayerBehaviors extends Record<string, IBehaviorInstance> {
 	['Platform']: IPlatformBehaviorInstance
+	['Tween']: IBehaviorInstance
 }
 interface IPlayer extends ISpriteInstance {
 	instVars: IPlayerVars;
 	behaviors: IPlayerBehaviors;
+}
+
+interface IKeyboardVars extends VariableType {
+	
+}
+interface IKeyboardBehaviors extends Record<string, IBehaviorInstance> {
+	
+}
+interface IKeyboard extends IKeyboardObjectType {
+	instVars: IKeyboardVars;
+	behaviors: IKeyboardBehaviors;
 }
 
 interface IGroundVars extends VariableType {
@@ -192,6 +228,17 @@ interface IGroundBehaviors extends Record<string, IBehaviorInstance> {
 interface IGround extends ITilemapInstance {
 	instVars: IGroundVars;
 	behaviors: IGroundBehaviors;
+}
+
+interface ICoinVars extends VariableType {
+	
+}
+interface ICoinBehaviors extends Record<string, IBehaviorInstance> {
+	
+}
+interface ICoin extends ISpriteInstance {
+	instVars: ICoinVars;
+	behaviors: ICoinBehaviors;
 }
 
 interface IBrowserVars extends VariableType {
