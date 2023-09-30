@@ -22,46 +22,6 @@
 			"sid": 829320221935173
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-any-touch-start",
-					"objectClass": "Touch",
-					"sid": 134228657215567
-				},
-				{
-					"id": "is-group-active",
-					"objectClass": "System",
-					"sid": 641432127765221,
-					"parameters": {
-						"group-name": "\"Touch\""
-					},
-					"isInverted": true
-				}
-			],
-			"actions": [
-				{
-					"id": "set-group-active",
-					"objectClass": "System",
-					"sid": 812983606786301,
-					"parameters": {
-						"group-name": "\"Touch\"",
-						"state": "activated"
-					}
-				},
-				{
-					"id": "set-group-active",
-					"objectClass": "System",
-					"sid": 751637593631220,
-					"parameters": {
-						"group-name": "\"Mouse\"",
-						"state": "deactivated"
-					}
-				}
-			],
-			"sid": 798486857185507
-		},
-		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Keyboard",
@@ -214,6 +174,46 @@
 						}
 					],
 					"sid": 806337922811699
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-touch-start",
+							"objectClass": "Touch",
+							"sid": 503429381883233
+						},
+						{
+							"id": "is-group-active",
+							"objectClass": "System",
+							"sid": 536567861934442,
+							"parameters": {
+								"group-name": "\"Touch\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 503429756116671,
+							"parameters": {
+								"group-name": "\"Touch\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 887512165774518,
+							"parameters": {
+								"group-name": "\"Mouse\"",
+								"state": "deactivated"
+							}
+						}
+					],
+					"sid": 410938101790399
 				},
 				{
 					"eventType": "block",
@@ -781,18 +781,6 @@
 						"type": "once",
 						"tag": "\"StraightHomingEnemy\""
 					}
-				},
-				{
-					"id": "start-timer",
-					"objectClass": "TimerManager",
-					"sid": 809246118288534,
-					"disabled": true,
-					"behaviorType": "Timer",
-					"parameters": {
-						"duration": "random(2,4)",
-						"type": "once",
-						"tag": "\"StraightEnemy\""
-					}
 				}
 			],
 			"sid": 633110371801735
@@ -830,6 +818,40 @@
 				}
 			],
 			"sid": 151403732566410
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 200592261998474,
+					"parameters": {
+						"variable": "coins",
+						"comparison": 5,
+						"value": "20"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 624876188066293
+				}
+			],
+			"actions": [
+				{
+					"id": "start-timer",
+					"objectClass": "TimerManager",
+					"sid": 473545163865261,
+					"behaviorType": "Timer",
+					"parameters": {
+						"duration": "random(2,4)",
+						"type": "once",
+						"tag": "\"BouncingEnemy\""
+					}
+				}
+			],
+			"sid": 474244209503314
 		},
 		{
 			"eventType": "block",
@@ -1129,6 +1151,217 @@
 					"sid": 296645537976591
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-timer",
+					"objectClass": "TimerManager",
+					"sid": 992008591483722,
+					"behaviorType": "Timer",
+					"parameters": {
+						"tag": "\"BouncingEnemy\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 211272583598550,
+					"parameters": {
+						"object-to-create": "BouncingEnemy",
+						"layer": "\"Game\"",
+						"x": "random(64, LayoutWidth-64)",
+						"y": "random(64, LayoutHeight-64)",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "BouncingEnemy",
+					"sid": 602638702057078,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "BouncingEnemy",
+					"sid": 917359632834639,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"FadeIn\"",
+						"property": "offsetOpacity",
+						"end-value": "100",
+						"time": "1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 902692851099941
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "BouncingEnemy",
+					"sid": 341183105642208,
+					"parameters": {
+						"instance-variable": "active",
+						"value": "true"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 429396579707186,
+					"parameters": {
+						"seconds": "0.5"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "BouncingEnemy",
+					"sid": 983346822870051,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-angle-of-motion",
+					"objectClass": "BouncingEnemy",
+					"sid": 261328295621614,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"angle": "random(360)"
+					}
+				},
+				{
+					"id": "start-timer",
+					"objectClass": "TimerManager",
+					"sid": 492400106639242,
+					"behaviorType": "Timer",
+					"parameters": {
+						"duration": "random(2.5 - log10(coins), 4.5 - log10(coins))",
+						"type": "once",
+						"tag": "\"BouncingEnemy\""
+					}
+				}
+			],
+			"sid": 419920779911293
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-on-screen",
+					"objectClass": "Enemy",
+					"sid": 207210217527590
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 505835177867179
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Enemy",
+					"sid": 183868323473151,
+					"parameters": {
+						"instance-variable": "gotToLayout",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 535282779519483
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-outside-layout",
+					"objectClass": "Enemy",
+					"sid": 496292330140606
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Enemy",
+					"sid": 829619289371924,
+					"parameters": {
+						"instance-variable": "gotToLayout"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Enemy",
+					"sid": 535999857026977
+				}
+			],
+			"sid": 461929008780133
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-distance-travelled",
+					"objectClass": "BouncingEnemy",
+					"sid": 236908649147911,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"comparison": 4,
+						"distance": "1024"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "tween-one-property",
+					"objectClass": "BouncingEnemy",
+					"sid": 632053903736572,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"FadeOut\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "0.1",
+						"ease": "default",
+						"destroy-on-complete": "yes",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 286895134516256,
+					"parameters": {
+						"seconds": "0.05"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "BouncingEnemy",
+					"sid": 106769054035592,
+					"parameters": {
+						"instance-variable": "active",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 879053685971222
 		},
 		{
 			"eventType": "block",
@@ -1453,59 +1686,6 @@
 				}
 			],
 			"sid": 335497068523596
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-on-screen",
-					"objectClass": "Enemy",
-					"sid": 176912397173781
-				},
-				{
-					"id": "trigger-once-while-true",
-					"objectClass": "System",
-					"sid": 516438615718336
-				}
-			],
-			"actions": [
-				{
-					"id": "set-boolean-instvar",
-					"objectClass": "Enemy",
-					"sid": 557276307740664,
-					"parameters": {
-						"instance-variable": "gotToLayout",
-						"value": "true"
-					}
-				}
-			],
-			"sid": 870603204955239
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-outside-layout",
-					"objectClass": "Enemy",
-					"sid": 754470592839805
-				},
-				{
-					"id": "is-boolean-instance-variable-set",
-					"objectClass": "Enemy",
-					"sid": 909779261558694,
-					"parameters": {
-						"instance-variable": "gotToLayout"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "destroy",
-					"objectClass": "Enemy",
-					"sid": 133779746913279
-				}
-			],
-			"sid": 929278602738140
 		},
 		{
 			"eventType": "block",

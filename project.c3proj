@@ -104,7 +104,8 @@
 			"TimerManager",
 			"StraightHomingEnemy",
 			"Mouse",
-			"Touch"
+			"Touch",
+			"BouncingEnemy"
 		],
 		"subfolders": []
 	},

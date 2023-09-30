@@ -28,6 +28,7 @@
 	"effectTypes": [],
 	"members": [
 		"StraightEnemy",
-		"StraightHomingEnemy"
+		"StraightHomingEnemy",
+		"BouncingEnemy"
 	]
 }
