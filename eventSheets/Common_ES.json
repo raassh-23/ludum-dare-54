@@ -1,0 +1,28 @@
+{
+	"name": "Common_ES",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-end-of-layout",
+					"objectClass": "System",
+					"sid": 892867096643511
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 952427864127837,
+					"parameters": {
+						"variable": "prevLayout",
+						"value": "LayoutName"
+					}
+				}
+			],
+			"sid": 355478132561049
+		}
+	],
+	"sid": 896154704981924
+}

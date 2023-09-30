@@ -1,0 +1,178 @@
+{
+	"name": "Menu_ES",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Common_ES"
+		},
+		{
+			"eventType": "variable",
+			"name": "prevLayout",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 440471779846280
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 783777215434833,
+					"parameters": {
+						"object": "Text"
+					}
+				},
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 797853601845329,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Text"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 880342313931972,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 944608332047115,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"play\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Blank",
+							"sid": 179810613867215,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"layoutTransition\"",
+								"property": "position",
+								"end-x": "0",
+								"end-y": "0",
+								"time": "0.5",
+								"ease": "easeoutsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 489289940834927
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 689277896109090,
+							"parameters": {
+								"layout": "Game"
+							}
+						}
+					],
+					"sid": 819790019466489
+				}
+			],
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 795226600480425
+				}
+			],
+			"actions": [],
+			"sid": 782831515401118,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 275718744522537,
+							"parameters": {
+								"variable": "prevLayout",
+								"comparison": 0,
+								"value": "\"Game\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Blank",
+							"sid": 357533626974781,
+							"parameters": {
+								"x": "0",
+								"y": "0"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Blank",
+							"sid": 626577308968174,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"layoutTransition\"",
+								"property": "position",
+								"end-x": "LayoutWidth",
+								"end-y": "LayoutHeight",
+								"time": "0.5",
+								"ease": "easeinsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 107485802672193
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 620468334838695
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Blank",
+							"sid": 366932796133225,
+							"parameters": {
+								"x": "-LayoutWidth",
+								"y": "-LayoutHeight"
+							}
+						}
+					],
+					"sid": 119747236140354
+				}
+			]
+		}
+	],
+	"sid": 728013641924937
+}
