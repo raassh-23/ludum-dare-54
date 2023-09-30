@@ -43,8 +43,22 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Bullet",
+			"name": "Bullet",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Platform",
 			"name": "Platform",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Timer",
+			"name": "Timer",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -71,7 +85,9 @@
 			"Browser",
 			"Coin",
 			"Text",
-			"Keyboard"
+			"Keyboard",
+			"StraightEnemy",
+			"TimerManager"
 		],
 		"subfolders": []
 	},

@@ -22,14 +22,14 @@
 			"name": "initialFontSize",
 			"type": "number",
 			"desc": "",
-			"show": true,
+			"show": false,
 			"sid": 477879276648547
 		},
 		{
 			"name": "initialAngle",
 			"type": "number",
 			"desc": "",
-			"show": true,
+			"show": false,
 			"sid": 410303279749552
 		}
 	],

@@ -1,5 +1,5 @@
 // NOTE: This definition file is auto generated - any changes you make will not be saved
-// 9/30/2023 10:26:00 AM
+// 9/30/2023 10:28:26 AM
 
 declare function runOnStartup(cb: (runtime: IRuntime) => void): void;
 
