@@ -26,6 +26,16 @@
 			"sid": 829320221935173
 		},
 		{
+			"eventType": "variable",
+			"name": "best",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 133003246431089
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Keyboard",
@@ -789,35 +799,80 @@
 								"duration": "0.4",
 								"mode": "reducing-magnitude"
 							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 850855850953441,
-							"parameters": {
-								"seconds": "2"
-							}
-						},
-						{
-							"id": "set-layer-interactive",
-							"objectClass": "System",
-							"sid": 145444411465123,
-							"parameters": {
-								"layer": "\"GameOver\"",
-								"interactive": true
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 374108686579461,
-							"parameters": {
-								"layer": "\"GameOver\"",
-								"visibility": "visible"
-							}
 						}
 					],
-					"sid": 760321122851403
+					"sid": 760321122851403,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 757144311587344,
+									"parameters": {
+										"variable": "score",
+										"comparison": 4,
+										"value": "best"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 278434536196084,
+									"parameters": {
+										"variable": "best",
+										"value": "score"
+									}
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 213455271744092,
+									"parameters": {
+										"key": "\"best\"",
+										"value": "best"
+									}
+								}
+							],
+							"sid": 814372214308919
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 865883401747795,
+									"parameters": {
+										"seconds": "2"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 914153857943541,
+									"parameters": {
+										"layer": "\"GameOver\"",
+										"interactive": true
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 458623185985419,
+									"parameters": {
+										"layer": "\"GameOver\"",
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 817492084996139
+						}
+					]
 				},
 				{
 					"eventType": "block",

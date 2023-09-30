@@ -16,6 +16,16 @@
 			"sid": 440471779846280
 		},
 		{
+			"eventType": "variable",
+			"name": "firstOpen",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 298443847056284
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -58,9 +68,9 @@
 						{
 							"id": "set-layer-interactive",
 							"objectClass": "System",
-							"sid": 265817945926578,
+							"sid": 414686191162655,
 							"parameters": {
-								"layer": "\"UI\"",
+								"layer": "\"Main\"",
 								"interactive": false
 							}
 						},
@@ -183,6 +193,10 @@
 				}
 			],
 			"actions": [
+				{
+					"type": "script",
+					"script": "await getLeaderboard(runtime);"
+				},
 				{
 					"id": "set-layer-interactive",
 					"objectClass": "System",
@@ -501,27 +515,113 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "Text",
-							"sid": 957875946808235,
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 753425380661093,
 							"parameters": {
-								"instance-variable": "id",
-								"comparison": 0,
-								"value": "\"leaderboard-title\""
+								"variable": "firstOpen"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-visible",
-							"objectClass": "Text",
-							"sid": 579022951235603,
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 913556689102214,
 							"parameters": {
-								"visibility": "invisible"
+								"key": "\"best\""
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 931954080854804,
+							"parameters": {
+								"variable": "firstOpen",
+								"value": "false"
 							}
 						}
 					],
 					"sid": 296207465393743
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 646083732587238,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"best\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 187291376423452,
+							"parameters": {
+								"text": "best"
+							}
+						}
+					],
+					"sid": 391187032099780
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 680463293980497,
+					"parameters": {
+						"key": "\"best\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 560220774096555,
+					"parameters": {
+						"variable": "best",
+						"value": "int(LocalStorage.ItemValue)"
+					}
+				}
+			],
+			"sid": 531745384353216,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 639697673148358,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"best\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 130601736573689,
+							"parameters": {
+								"text": "best"
+							}
+						}
+					],
+					"sid": 749275785027667
 				}
 			]
 		}

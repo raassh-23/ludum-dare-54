@@ -173,7 +173,7 @@
 					"type": "application/javascript",
 					"sid": 711642961012960,
 					"script-info": {
-						"purpose": "none"
+						"purpose": "imports-for-events"
 					}
 				},
 				{
@@ -265,7 +265,16 @@
 			"subfolders": []
 		},
 		"general": {
-			"items": [],
+			"items": [
+				{
+					"name": "leaderboard-url.txt",
+					"type": "text/plain",
+					"sid": 841070574703468,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		}
 	},
@@ -330,7 +339,7 @@
 		"preloadSounds": true,
 		"cordovaiOSScheme": "app",
 		"cordovaAndroidScheme": "https",
-		"autoReloadScriptsOnPreview": false,
+		"autoReloadScriptsOnPreview": true,
 		"exportFileStructure": "folders",
 		"uidAllocationMode": "increment"
 	},
