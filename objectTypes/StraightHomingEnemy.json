@@ -1,14 +1,14 @@
 {
-	"name": "StraightEnemy",
+	"name": "StraightHomingEnemy",
 	"plugin-id": "Sprite",
-	"sid": 372257777534476,
+	"sid": 186918072166827,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [
 		{
 			"behaviorId": "Bullet",
 			"name": "Bullet",
-			"sid": 876528265967483
+			"sid": 932694746139740
 		}
 	],
 	"effectTypes": [],
@@ -24,13 +24,13 @@
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 2506685,
+						"imageSpriteId": 4815749,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 621249159509506,
+				"sid": 220156825549077,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

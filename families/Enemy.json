@@ -1,0 +1,33 @@
+{
+	"name": "Enemy",
+	"plugin-id": "Sprite",
+	"sid": 191415113893248,
+	"instanceVariables": [
+		{
+			"name": "gotToLayout",
+			"type": "boolean",
+			"desc": "",
+			"show": false,
+			"sid": 425095179152495
+		},
+		{
+			"name": "active",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 667094745261083
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 458332845629164
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"StraightEnemy",
+		"StraightHomingEnemy"
+	]
+}

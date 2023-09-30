@@ -87,14 +87,17 @@
 			"Text",
 			"Keyboard",
 			"StraightEnemy",
-			"TimerManager"
+			"TimerManager",
+			"StraightHomingEnemy"
 		],
 		"subfolders": []
 	},
 	"autosaveData": null,
 	"containers": [],
 	"families": {
-		"items": [],
+		"items": [
+			"Enemy"
+		],
 		"subfolders": []
 	},
 	"layouts": {

@@ -416,7 +416,7 @@
 			"actions": [
 				{
 					"id": "destroy",
-					"objectClass": "StraightEnemy",
+					"objectClass": "Enemy",
 					"sid": 912973478040273
 				},
 				{
@@ -437,10 +437,10 @@
 				{
 					"id": "compare-eventvar",
 					"objectClass": "System",
-					"sid": 515068331755239,
+					"sid": 965370528266089,
 					"parameters": {
 						"variable": "coins",
-						"comparison": 4,
+						"comparison": 5,
 						"value": "3"
 					}
 				},
@@ -454,7 +454,19 @@
 				{
 					"id": "start-timer",
 					"objectClass": "TimerManager",
-					"sid": 819993931302605,
+					"sid": 805339107875309,
+					"behaviorType": "Timer",
+					"parameters": {
+						"duration": "random(2,4)",
+						"type": "once",
+						"tag": "\"StraightHomingEnemy\""
+					}
+				},
+				{
+					"id": "start-timer",
+					"objectClass": "TimerManager",
+					"sid": 809246118288534,
+					"disabled": true,
 					"behaviorType": "Timer",
 					"parameters": {
 						"duration": "random(2,4)",
@@ -464,6 +476,146 @@
 				}
 			],
 			"sid": 633110371801735
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 917808522194465,
+					"parameters": {
+						"variable": "coins",
+						"comparison": 5,
+						"value": "10"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 733739925109713
+				}
+			],
+			"actions": [
+				{
+					"id": "start-timer",
+					"objectClass": "TimerManager",
+					"sid": 273089399905450,
+					"behaviorType": "Timer",
+					"parameters": {
+						"duration": "random(2,4)",
+						"type": "once",
+						"tag": "\"StraightEnemy\""
+					}
+				}
+			],
+			"sid": 151403732566410
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-timer",
+					"objectClass": "TimerManager",
+					"sid": 933005184088004,
+					"behaviorType": "Timer",
+					"parameters": {
+						"tag": "\"StraightHomingEnemy\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 969522043496975,
+					"parameters": {
+						"object-to-create": "StraightHomingEnemy",
+						"layer": "\"Game\"",
+						"x": "random(64, LayoutWidth-64)",
+						"y": "random(64, LayoutHeight-64)",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "StraightHomingEnemy",
+					"sid": 666598545512220,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "StraightHomingEnemy",
+					"sid": 472223482348951,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"FadeIn\"",
+						"property": "offsetOpacity",
+						"end-value": "100",
+						"time": "1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 679853018057065
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "StraightHomingEnemy",
+					"sid": 255417233653682,
+					"parameters": {
+						"instance-variable": "active",
+						"value": "true"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 981860514411651,
+					"parameters": {
+						"seconds": "0.5"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "StraightHomingEnemy",
+					"sid": 719800184864272,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-angle-of-motion",
+					"objectClass": "StraightHomingEnemy",
+					"sid": 624543692734788,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"angle": "angle(Self.X, Self.Y, Player.X, Player.Y)"
+					}
+				},
+				{
+					"id": "start-timer",
+					"objectClass": "TimerManager",
+					"sid": 814874482141152,
+					"behaviorType": "Timer",
+					"parameters": {
+						"duration": "random(2.5 - log10(coins), 4.5 - log10(coins))",
+						"type": "once",
+						"tag": "\"StraightHomingEnemy\""
+					}
+				}
+			],
+			"sid": 146143892464695
 		},
 		{
 			"eventType": "block",
@@ -987,40 +1139,40 @@
 			"conditions": [
 				{
 					"id": "is-on-screen",
-					"objectClass": "StraightEnemy",
-					"sid": 885092511758227
+					"objectClass": "Enemy",
+					"sid": 176912397173781
 				},
 				{
 					"id": "trigger-once-while-true",
 					"objectClass": "System",
-					"sid": 844969670737037
+					"sid": 516438615718336
 				}
 			],
 			"actions": [
 				{
 					"id": "set-boolean-instvar",
-					"objectClass": "StraightEnemy",
-					"sid": 558113121451926,
+					"objectClass": "Enemy",
+					"sid": 557276307740664,
 					"parameters": {
 						"instance-variable": "gotToLayout",
 						"value": "true"
 					}
 				}
 			],
-			"sid": 995688675355275
+			"sid": 870603204955239
 		},
 		{
 			"eventType": "block",
 			"conditions": [
 				{
 					"id": "is-outside-layout",
-					"objectClass": "StraightEnemy",
-					"sid": 925609247227777
+					"objectClass": "Enemy",
+					"sid": 754470592839805
 				},
 				{
 					"id": "is-boolean-instance-variable-set",
-					"objectClass": "StraightEnemy",
-					"sid": 862796090947317,
+					"objectClass": "Enemy",
+					"sid": 909779261558694,
 					"parameters": {
 						"instance-variable": "gotToLayout"
 					}
@@ -1029,11 +1181,11 @@
 			"actions": [
 				{
 					"id": "destroy",
-					"objectClass": "StraightEnemy",
-					"sid": 541186539307932
+					"objectClass": "Enemy",
+					"sid": 133779746913279
 				}
 			],
-			"sid": 261613672088310
+			"sid": 929278602738140
 		},
 		{
 			"eventType": "block",
@@ -1043,7 +1195,15 @@
 					"objectClass": "Player",
 					"sid": 617500577902566,
 					"parameters": {
-						"object": "StraightEnemy"
+						"object": "Enemy"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Enemy",
+					"sid": 977987120265711,
+					"parameters": {
+						"instance-variable": "active"
 					}
 				}
 			],
