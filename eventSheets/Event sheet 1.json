@@ -25,76 +25,378 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "key-is-down",
-					"objectClass": "Keyboard",
-					"sid": 384847487906974,
+					"id": "on-any-touch-start",
+					"objectClass": "Touch",
+					"sid": 134228657215567
+				},
+				{
+					"id": "is-group-active",
+					"objectClass": "System",
+					"sid": 641432127765221,
 					"parameters": {
-						"key": 65
-					}
+						"group-name": "\"Touch\""
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [
 				{
-					"id": "simulate-control",
-					"objectClass": "Player",
-					"sid": 693413273851963,
-					"behaviorType": "Platform",
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 812983606786301,
 					"parameters": {
-						"control": "left"
+						"group-name": "\"Touch\"",
+						"state": "activated"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 751637593631220,
+					"parameters": {
+						"group-name": "\"Mouse\"",
+						"state": "deactivated"
 					}
 				}
 			],
-			"sid": 419554755564732
+			"sid": 798486857185507
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "Keyboard",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "key-is-down",
-					"objectClass": "Keyboard",
-					"sid": 857932826970341,
-					"parameters": {
-						"key": 68
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 362821155071725,
+							"parameters": {
+								"key": 65
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 471159552098459,
+							"parameters": {
+								"key": 37
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 157127662790063,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "left"
+							}
+						}
+					],
+					"sid": 887633711663166,
+					"disabled": true,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 808971979542219,
+							"parameters": {
+								"key": 68
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 699811209540357,
+							"parameters": {
+								"key": 39
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 293989585955696,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "right"
+							}
+						}
+					],
+					"sid": 361589614730070,
+					"disabled": true,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 318773090402579,
+							"parameters": {
+								"key": 39
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 840864757968517,
+							"parameters": {
+								"key": 38
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 675175613416504,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "jump"
+							}
+						}
+					],
+					"sid": 653654029970213,
+					"disabled": true,
+					"isOrBlock": true
 				}
 			],
-			"actions": [
-				{
-					"id": "simulate-control",
-					"objectClass": "Player",
-					"sid": 512812005876731,
-					"behaviorType": "Platform",
-					"parameters": {
-						"control": "right"
-					}
-				}
-			],
-			"sid": 460584586481386
+			"sid": 632354063214859
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "MouseTouch",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "key-is-down",
-					"objectClass": "Keyboard",
-					"sid": 865988639564683,
-					"parameters": {
-						"key": 87
-					}
+					"eventType": "variable",
+					"name": "movingToRight",
+					"type": "boolean",
+					"initialValue": "true",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 785496795923024
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 823024503942011
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 321305918130301,
+							"parameters": {
+								"variable": "movingToRight",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 806337922811699
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 369902390563496,
+							"parameters": {
+								"variable": "movingToRight"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 647236557239310,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "right"
+							}
+						}
+					],
+					"sid": 943637026583271
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 452980555103843
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 840115509734814,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "left"
+							}
+						}
+					],
+					"sid": 312037305851707
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Mouse",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-click",
+									"objectClass": "Mouse",
+									"sid": 762852326920380,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "toggle-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 897677766943221,
+									"parameters": {
+										"variable": "movingToRight"
+									}
+								}
+							],
+							"sid": 748485828140932
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-click",
+									"objectClass": "Mouse",
+									"sid": 967384997453150,
+									"parameters": {
+										"mouse-button": "right",
+										"click-type": "clicked"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Player",
+									"sid": 632456356038155,
+									"behaviorType": "Platform",
+									"parameters": {
+										"control": "jump"
+									}
+								}
+							],
+							"sid": 283335946990069
+						}
+					],
+					"sid": 860987333967104
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Touch",
+					"description": "",
+					"isActiveOnStart": false,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-any-touch-end",
+									"objectClass": "Touch",
+									"sid": 168611178295035
+								}
+							],
+							"actions": [],
+							"sid": 546241675625449,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-touch-speed",
+											"objectClass": "Touch",
+											"sid": 445444674520620,
+											"parameters": {
+												"touch-index": "0",
+												"comparison": 2,
+												"speed": "200"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "Player",
+											"sid": 525992891017131,
+											"behaviorType": "Platform",
+											"parameters": {
+												"control": "jump"
+											}
+										}
+									],
+									"sid": 326135750956224
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 102888020393521
+										}
+									],
+									"actions": [
+										{
+											"id": "toggle-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 290371569596022,
+											"parameters": {
+												"variable": "movingToRight"
+											}
+										}
+									],
+									"sid": 345069583290750
+								}
+							]
+						}
+					],
+					"sid": 530370319579706
 				}
 			],
-			"actions": [
-				{
-					"id": "simulate-control",
-					"objectClass": "Player",
-					"sid": 664069826847548,
-					"behaviorType": "Platform",
-					"parameters": {
-						"control": "jump"
-					}
-				}
-			],
-			"sid": 917809904050479
+			"sid": 411353776401801
 		},
 		{
 			"eventType": "block",
@@ -194,6 +496,15 @@
 					}
 				},
 				{
+					"id": "set-vector-y",
+					"objectClass": "Player",
+					"sid": 694543906212983,
+					"behaviorType": "Platform",
+					"parameters": {
+						"vector-y": "0"
+					}
+				},
+				{
 					"callFunction": "tweenRotate",
 					"sid": 911681386372998,
 					"parameters": [
@@ -240,6 +551,15 @@
 					"behaviorType": "Platform",
 					"parameters": {
 						"angle": "anglerotate(Self.Platform.GravityAngle, Self.Platform.GravityAngle + 90, 90)"
+					}
+				},
+				{
+					"id": "set-vector-y",
+					"objectClass": "Player",
+					"sid": 412447794482084,
+					"behaviorType": "Platform",
+					"parameters": {
+						"vector-y": "0"
 					}
 				},
 				{
