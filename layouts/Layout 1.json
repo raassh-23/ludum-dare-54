@@ -379,8 +379,8 @@
 						}
 					},
 					"world": {
-						"x": 637,
-						"y": 407,
+						"x": 617,
+						"y": 367,
 						"width": 24,
 						"height": 24,
 						"originX": 0.5,
@@ -428,8 +428,57 @@
 						}
 					},
 					"world": {
-						"x": 618,
-						"y": 354,
+						"x": 629,
+						"y": 454,
+						"width": 24,
+						"height": 24,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "HomingEnemy",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 14,
+					"instanceVariables": {
+						"gotToLayout": false,
+						"active": true
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						},
+						"Bullet": {
+							"properties": {
+								"speed": 175,
+								"acceleration": 0,
+								"gravity": 0,
+								"bounce-off-solids": false,
+								"set-angle": true,
+								"step": false,
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 679,
+						"y": 289,
 						"width": 24,
 						"height": 24,
 						"originX": 0.5,

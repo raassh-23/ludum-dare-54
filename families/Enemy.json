@@ -29,6 +29,7 @@
 	"members": [
 		"StraightEnemy",
 		"StraightHomingEnemy",
-		"BouncingEnemy"
+		"BouncingEnemy",
+		"HomingEnemy"
 	]
 }
