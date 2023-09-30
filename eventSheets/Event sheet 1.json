@@ -1,5 +1,228 @@
 {
 	"name": "Event sheet 1",
-	"events": [],
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "DISTANCE_TO_TURN",
+			"type": "number",
+			"initialValue": "32",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 642666225297339
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 875628713951052,
+					"parameters": {
+						"first-value": "Player.Platform.VectorY",
+						"comparison": 2,
+						"second-value": "-10"
+					}
+				},
+				{
+					"id": "is-overlapping-at-offset",
+					"objectClass": "Player",
+					"sid": 653350269992397,
+					"parameters": {
+						"object": "Ground",
+						"offset-x": "cos(Self.Platform.GravityAngle) * -1 * DISTANCE_TO_TURN",
+						"offset-y": "sin(Self.Platform.GravityAngle) * -1 * DISTANCE_TO_TURN"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 379907725327815
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle-of-gravity",
+					"objectClass": "Player",
+					"sid": 883823676137797,
+					"behaviorType": "Platform",
+					"parameters": {
+						"angle": "anglerotate(Self.Platform.GravityAngle, Self.Platform.GravityAngle + 180, 180)"
+					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "Player",
+					"sid": 833138206557074,
+					"parameters": {
+						"angle": "anglerotate(Self.Angle, Self.Angle + 180, 180)"
+					}
+				}
+			],
+			"sid": 413509462177021
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 159932693716246,
+					"parameters": {
+						"first-value": "Player.Platform.VectorX",
+						"comparison": 4,
+						"second-value": "10"
+					}
+				},
+				{
+					"id": "is-overlapping-at-offset",
+					"objectClass": "Player",
+					"sid": 567262231882808,
+					"parameters": {
+						"object": "Ground",
+						"offset-x": "sin(Self.Platform.GravityAngle) * DISTANCE_TO_TURN",
+						"offset-y": "cos(Self.Platform.GravityAngle) * -1 * DISTANCE_TO_TURN"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 406030979962144
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle-of-gravity",
+					"objectClass": "Player",
+					"sid": 436374391480128,
+					"behaviorType": "Platform",
+					"parameters": {
+						"angle": "anglerotate(Self.Platform.GravityAngle, Self.Platform.GravityAngle - 90, 90)"
+					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "Player",
+					"sid": 917474177446897,
+					"parameters": {
+						"angle": "anglerotate(Self.Angle, Self.Angle - 90, 90)"
+					}
+				}
+			],
+			"sid": 428104741898816
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 520210423738775,
+					"parameters": {
+						"first-value": "Player.Platform.VectorX",
+						"comparison": 2,
+						"second-value": "-10"
+					}
+				},
+				{
+					"id": "is-overlapping-at-offset",
+					"objectClass": "Player",
+					"sid": 955122377154154,
+					"parameters": {
+						"object": "Ground",
+						"offset-x": "sin(Self.Platform.GravityAngle) * -1 * DISTANCE_TO_TURN",
+						"offset-y": "cos(Self.Platform.GravityAngle) * DISTANCE_TO_TURN"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 507379932204077
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle-of-gravity",
+					"objectClass": "Player",
+					"sid": 255754922799693,
+					"behaviorType": "Platform",
+					"parameters": {
+						"angle": "anglerotate(Self.Platform.GravityAngle, Self.Platform.GravityAngle + 90, 90)"
+					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "Player",
+					"sid": 335236277523613,
+					"parameters": {
+						"angle": "anglerotate(Self.Angle, Self.Angle + 90, 90)"
+					}
+				}
+			],
+			"sid": 296090558676041
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 981658087229562,
+					"parameters": {
+						"first-value": "Player.Platform.VectorX",
+						"comparison": 4,
+						"second-value": "10"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 549775679641725
+				}
+			],
+			"actions": [
+				{
+					"id": "set-mirrored",
+					"objectClass": "Player",
+					"sid": 337555524974026,
+					"parameters": {
+						"state": "not-mirrored"
+					}
+				}
+			],
+			"sid": 449702047067693
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 361447734493117,
+					"parameters": {
+						"first-value": "Player.Platform.VectorX",
+						"comparison": 2,
+						"second-value": "-10"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 990427919961453
+				}
+			],
+			"actions": [
+				{
+					"id": "set-mirrored",
+					"objectClass": "Player",
+					"sid": 202975174082919,
+					"parameters": {
+						"state": "mirrored"
+					}
+				}
+			],
+			"sid": 115444947626198
+		}
+	],
 	"sid": 461194139659853
 }
