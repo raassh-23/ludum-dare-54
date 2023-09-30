@@ -22,6 +22,55 @@
 				}
 			],
 			"sid": 355478132561049
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 945651446940821
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Text",
+					"sid": 373354070774975,
+					"parameters": {
+						"instance-variable": "initialAngle",
+						"value": "Self.Angle"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Text",
+					"sid": 969731434804980,
+					"parameters": {
+						"instance-variable": "initialX",
+						"value": "Self.X"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Text",
+					"sid": 443042267611515,
+					"parameters": {
+						"instance-variable": "initialY",
+						"value": "Self.Y"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Text",
+					"sid": 872379625810900,
+					"parameters": {
+						"instance-variable": "initialFontSize",
+						"value": "self.FaceSize"
+					}
+				}
+			],
+			"sid": 602182928310150
 		}
 	],
 	"sid": 896154704981924

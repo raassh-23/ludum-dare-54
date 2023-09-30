@@ -1,0 +1,4 @@
+runOnStartup(async runtime =>
+{
+	//
+});

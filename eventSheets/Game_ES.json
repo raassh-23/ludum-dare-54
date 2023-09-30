@@ -780,6 +780,17 @@
 							"sid": 611668214113265
 						},
 						{
+							"id": "shake",
+							"objectClass": "ScreenShaker",
+							"sid": 929114048575283,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"magnitude": "20",
+								"duration": "0.4",
+								"mode": "reducing-magnitude"
+							}
+						},
+						{
 							"id": "wait",
 							"objectClass": "System",
 							"sid": 850855850953441,
@@ -2276,6 +2287,15 @@
 							"parameters": {
 								"x": "-LayoutWidth",
 								"y": "-LayoutHeight"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 733451368243196,
+							"parameters": {
+								"layer": "\"GameOver\"",
+								"interactive": false
 							}
 						},
 						{

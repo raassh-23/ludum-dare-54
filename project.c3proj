@@ -99,6 +99,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "scrollto",
+			"name": "Scroll To",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "solid",
 			"name": "Solid",
 			"author": "Scirra",
@@ -122,7 +129,8 @@
 			"BouncingEnemy",
 			"HomingEnemy",
 			"LocalStorage",
-			"Blank"
+			"Blank",
+			"ScreenShaker"
 		],
 		"subfolders": []
 	},
@@ -151,7 +159,32 @@
 	},
 	"rootFileFolders": {
 		"script": {
-			"items": [],
+			"items": [
+				{
+					"name": "main.js",
+					"type": "application/javascript",
+					"sid": 633000657135651,
+					"script-info": {
+						"purpose": "main"
+					}
+				},
+				{
+					"name": "for-events.js",
+					"type": "application/javascript",
+					"sid": 711642961012960,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "utils.js",
+					"type": "application/javascript",
+					"sid": 925845621799638,
+					"script-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"sound": {

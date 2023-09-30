@@ -56,6 +56,15 @@
 					],
 					"actions": [
 						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 265817945926578,
+							"parameters": {
+								"layer": "\"UI\"",
+								"interactive": false
+							}
+						},
+						{
 							"id": "tween-two-properties",
 							"objectClass": "Blank",
 							"sid": 179810613867215,
@@ -88,9 +97,289 @@
 						}
 					],
 					"sid": 819790019466489
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 421764431934870,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"leaderboard\""
+							}
+						},
+						{
+							"id": "layer-is-interactive",
+							"objectClass": "System",
+							"sid": 408074796707803,
+							"parameters": {
+								"layer": "\"Main\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "showLeaderboard",
+							"sid": 855184805613181
+						}
+					],
+					"sid": 976580078391504
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 153572948480657,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"back\""
+							}
+						},
+						{
+							"id": "layer-is-interactive",
+							"objectClass": "System",
+							"sid": 242516735374467,
+							"parameters": {
+								"layer": "\"Leaderboard\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "hideLeaderboard",
+							"sid": 431532377034356
+						}
+					],
+					"sid": 923313820570775
 				}
 			],
 			"isOrBlock": true
+		},
+		{
+			"functionName": "showLeaderboard",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Text",
+					"sid": 753452132866924,
+					"parameters": {
+						"instance-variable": "id",
+						"comparison": 0,
+						"value": "\"leaderboard\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 783930730550469,
+					"parameters": {
+						"layer": "\"Main\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Text",
+					"sid": 516524183745108,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"showLeaderboard\"",
+						"property": "offsetY",
+						"end-value": "56",
+						"time": "0.5",
+						"ease": "easeoutsine",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 858060162571857
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 242563445804128,
+					"parameters": {
+						"layer": "\"Leaderboard\"",
+						"interactive": true
+					}
+				}
+			],
+			"sid": 386784971817723
+		},
+		{
+			"functionName": "hideLeaderboard",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Text",
+					"sid": 516955848506257,
+					"parameters": {
+						"instance-variable": "id",
+						"comparison": 0,
+						"value": "\"leaderboard\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 243319381620281,
+					"parameters": {
+						"layer": "\"Leaderboard\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Text",
+					"sid": 325628875195052,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"hideLeaderboard\"",
+						"property": "offsetY",
+						"end-value": "Self.initialY",
+						"time": "0.5",
+						"ease": "easeinsine",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 847004345850427
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 260257120956620,
+					"parameters": {
+						"layer": "\"Main\"",
+						"interactive": true
+					}
+				}
+			],
+			"sid": 135769921388893
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Text",
+					"sid": 100599197388475,
+					"parameters": {
+						"instance-variable": "id",
+						"comparison": 0,
+						"value": "\"leaderboard\""
+					}
+				},
+				{
+					"id": "is-playing",
+					"objectClass": "Text",
+					"sid": 663808551141764,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"showLeaderboard\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-opacity",
+					"objectClass": "System",
+					"sid": 688762146188952,
+					"parameters": {
+						"layer": "\"Leaderboard\"",
+						"opacity": "Text.Tween.Progress(\"ShowLeaderboard\") * 100"
+					}
+				},
+				{
+					"id": "set-layer-opacity",
+					"objectClass": "System",
+					"sid": 501521722537708,
+					"parameters": {
+						"layer": "\"Main\"",
+						"opacity": "(1 - Text.Tween.Progress(\"ShowLeaderboard\")) * 100"
+					}
+				}
+			],
+			"sid": 753941322359456
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Text",
+					"sid": 712150144007751,
+					"parameters": {
+						"instance-variable": "id",
+						"comparison": 0,
+						"value": "\"leaderboard\""
+					}
+				},
+				{
+					"id": "is-playing",
+					"objectClass": "Text",
+					"sid": 660385920081432,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"hideLeaderboard\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-opacity",
+					"objectClass": "System",
+					"sid": 635825699229571,
+					"parameters": {
+						"layer": "\"Leaderboard\"",
+						"opacity": "(1 - Text.Tween.Progress(\"hideLeaderboard\")) * 100"
+					}
+				},
+				{
+					"id": "set-layer-opacity",
+					"objectClass": "System",
+					"sid": 303890030193759,
+					"parameters": {
+						"layer": "\"Main\"",
+						"opacity": "Text.Tween.Progress(\"hideLeaderboard\") * 100"
+					}
+				}
+			],
+			"sid": 291056619460976
 		},
 		{
 			"eventType": "block",
@@ -101,7 +390,44 @@
 					"sid": 795226600480425
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 994874346553114,
+					"parameters": {
+						"layer": "\"Main\"",
+						"interactive": true
+					}
+				},
+				{
+					"id": "set-layer-opacity",
+					"objectClass": "System",
+					"sid": 394136768698262,
+					"parameters": {
+						"layer": "\"Main\"",
+						"opacity": "100"
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 898138595161584,
+					"parameters": {
+						"layer": "\"Leaderboard\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "set-layer-opacity",
+					"objectClass": "System",
+					"sid": 603739782539325,
+					"parameters": {
+						"layer": "\"Leaderboard\"",
+						"opacity": "0"
+					}
+				}
+			],
 			"sid": 782831515401118,
 			"children": [
 				{
@@ -170,6 +496,32 @@
 						}
 					],
 					"sid": 119747236140354
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 957875946808235,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"leaderboard-title\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Text",
+							"sid": 579022951235603,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 296207465393743
 				}
 			]
 		}
