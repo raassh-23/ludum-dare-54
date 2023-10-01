@@ -1,7 +1,7 @@
 import { findInstanceById } from "./utils.js";
 
 async function getLeaderboard(runtime) {
-    const {type} = runtime.globalVars;
+    const { type } = runtime.globalVars;
 
     const contentLayer = runtime.layout.getLayer("Content");
     const loadingLayer = runtime.layout.getLayer("Loading");
@@ -42,4 +42,74 @@ async function getLeaderboard(runtime) {
         loadingLayer.isVisible = false;
         errorLayer.isVisible = true;
     }
+}
+
+async function addToLeaderboard(runtime) {
+    const nameInput = findInstanceById(runtime.objects.TextInput, "name");
+    const name = nameInput.text;
+
+    if (!name || name.trim() === "") {
+        return;
+    }
+
+    const { type, score, startTime } = runtime.globalVars;
+
+    const timeMs = Date.now() - startTime;
+
+    const contentLayer = runtime.layout.getLayer("Content");
+    const loadingLayer = runtime.layout.getLayer("Loading");
+    const errorLayer = runtime.layout.getLayer("Error");
+    const success = runtime.layout.getLayer("Success");
+
+    contentLayer.isVisible = false;
+    loadingLayer.isVisible = true;
+
+    try {
+        const url = new URL("/leaderboard", globalThis.leaderboardUrl);
+
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                type,
+                username: name,
+                score,
+                timeMs,
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error("Failed to add to leaderboard");
+        }
+
+        loadingLayer.isVisible = false;
+        success.isVisible = true;
+    } catch (error) {
+        loadingLayer.isVisible = false;
+        errorLayer.isVisible = true;
+
+        setTimeout(() => {
+            errorLayer.isVisible = false;
+            contentLayer.isVisible = true;
+        }, 3000);
+    }
+}
+
+function resizeFont(id, multiplier) {
+    const element = document.getElementById(id);
+
+    if (!element) {
+        return;
+    }
+
+    const fontSize = element.offsetHeight * multiplier;
+    const fontSizeString = `${fontSize}px`;
+
+    if (element.style.fontSize === fontSizeString) {
+        return;
+    }
+
+    element.style.fontSize = `${fontSize}px`;
 }

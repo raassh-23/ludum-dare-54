@@ -1,0 +1,16 @@
+{
+	"name": "TextInput",
+	"plugin-id": "TextBox",
+	"sid": 592781074157179,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "id",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 648319032485574
+		}
+	],
+	"behaviorTypes": []
+}

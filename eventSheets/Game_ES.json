@@ -36,6 +36,16 @@
 			"sid": 133003246431089
 		},
 		{
+			"eventType": "variable",
+			"name": "startTime",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 321782595865981
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Keyboard",
@@ -887,66 +897,136 @@
 							"conditions": [
 								{
 									"id": "compare-instance-variable",
-									"objectClass": "Text",
-									"sid": 159983747708610,
+									"objectClass": "TextInput",
+									"sid": 884161799836232,
 									"parameters": {
 										"instance-variable": "id",
 										"comparison": 0,
-										"value": "\"back\""
+										"value": "\"name\""
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 988776143862804,
+									"id": "set-visible",
+									"objectClass": "TextInput",
+									"sid": 187704979716747,
 									"parameters": {
-										"seconds": "1"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 761800583823990,
-									"parameters": {
-										"layer": "\"GameOver\"",
 										"visibility": "visible"
-									}
-								},
-								{
-									"id": "tween-one-property",
-									"objectClass": "Text",
-									"sid": 943548687894637,
-									"behaviorType": "Tween",
-									"parameters": {
-										"tags": "\"showBack\"",
-										"property": "offsetY",
-										"end-value": "Self.initialY",
-										"time": "0.5",
-										"ease": "easeoutsine",
-										"destroy-on-complete": "no",
-										"loop": "no",
-										"ping-pong": "no",
-										"repeat-count": "1"
-									}
-								},
-								{
-									"id": "wait-for-previous-actions",
-									"objectClass": "System",
-									"sid": 501288622676688
-								},
-								{
-									"id": "set-layer-interactive",
-									"objectClass": "System",
-									"sid": 710556667183085,
-									"parameters": {
-										"layer": "\"GameOver\"",
-										"interactive": true
 									}
 								}
 							],
-							"sid": 817492084996139
+							"sid": 278157984043503
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 170818961266697,
+									"parameters": {
+										"seconds": "1"
+									}
+								}
+							],
+							"sid": 442288399756087,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Text",
+											"sid": 181434711901364,
+											"parameters": {
+												"instance-variable": "id",
+												"comparison": 0,
+												"value": "\"score\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-one-property",
+											"objectClass": "Text",
+											"sid": 326604683402656,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"moveUp\"",
+												"property": "offsetY",
+												"end-value": "Self.y - 50",
+												"time": "0.5",
+												"ease": "easeoutsine",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										}
+									],
+									"sid": 684555795360947
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Text",
+											"sid": 949848431742820,
+											"parameters": {
+												"instance-variable": "id",
+												"comparison": 0,
+												"value": "\"back\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 345480044502857,
+											"parameters": {
+												"layer": "\"GameOver\"",
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "Text",
+											"sid": 685612777088262,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"showBack\"",
+												"property": "offsetY",
+												"end-value": "Self.initialY",
+												"time": "0.5",
+												"ease": "easeoutsine",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 625136177752780
+										},
+										{
+											"id": "set-layer-interactive",
+											"objectClass": "System",
+											"sid": 603173107921089,
+											"parameters": {
+												"layer": "\"GameOver\"",
+												"interactive": true
+											}
+										}
+									],
+									"sid": 854783208215002
+								}
+							]
 						}
 					]
 				},
@@ -1957,6 +2037,78 @@
 					}
 				},
 				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 328627338620204,
+					"parameters": {
+						"layer": "\"Content\"",
+						"interactive": true
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 695695918849051,
+					"parameters": {
+						"layer": "\"Content\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 590726332264443,
+					"parameters": {
+						"layer": "\"Loading\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 696514995992699,
+					"parameters": {
+						"layer": "\"Loading\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 496457054789316,
+					"parameters": {
+						"layer": "\"Success\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 997083429078366,
+					"parameters": {
+						"layer": "\"Success\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 472387727963471,
+					"parameters": {
+						"layer": "\"Error\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 469808961944155,
+					"parameters": {
+						"layer": "\"Error\"",
+						"visibility": "invisible"
+					}
+				},
+				{
 					"id": "set-group-active",
 					"objectClass": "System",
 					"sid": 554215722372470,
@@ -1972,56 +2124,6 @@
 					"parameters": {
 						"group-name": "\"MouseTouch\"",
 						"state": "deactivated"
-					}
-				},
-				{
-					"id": "set-position",
-					"objectClass": "Blank",
-					"sid": 700083544271175,
-					"parameters": {
-						"x": "0",
-						"y": "0"
-					}
-				},
-				{
-					"id": "tween-two-properties",
-					"objectClass": "Blank",
-					"sid": 733682753106366,
-					"behaviorType": "Tween",
-					"parameters": {
-						"tags": "\"layoutTransition\"",
-						"property": "position",
-						"end-x": "LayoutWidth",
-						"end-y": "LayoutHeight",
-						"time": "0.5",
-						"ease": "easeinsine",
-						"destroy-on-complete": "no",
-						"loop": "no",
-						"ping-pong": "no",
-						"repeat-count": "1"
-					}
-				},
-				{
-					"id": "wait-for-previous-actions",
-					"objectClass": "System",
-					"sid": 143505804620194
-				},
-				{
-					"id": "set-group-active",
-					"objectClass": "System",
-					"sid": 880135414218069,
-					"parameters": {
-						"group-name": "\"Player\"",
-						"state": "activated"
-					}
-				},
-				{
-					"id": "set-group-active",
-					"objectClass": "System",
-					"sid": 113370686823482,
-					"parameters": {
-						"group-name": "\"MouseTouch\"",
-						"state": "activated"
 					}
 				}
 			],
@@ -2045,13 +2147,79 @@
 						{
 							"id": "set-y",
 							"objectClass": "Text",
-							"sid": 710415348876295,
+							"sid": 843197335628572,
 							"parameters": {
-								"y": "Self.Y + 100"
+								"y": "Self.Y + 200"
 							}
 						}
 					],
 					"sid": 839166683004209
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Blank",
+							"sid": 906137987638052,
+							"parameters": {
+								"x": "0",
+								"y": "0"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Blank",
+							"sid": 485406816285718,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"layoutTransition\"",
+								"property": "position",
+								"end-x": "LayoutWidth",
+								"end-y": "LayoutHeight",
+								"time": "0.5",
+								"ease": "easeinsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 615351854257229
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 370242524494103,
+							"parameters": {
+								"group-name": "\"Player\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 325577898427317,
+							"parameters": {
+								"group-name": "\"MouseTouch\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 170388317312293,
+							"parameters": {
+								"variable": "startTime",
+								"value": "Date.Now"
+							}
+						}
+					],
+					"sid": 795858232105659
 				}
 			]
 		},
@@ -2484,15 +2652,6 @@
 					],
 					"actions": [
 						{
-							"id": "set-position",
-							"objectClass": "Blank",
-							"sid": 193751552370922,
-							"parameters": {
-								"x": "-LayoutWidth",
-								"y": "-LayoutHeight"
-							}
-						},
-						{
 							"id": "set-layer-interactive",
 							"objectClass": "System",
 							"sid": 733451368243196,
@@ -2500,43 +2659,175 @@
 								"layer": "\"GameOver\"",
 								"interactive": false
 							}
+						}
+					],
+					"sid": 511388311894946,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "TextInput",
+									"sid": 126760636989543,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"name\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "TextInput",
+									"sid": 394627621995100,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 169181758031899
 						},
 						{
-							"id": "tween-two-properties",
-							"objectClass": "Blank",
-							"sid": 753610598926877,
-							"behaviorType": "Tween",
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Blank",
+									"sid": 879436244382691,
+									"parameters": {
+										"x": "-LayoutWidth",
+										"y": "-LayoutHeight"
+									}
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Blank",
+									"sid": 635329199942872,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"layoutTransition\"",
+										"property": "position",
+										"end-x": "0",
+										"end-y": "0",
+										"time": "0.5",
+										"ease": "easeoutsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 440264524105496
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 188293681006313,
+									"parameters": {
+										"layout": "Menu"
+									}
+								}
+							],
+							"sid": 803645992624581
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 632279448982052,
 							"parameters": {
-								"tags": "\"layoutTransition\"",
-								"property": "position",
-								"end-x": "0",
-								"end-y": "0",
-								"time": "0.5",
-								"ease": "easeoutsine",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
-							}
-						},
-						{
-							"id": "wait-for-previous-actions",
-							"objectClass": "System",
-							"sid": 408200814774898
-						},
-						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 330579137262499,
-							"parameters": {
-								"layout": "Menu"
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"submit\""
 							}
 						}
 					],
-					"sid": 511388311894946
+					"actions": [
+						{
+							"type": "script",
+							"script": "addToLeaderboard(runtime);"
+						}
+					],
+					"sid": 499511354792101
 				}
 			],
 			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "TextInput",
+					"sid": 232400015452629
+				}
+			],
+			"actions": [
+				{
+					"id": "set-elem-attribute",
+					"objectClass": "TextInput",
+					"sid": 860078451278876,
+					"parameters": {
+						"attribute-name": "\"id\"",
+						"attribute-value": "Self.id"
+					}
+				}
+			],
+			"sid": 830552979741666
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-on-screen",
+					"objectClass": "TextInput",
+					"sid": 111051417474246
+				}
+			],
+			"actions": [],
+			"sid": 689768107704945,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "id",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 291797857313929
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 845588786862503,
+							"parameters": {
+								"variable": "id",
+								"value": "TextInput.id"
+							}
+						},
+						{
+							"type": "script",
+							"script": "resizeFont(localVars.id, 0.5);"
+						}
+					],
+					"sid": 315472283877805
+				}
+			]
 		}
 	],
 	"sid": 461194139659853
