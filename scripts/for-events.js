@@ -1,16 +1,17 @@
 import { findInstanceById } from "./utils.js";
 
 async function getLeaderboard(runtime) {
+    const {type} = runtime.globalVars;
+
     const contentLayer = runtime.layout.getLayer("Content");
     const loadingLayer = runtime.layout.getLayer("Loading");
     const errorLayer = runtime.layout.getLayer("Error");
 
-    loadingLayer.isVisible = true;
-    contentLayer.isVisible = false;
-    errorLayer.isVisible = false;
-
     try {
-        const response = await fetch(new URL("/leaderboard", globalThis.leaderboardUrl));
+        const url = new URL("/leaderboard", globalThis.leaderboardUrl);
+        url.searchParams.set("type", type);
+
+        const response = await fetch(url);
 
         if (!response.ok) {
             throw new Error("Failed to fetch leaderboard");

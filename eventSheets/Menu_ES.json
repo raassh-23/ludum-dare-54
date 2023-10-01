@@ -292,16 +292,39 @@
 			],
 			"actions": [
 				{
-					"type": "script",
-					"script": "await getLeaderboard(runtime);"
-				},
-				{
 					"id": "set-layer-interactive",
 					"objectClass": "System",
 					"sid": 783930730550469,
 					"parameters": {
 						"layer": "\"Main\"",
 						"interactive": false
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 528645046802536,
+					"parameters": {
+						"layer": "\"Loading\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 272119406969279,
+					"parameters": {
+						"layer": "\"Content\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 416973888706200,
+					"parameters": {
+						"layer": "\"Error\"",
+						"visibility": "invisible"
 					}
 				},
 				{
@@ -325,6 +348,10 @@
 					"id": "wait-for-previous-actions",
 					"objectClass": "System",
 					"sid": 858060162571857
+				},
+				{
+					"type": "script",
+					"script": "await getLeaderboard(runtime);"
 				},
 				{
 					"id": "set-layer-interactive",
