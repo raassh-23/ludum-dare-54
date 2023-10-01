@@ -84,6 +84,8 @@ async function addToLeaderboard(runtime) {
             throw new Error("Failed to add to leaderboard");
         }
 
+        runtime.storage.setItem("name", name);
+
         loadingLayer.isVisible = false;
         success.isVisible = true;
     } catch (error) {

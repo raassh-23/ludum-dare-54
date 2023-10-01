@@ -2125,6 +2125,14 @@
 						"group-name": "\"MouseTouch\"",
 						"state": "deactivated"
 					}
+				},
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 915703138088675,
+					"parameters": {
+						"key": "\"name\""
+					}
 				}
 			],
 			"sid": 996732833506874,
@@ -2828,6 +2836,40 @@
 					"sid": 315472283877805
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 761653079404517,
+					"parameters": {
+						"key": "\"name\""
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "TextInput",
+					"sid": 429709129396972,
+					"parameters": {
+						"instance-variable": "id",
+						"comparison": 0,
+						"value": "\"name\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "TextInput",
+					"sid": 842714725419020,
+					"parameters": {
+						"text": "LocalStorage.ItemValue"
+					}
+				}
+			],
+			"sid": 254576879608764
 		}
 	],
 	"sid": 461194139659853
