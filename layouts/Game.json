@@ -661,10 +661,10 @@
 					"properties": {
 						"text": "0",
 						"enable-bbcode": true,
-						"font": "Arial",
+						"font": "Lato-Regular",
 						"size": 72,
 						"line-height": 0,
-						"bold": false,
+						"bold": true,
 						"italic": false,
 						"color": [
 							1,
@@ -759,7 +759,7 @@
 									"properties": {
 										"text": "Failed to add your score, please try again",
 										"enable-bbcode": true,
-										"font": "Arial",
+										"font": "Lato-Regular",
 										"size": 20,
 										"line-height": 0,
 										"bold": false,
@@ -823,7 +823,7 @@
 									},
 									"world": {
 										"x": 256,
-										"y": 355.5239386928705,
+										"y": 330.959244,
 										"width": 320.182400024741,
 										"height": 91.65734107099127,
 										"originX": 0.5,
@@ -877,7 +877,7 @@
 									"properties": {
 										"text": "Your score was successfully added",
 										"enable-bbcode": true,
-										"font": "Arial",
+										"font": "Lato-Regular",
 										"size": 20,
 										"line-height": 0,
 										"bold": false,
@@ -941,7 +941,7 @@
 									},
 									"world": {
 										"x": 256,
-										"y": 355.5239386928705,
+										"y": 330.959244,
 										"width": 303.4739510234965,
 										"height": 91.65734107099127,
 										"originX": 0.5,
@@ -995,7 +995,7 @@
 									"properties": {
 										"text": "Sending score...",
 										"enable-bbcode": true,
-										"font": "Arial",
+										"font": "Lato-Regular",
 										"size": 20,
 										"line-height": 0,
 										"bold": false,
@@ -1059,7 +1059,7 @@
 									},
 									"world": {
 										"x": 256,
-										"y": 355.5239386928705,
+										"y": 330.9592437042897,
 										"width": 353.599229121721,
 										"height": 91.65734107099127,
 										"originX": 0.5,
@@ -1203,10 +1203,10 @@
 										}
 									},
 									"world": {
-										"x": 112.486,
-										"y": 306.24436737389067,
-										"width": 287.02740363274603,
-										"height": 46,
+										"x": 173.486,
+										"y": 313.46297292465465,
+										"width": 165.02740363274603,
+										"height": 40,
 										"originX": 0,
 										"originY": 0,
 										"color": [
@@ -1222,7 +1222,7 @@
 									"properties": {
 										"text": "Submit",
 										"enable-bbcode": true,
-										"font": "Arial",
+										"font": "Lato-Regular",
 										"size": 24,
 										"line-height": 0,
 										"bold": false,
@@ -1286,9 +1286,93 @@
 									},
 									"world": {
 										"x": 256,
-										"y": 378.90919592149555,
+										"y": 380.26503162714135,
 										"width": 104.77912764456684,
 										"height": 42.88681418599765,
+										"originX": 0.5,
+										"originY": 0.5,
+										"color": [
+											1,
+											1,
+											1,
+											1
+										],
+										"angle": 0,
+										"zElevation": 0
+									}
+								},
+								{
+									"type": "Text",
+									"properties": {
+										"text": "Add to the leaderboard?",
+										"enable-bbcode": true,
+										"font": "Lato-Regular",
+										"size": 28,
+										"line-height": 0,
+										"bold": false,
+										"italic": false,
+										"color": [
+											1,
+											1,
+											1,
+											1
+										],
+										"horizontal-alignment": "center",
+										"vertical-alignment": "center",
+										"wrapping": "word",
+										"icon-set": -1,
+										"initially-visible": true,
+										"origin": "center",
+										"read-aloud": false
+									},
+									"uid": 49,
+									"instanceVariables": {
+										"initialX": 0,
+										"initialY": 0,
+										"initialFontSize": 0,
+										"initialAngle": 0,
+										"id": "add-to-leaderboard-title"
+									},
+									"behaviors": {
+										"Tween": {
+											"properties": {
+												"enabled": true
+											}
+										}
+									},
+									"sceneGraphData": {
+										"parent-uid": 19,
+										"uid": 49,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										},
+										"preview": {
+											"transformX": 0,
+											"transformY": 0,
+											"transformZElevation": 0,
+											"transformW": 0,
+											"transformH": 0,
+											"transformA": 0,
+											"transformSX": 0,
+											"transformSY": 0,
+											"transformO": 0,
+											"previewSceneGraph": false
+										}
+									},
+									"world": {
+										"x": 256,
+										"y": 286.7274538681311,
+										"width": 425.13977709164607,
+										"height": 60.91836940763551,
 										"originX": 0.5,
 										"originY": 0.5,
 										"color": [
@@ -1331,92 +1415,7 @@
 							"global": false
 						}
 					],
-					"instances": [
-						{
-							"type": "Text",
-							"properties": {
-								"text": "Add to the leaderboard?",
-								"enable-bbcode": true,
-								"font": "Arial",
-								"size": 28,
-								"line-height": 0,
-								"bold": false,
-								"italic": false,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"horizontal-alignment": "center",
-								"vertical-alignment": "center",
-								"wrapping": "word",
-								"icon-set": -1,
-								"initially-visible": true,
-								"origin": "center",
-								"read-aloud": false
-							},
-							"uid": 49,
-							"instanceVariables": {
-								"initialX": 0,
-								"initialY": 0,
-								"initialFontSize": 0,
-								"initialAngle": 0,
-								"id": "add-to-leaderboard-title"
-							},
-							"behaviors": {
-								"Tween": {
-									"properties": {
-										"enabled": true
-									}
-								}
-							},
-							"sceneGraphData": {
-								"parent-uid": 19,
-								"uid": 49,
-								"flags": {
-									"x": true,
-									"y": true,
-									"z": true,
-									"w": true,
-									"h": true,
-									"a": true,
-									"o": false,
-									"v": false,
-									"d": true,
-									"sm": "normal"
-								},
-								"preview": {
-									"transformX": 0,
-									"transformY": 0,
-									"transformZElevation": 0,
-									"transformW": 0,
-									"transformH": 0,
-									"transformA": 0,
-									"transformSX": 0,
-									"transformSY": 0,
-									"transformO": 0,
-									"previewSceneGraph": false
-								}
-							},
-							"world": {
-								"x": 256,
-								"y": 283.7274538681311,
-								"width": 425.13977709164607,
-								"height": 60.91836940763551,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						}
-					],
+					"instances": [],
 					"sid": 341999971609262,
 					"effectTypes": [],
 					"isInitiallyVisible": true,
@@ -1452,7 +1451,7 @@
 					"properties": {
 						"text": "Back",
 						"enable-bbcode": true,
-						"font": "Arial",
+						"font": "Lato-Regular",
 						"size": 36,
 						"line-height": 0,
 						"bold": false,

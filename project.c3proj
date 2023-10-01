@@ -224,7 +224,16 @@
 			"subfolders": []
 		},
 		"font": {
-			"items": [],
+			"items": [
+				{
+					"name": "Lato-Regular.woff",
+					"type": "application/font-woff",
+					"sid": 986046348250699,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"icon": {
@@ -296,6 +305,14 @@
 					"sid": 841070574703468,
 					"file-info": {
 						"purpose": "none"
+					}
+				},
+				{
+					"name": "custom-style.css",
+					"type": "text/css",
+					"sid": 846890961633204,
+					"file-info": {
+						"purpose": "stylesheet"
 					}
 				}
 			],

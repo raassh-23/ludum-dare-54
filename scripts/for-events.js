@@ -27,12 +27,22 @@ async function getLeaderboard(runtime) {
             const textName = findInstanceById(runtime.objects.Text, `leaderboard-name-${i}`);
             const textScore = findInstanceById(runtime.objects.Text, `leaderboard-score-${i}`);
 
-            if (item) {
-                textName.text = `${i}. ${item.username}`;
-                textScore.text = `${item.score}`;
-            } else {
+            if (!item) {
                 textName.text = `${i}. -`;
                 textScore.text = "";
+                continue;
+            }
+
+            const name = `${i}. ${item.username}`
+            textName.text = name;
+            textScore.text = `${item.score}`;
+
+            while (textName.textWidth > textName.width - 16) {
+                textName.text = textName.text.slice(0, -1);
+            }
+
+            if (textName.text !== name) {
+                textName.text = `${textName.text}...`;
             }
         }
 
@@ -107,11 +117,15 @@ function resizeFont(id, multiplier) {
     }
 
     const fontSize = element.offsetHeight * multiplier;
+    const paddingHorizontal = (element.offsetHeight - fontSize) / 4;
     const fontSizeString = `${fontSize}px`;
+    const paddingHorizontalString = `${paddingHorizontal}px`;
 
     if (element.style.fontSize === fontSizeString) {
         return;
     }
 
     element.style.fontSize = `${fontSize}px`;
+    element.style.paddingLeft = paddingHorizontalString;
+    element.style.paddingRight = paddingHorizontalString;
 }

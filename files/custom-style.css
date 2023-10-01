@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'LatoWeb';
+    src: url('fonts/Lato-Regular.woff') format('woff');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+.text-input {
+    font-family: 'LatoWeb', sans-serif;
+}

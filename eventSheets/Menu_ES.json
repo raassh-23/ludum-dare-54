@@ -330,12 +330,12 @@
 				{
 					"id": "tween-one-property",
 					"objectClass": "Text",
-					"sid": 516524183745108,
+					"sid": 199151010076989,
 					"behaviorType": "Tween",
 					"parameters": {
 						"tags": "\"showLeaderboard\"",
 						"property": "offsetY",
-						"end-value": "56",
+						"end-value": "69",
 						"time": "0.5",
 						"ease": "easeoutsine",
 						"destroy-on-complete": "no",
