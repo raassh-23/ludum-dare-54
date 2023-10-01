@@ -187,56 +187,99 @@
 							}
 						}
 					],
-					"sid": 806337922811699
-				},
-				{
-					"eventType": "block",
-					"conditions": [
+					"sid": 806337922811699,
+					"children": [
 						{
-							"id": "on-any-touch-start",
-							"objectClass": "Touch",
-							"sid": 503429381883233
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 124791857869564,
+									"parameters": {
+										"variable": "type",
+										"comparison": 0,
+										"value": "\"desktop\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 671158941695252,
+									"parameters": {
+										"group-name": "\"Touch\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 454611638101501,
+									"parameters": {
+										"group-name": "\"Mouse\"",
+										"state": "activated"
+									}
+								},
+								{
+									"id": "set-jump-strength",
+									"objectClass": "Player",
+									"sid": 492648024251990,
+									"behaviorType": "Platform",
+									"parameters": {
+										"jump-strength": "650"
+									}
+								}
+							],
+							"sid": 201920435116364
 						},
 						{
-							"id": "is-group-active",
-							"objectClass": "System",
-							"sid": 536567861934442,
-							"parameters": {
-								"group-name": "\"Touch\""
-							},
-							"isInverted": true
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 547970181303552,
+									"parameters": {
+										"variable": "type",
+										"comparison": 0,
+										"value": "\"mobile\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 262547591554782,
+									"parameters": {
+										"group-name": "\"Touch\"",
+										"state": "activated"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 215071862893401,
+									"parameters": {
+										"group-name": "\"Mouse\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-jump-strength",
+									"objectClass": "Player",
+									"sid": 134089047068921,
+									"behaviorType": "Platform",
+									"parameters": {
+										"jump-strength": "700"
+									}
+								}
+							],
+							"sid": 814870234701700
 						}
-					],
-					"actions": [
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 503429756116671,
-							"parameters": {
-								"group-name": "\"Touch\"",
-								"state": "activated"
-							}
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 887512165774518,
-							"parameters": {
-								"group-name": "\"Mouse\"",
-								"state": "deactivated"
-							}
-						},
-						{
-							"id": "set-jump-strength",
-							"objectClass": "Player",
-							"sid": 457624857252497,
-							"behaviorType": "Platform",
-							"parameters": {
-								"jump-strength": "700"
-							}
-						}
-					],
-					"sid": 410938101790399
+					]
 				},
 				{
 					"eventType": "block",
@@ -841,32 +884,65 @@
 						},
 						{
 							"eventType": "block",
-							"conditions": [],
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 159983747708610,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"back\""
+									}
+								}
+							],
 							"actions": [
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 865883401747795,
+									"sid": 988776143862804,
 									"parameters": {
-										"seconds": "2"
-									}
-								},
-								{
-									"id": "set-layer-interactive",
-									"objectClass": "System",
-									"sid": 914153857943541,
-									"parameters": {
-										"layer": "\"GameOver\"",
-										"interactive": true
+										"seconds": "1"
 									}
 								},
 								{
 									"id": "set-layer-visible",
 									"objectClass": "System",
-									"sid": 458623185985419,
+									"sid": 761800583823990,
 									"parameters": {
 										"layer": "\"GameOver\"",
 										"visibility": "visible"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Text",
+									"sid": 943548687894637,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"showBack\"",
+										"property": "offsetY",
+										"end-value": "Self.initialY",
+										"time": "0.5",
+										"ease": "easeoutsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 501288622676688
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 710556667183085,
+									"parameters": {
+										"layer": "\"GameOver\"",
+										"interactive": true
 									}
 								}
 							],
@@ -1949,7 +2025,35 @@
 					}
 				}
 			],
-			"sid": 996732833506874
+			"sid": 996732833506874,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 737567192938880,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"back\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-y",
+							"objectClass": "Text",
+							"sid": 710415348876295,
+							"parameters": {
+								"y": "Self.Y + 100"
+							}
+						}
+					],
+					"sid": 839166683004209
+				}
+			]
 		},
 		{
 			"eventType": "block",

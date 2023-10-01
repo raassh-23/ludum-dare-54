@@ -26,6 +26,95 @@
 			"sid": 298443847056284
 		},
 		{
+			"eventType": "variable",
+			"name": "type",
+			"type": "string",
+			"initialValue": "desktop",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 627058403236808
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-start",
+					"objectClass": "Touch",
+					"sid": 908673359694897
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 165517402882188,
+					"parameters": {
+						"variable": "type",
+						"comparison": 1,
+						"value": "\"mobile\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 157976393677915,
+					"parameters": {
+						"variable": "type",
+						"value": "\"mobile\""
+					}
+				}
+			],
+			"sid": 399397525481292
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-click",
+					"objectClass": "Mouse",
+					"sid": 571497829112761
+				},
+				{
+					"id": "on-any-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 504999888757217
+				}
+			],
+			"actions": [],
+			"sid": 216453466637453,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 742041380946598,
+							"parameters": {
+								"variable": "type",
+								"comparison": 1,
+								"value": "\"desktop\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 297060595862449,
+							"parameters": {
+								"variable": "type",
+								"value": "\"desktop\""
+							}
+						}
+					],
+					"sid": 873833162156342
+				}
+			],
+			"isOrBlock": true
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -72,6 +161,15 @@
 							"parameters": {
 								"layer": "\"Main\"",
 								"interactive": false
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Blank",
+							"sid": 828242644195130,
+							"parameters": {
+								"x": "-LayoutWidth",
+								"y": "-LayoutHeight"
 							}
 						},
 						{
