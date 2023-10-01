@@ -339,22 +339,22 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "on-click",
+									"id": "mouse-button-is-down",
 									"objectClass": "Mouse",
-									"sid": 762852326920380,
+									"sid": 686687059751796,
 									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked"
+										"mouse-button": "left"
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "toggle-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 897677766943221,
+									"id": "simulate-control",
+									"objectClass": "Player",
+									"sid": 274302461601369,
+									"behaviorType": "Platform",
 									"parameters": {
-										"variable": "movingToRight"
+										"control": "jump"
 									}
 								}
 							],
@@ -364,22 +364,22 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "mouse-button-is-down",
+									"id": "on-click",
 									"objectClass": "Mouse",
-									"sid": 485732615805475,
+									"sid": 997756716670028,
 									"parameters": {
-										"mouse-button": "right"
+										"mouse-button": "right",
+										"click-type": "clicked"
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "simulate-control",
-									"objectClass": "Player",
-									"sid": 632456356038155,
-									"behaviorType": "Platform",
+									"id": "toggle-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 331479106265612,
 									"parameters": {
-										"control": "jump"
+										"variable": "movingToRight"
 									}
 								}
 							],
@@ -1007,10 +1007,10 @@
 						{
 							"id": "start-timer",
 							"objectClass": "TimerManager",
-							"sid": 235943214436035,
+							"sid": 608590134684827,
 							"behaviorType": "Timer",
 							"parameters": {
-								"duration": "random(2,4)",
+								"duration": "random(3,5)",
 								"type": "once",
 								"tag": "\"StraightEnemy\""
 							}
@@ -1414,10 +1414,10 @@
 								{
 									"id": "start-timer",
 									"objectClass": "TimerManager",
-									"sid": 323274289370317,
+									"sid": 708259074876020,
 									"behaviorType": "Timer",
 									"parameters": {
-										"duration": "random(2.5 - log10(score), 4.5 - log10(score))",
+										"duration": "random(3.5 - log10(score), 5.5 - log10(score))",
 										"type": "once",
 										"tag": "\"StraightEnemy\""
 									}
@@ -2075,7 +2075,51 @@
 					}
 				}
 			],
-			"sid": 978897643633579
+			"sid": 978897643633579,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "while",
+							"objectClass": "System",
+							"sid": 711318475657200
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 369087508405644,
+							"parameters": {
+								"first-value": "distance(Coin.X, Coin.Y, Player.X, Player.Y)",
+								"comparison": 3,
+								"second-value": "100"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 789634399519751,
+							"parameters": {
+								"first-value": "Player.Count",
+								"comparison": 4,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Coin",
+							"sid": 377223331718581,
+							"parameters": {
+								"x": "random(48, LayoutWidth-48)",
+								"y": "random(48, LayoutHeight-48)"
+							}
+						}
+					],
+					"sid": 957701717642203
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -2107,12 +2151,12 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 859667036865939,
+					"sid": 488222246796114,
 					"parameters": {
 						"object-to-create": "Coin",
 						"layer": "\"Game\"",
-						"x": "random(48, LayoutWidth-48)",
-						"y": "random(48, LayoutHeight-48)",
+						"x": "-100",
+						"y": "-100",
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
