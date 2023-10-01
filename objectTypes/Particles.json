@@ -1,16 +1,10 @@
 {
-	"name": "Ground",
-	"plugin-id": "TiledBg",
-	"sid": 136084146490794,
+	"name": "Particles",
+	"plugin-id": "Particles",
+	"sid": 833774327158148,
 	"isGlobal": false,
 	"instanceVariables": [],
-	"behaviorTypes": [
-		{
-			"behaviorId": "solid",
-			"name": "Solid",
-			"sid": 813045822791833
-		}
-	],
+	"behaviorTypes": [],
 	"effectTypes": [],
 	"image": {
 		"width": 32,
@@ -20,7 +14,7 @@
 		"originalSource": "",
 		"exportFormat": "lossless",
 		"exportQuality": 0.8,
-		"imageSpriteId": 2615335,
+		"imageSpriteId": 4363793,
 		"useCollisionPoly": true,
 		"tag": ""
 	}

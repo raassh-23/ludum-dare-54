@@ -31,13 +31,13 @@
 				"frames": [
 					{
 						"width": 32,
-						"height": 64,
+						"height": 32,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 7932534,
+						"imageSpriteId": 1228336,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""

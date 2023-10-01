@@ -235,10 +235,10 @@
 								{
 									"id": "set-jump-strength",
 									"objectClass": "Player",
-									"sid": 492648024251990,
+									"sid": 265925725718523,
 									"behaviorType": "Platform",
 									"parameters": {
-										"jump-strength": "650"
+										"jump-strength": "700"
 									}
 								}
 							],
@@ -280,10 +280,10 @@
 								{
 									"id": "set-jump-strength",
 									"objectClass": "Player",
-									"sid": 134089047068921,
+									"sid": 824919158709492,
 									"behaviorType": "Platform",
 									"parameters": {
-										"jump-strength": "700"
+										"jump-strength": "825"
 									}
 								}
 							],
@@ -486,7 +486,7 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 398933168624646,
+							"sid": 166521881325143,
 							"parameters": {
 								"first-value": "Player.Platform.VectorY",
 								"comparison": 2,
@@ -496,7 +496,7 @@
 						{
 							"id": "is-overlapping-at-offset",
 							"objectClass": "Player",
-							"sid": 142812918437971,
+							"sid": 415044688293519,
 							"parameters": {
 								"object": "Ground",
 								"offset-x": "cos(Self.Platform.GravityAngle) * -1 * DISTANCE_TO_TURN",
@@ -506,14 +506,14 @@
 						{
 							"id": "trigger-once-while-true",
 							"objectClass": "System",
-							"sid": 552049924775429
+							"sid": 186886960880000
 						}
 					],
 					"actions": [
 						{
 							"id": "set-angle-of-gravity",
 							"objectClass": "Player",
-							"sid": 258304789762700,
+							"sid": 714204537245387,
 							"behaviorType": "Platform",
 							"parameters": {
 								"angle": "anglerotate(Self.Platform.GravityAngle, Self.Platform.GravityAngle + 180, 180)"
@@ -522,7 +522,7 @@
 						{
 							"id": "set-vector-y",
 							"objectClass": "Player",
-							"sid": 591374270506952,
+							"sid": 950658280905696,
 							"behaviorType": "Platform",
 							"parameters": {
 								"vector-y": "0"
@@ -530,13 +530,13 @@
 						},
 						{
 							"callFunction": "tweenRotate",
-							"sid": 587214389280660,
+							"sid": 632156553472785,
 							"parameters": [
 								"180"
 							]
 						}
 					],
-					"sid": 685787484273332
+					"sid": 379396730851227
 				},
 				{
 					"eventType": "block",
@@ -544,7 +544,7 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 712390784287044,
+							"sid": 505901787604707,
 							"parameters": {
 								"first-value": "Player.Platform.VectorX",
 								"comparison": 4,
@@ -554,7 +554,7 @@
 						{
 							"id": "is-overlapping-at-offset",
 							"objectClass": "Player",
-							"sid": 114031909709077,
+							"sid": 620435587974401,
 							"parameters": {
 								"object": "Ground",
 								"offset-x": "sin(Self.Platform.GravityAngle) * DISTANCE_TO_TURN",
@@ -564,14 +564,14 @@
 						{
 							"id": "trigger-once-while-true",
 							"objectClass": "System",
-							"sid": 424751995267509
+							"sid": 585098885151831
 						}
 					],
 					"actions": [
 						{
 							"id": "set-angle-of-gravity",
 							"objectClass": "Player",
-							"sid": 306147265655758,
+							"sid": 478829668674137,
 							"behaviorType": "Platform",
 							"parameters": {
 								"angle": "anglerotate(Self.Platform.GravityAngle, Self.Platform.GravityAngle - 90, 90)"
@@ -580,7 +580,7 @@
 						{
 							"id": "set-vector-y",
 							"objectClass": "Player",
-							"sid": 219652252989604,
+							"sid": 999035164540596,
 							"behaviorType": "Platform",
 							"parameters": {
 								"vector-y": "0"
@@ -588,13 +588,13 @@
 						},
 						{
 							"callFunction": "tweenRotate",
-							"sid": 483380720447417,
+							"sid": 615019196105583,
 							"parameters": [
 								"-90"
 							]
 						}
 					],
-					"sid": 993140236129381
+					"sid": 931694510663458
 				},
 				{
 					"eventType": "block",
@@ -602,7 +602,7 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 168718110251551,
+							"sid": 275052765732035,
 							"parameters": {
 								"first-value": "Player.Platform.VectorX",
 								"comparison": 2,
@@ -612,7 +612,7 @@
 						{
 							"id": "is-overlapping-at-offset",
 							"objectClass": "Player",
-							"sid": 736132898089889,
+							"sid": 335768372162798,
 							"parameters": {
 								"object": "Ground",
 								"offset-x": "sin(Self.Platform.GravityAngle) * -1 * DISTANCE_TO_TURN",
@@ -622,14 +622,14 @@
 						{
 							"id": "trigger-once-while-true",
 							"objectClass": "System",
-							"sid": 253518441291912
+							"sid": 204532058836879
 						}
 					],
 					"actions": [
 						{
 							"id": "set-angle-of-gravity",
 							"objectClass": "Player",
-							"sid": 974009642307203,
+							"sid": 559400462000690,
 							"behaviorType": "Platform",
 							"parameters": {
 								"angle": "anglerotate(Self.Platform.GravityAngle, Self.Platform.GravityAngle + 90, 90)"
@@ -638,7 +638,7 @@
 						{
 							"id": "set-vector-y",
 							"objectClass": "Player",
-							"sid": 944925498070618,
+							"sid": 642351334021324,
 							"behaviorType": "Platform",
 							"parameters": {
 								"vector-y": "0"
@@ -646,13 +646,13 @@
 						},
 						{
 							"callFunction": "tweenRotate",
-							"sid": 882600707738003,
+							"sid": 137128133801135,
 							"parameters": [
 								"90"
 							]
 						}
 					],
-					"sid": 422950852076537
+					"sid": 541825863292275
 				},
 				{
 					"eventType": "block",
@@ -837,6 +837,17 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Player",
+							"sid": 603449045213691,
+							"parameters": {
+								"object": "Particles",
+								"layer": "\"Game\"",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
 						{
 							"id": "destroy",
 							"objectClass": "Player",
@@ -1202,6 +1213,15 @@
 							}
 						},
 						{
+							"id": "set-size",
+							"objectClass": "StraightHomingEnemy",
+							"sid": 446928888484055,
+							"parameters": {
+								"width": "0",
+								"height": "0"
+							}
+						},
+						{
 							"id": "tween-one-property",
 							"objectClass": "StraightHomingEnemy",
 							"sid": 908271171851552,
@@ -1210,6 +1230,24 @@
 								"tags": "\"FadeIn\"",
 								"property": "offsetOpacity",
 								"end-value": "100",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "StraightHomingEnemy",
+							"sid": 743883833447223,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"Scale\"",
+								"property": "size",
+								"end-x": "24",
+								"end-y": "24",
 								"time": "1",
 								"ease": "default",
 								"destroy-on-complete": "no",
@@ -1543,6 +1581,15 @@
 							}
 						},
 						{
+							"id": "set-size",
+							"objectClass": "BouncingEnemy",
+							"sid": 711328070928645,
+							"parameters": {
+								"width": "0",
+								"height": "0"
+							}
+						},
+						{
 							"id": "tween-one-property",
 							"objectClass": "BouncingEnemy",
 							"sid": 969296539674657,
@@ -1551,6 +1598,24 @@
 								"tags": "\"FadeIn\"",
 								"property": "offsetOpacity",
 								"end-value": "100",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "BouncingEnemy",
+							"sid": 228949457963599,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"Scale\"",
+								"property": "size",
+								"end-x": "24",
+								"end-y": "24",
 								"time": "1",
 								"ease": "default",
 								"destroy-on-complete": "no",
@@ -1806,6 +1871,15 @@
 							"sid": 780949916361794
 						},
 						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Enemy",
+							"sid": 573035449089873,
+							"parameters": {
+								"instance-variable": "gotToLayout"
+							},
+							"isInverted": true
+						},
+						{
 							"id": "trigger-once-while-true",
 							"objectClass": "System",
 							"sid": 516113458262537
@@ -1866,37 +1940,47 @@
 					],
 					"actions": [
 						{
-							"id": "tween-one-property",
+							"id": "set-boolean-instvar",
 							"objectClass": "BouncingEnemy",
-							"sid": 974651530285621,
+							"sid": 435995024319396,
+							"parameters": {
+								"instance-variable": "active",
+								"value": "false"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "BouncingEnemy",
+							"sid": 510669501791558,
 							"behaviorType": "Tween",
 							"parameters": {
-								"tags": "\"FadeOut\"",
-								"property": "offsetOpacity",
-								"end-value": "0",
-								"time": "0.1",
+								"tags": "\"Scale\"",
+								"property": "size",
+								"end-x": "0",
+								"end-y": "0",
+								"time": "0.2",
 								"ease": "default",
-								"destroy-on-complete": "yes",
+								"destroy-on-complete": "no",
 								"loop": "no",
 								"ping-pong": "no",
 								"repeat-count": "1"
 							}
 						},
 						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 504109275943848,
-							"parameters": {
-								"seconds": "0.05"
-							}
-						},
-						{
-							"id": "set-boolean-instvar",
+							"id": "tween-one-property",
 							"objectClass": "BouncingEnemy",
-							"sid": 587562875403645,
+							"sid": 263961302449828,
+							"behaviorType": "Tween",
 							"parameters": {
-								"instance-variable": "active",
-								"value": "false"
+								"tags": "\"FadeOut\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "0.2",
+								"ease": "default",
+								"destroy-on-complete": "yes",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
 							}
 						}
 					],
@@ -1955,41 +2039,75 @@
 					],
 					"actions": [
 						{
-							"id": "tween-one-property",
+							"id": "set-boolean-instvar",
 							"objectClass": "HomingEnemy",
-							"sid": 332109746958849,
+							"sid": 410433849075386,
+							"parameters": {
+								"instance-variable": "active",
+								"value": "false"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "HomingEnemy",
+							"sid": 767926655352168,
 							"behaviorType": "Tween",
 							"parameters": {
-								"tags": "\"FadeOut\"",
-								"property": "offsetOpacity",
-								"end-value": "0",
-								"time": "0.1",
+								"tags": "\"Scale\"",
+								"property": "size",
+								"end-x": "0",
+								"end-y": "0",
+								"time": "0.2",
 								"ease": "default",
-								"destroy-on-complete": "yes",
+								"destroy-on-complete": "no",
 								"loop": "no",
 								"ping-pong": "no",
 								"repeat-count": "1"
 							}
 						},
 						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 136151895225431,
-							"parameters": {
-								"seconds": "0.05"
-							}
-						},
-						{
-							"id": "set-boolean-instvar",
+							"id": "tween-one-property",
 							"objectClass": "HomingEnemy",
-							"sid": 793425245523766,
+							"sid": 552019913899097,
+							"behaviorType": "Tween",
 							"parameters": {
-								"instance-variable": "active",
-								"value": "false"
+								"tags": "\"FadeOut\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "0.2",
+								"ease": "default",
+								"destroy-on-complete": "yes",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
 							}
 						}
 					],
 					"sid": 473459565567150
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-enabled",
+							"objectClass": "StraightHomingEnemy",
+							"sid": 299675185765932,
+							"behaviorType": "Bullet",
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-angle-toward-position",
+							"objectClass": "StraightHomingEnemy",
+							"sid": 559719244795208,
+							"parameters": {
+								"x": "Player.X",
+								"y": "Player.Y"
+							}
+						}
+					],
+					"sid": 438595289031047
 				}
 			],
 			"sid": 989134229573857
@@ -2125,6 +2243,11 @@
 						"group-name": "\"MouseTouch\"",
 						"state": "deactivated"
 					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Particles",
+					"sid": 175508510520948
 				},
 				{
 					"id": "get-item",

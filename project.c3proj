@@ -43,6 +43,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Particles",
+			"name": "Particles",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
@@ -71,13 +78,6 @@
 		},
 		{
 			"type": "plugin",
-			"id": "Tilemap",
-			"name": "Tilemap",
-			"author": "Scirra",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
 			"id": "Touch",
 			"name": "Touch",
 			"author": "Scirra",
@@ -94,6 +94,13 @@
 			"type": "behavior",
 			"id": "Platform",
 			"name": "Platform",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Rotate",
+			"name": "Rotate",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -129,7 +136,6 @@
 	"uniqueId": "asiyn1jlnbj",
 	"objectTypes": {
 		"items": [
-			"Ground",
 			"Player",
 			"Browser",
 			"Coin",
@@ -146,7 +152,9 @@
 			"Blank",
 			"ScreenShaker",
 			"TextInput",
-			"Date"
+			"Date",
+			"Ground",
+			"Particles"
 		],
 		"subfolders": []
 	},
