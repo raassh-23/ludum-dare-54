@@ -71,6 +71,188 @@
 				}
 			],
 			"sid": 602182928310150
+		},
+		{
+			"functionName": "PlayClick",
+			"functionDescription": "",
+			"functionCategory": "Audio",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 771728045215707,
+					"parameters": {
+						"audio-file": "click3",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"sfx\""
+					}
+				}
+			],
+			"sid": 489921418578231
+		},
+		{
+			"functionName": "PlayWhoosh",
+			"functionDescription": "",
+			"functionCategory": "Audio",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 643029938211414,
+					"parameters": {
+						"audio-file": "woosh1",
+						"loop": "not-looping",
+						"volume": "-7",
+						"stereo-pan": "0",
+						"tag-optional": "\"sfx\""
+					}
+				}
+			],
+			"sid": 788912254587250
+		},
+		{
+			"functionName": "PlayJump",
+			"functionDescription": "",
+			"functionCategory": "Audio",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 722225087573852,
+					"parameters": {
+						"audio-file": "phaserUp4",
+						"loop": "not-looping",
+						"volume": "-7",
+						"stereo-pan": "0",
+						"tag-optional": "\"sfx\""
+					}
+				}
+			],
+			"sid": 314790096548708
+		},
+		{
+			"functionName": "PlayStar",
+			"functionDescription": "",
+			"functionCategory": "Audio",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 366357898276390,
+					"parameters": {
+						"audio-file": "coin1",
+						"loop": "not-looping",
+						"volume": "-5",
+						"stereo-pan": "0",
+						"tag-optional": "\"sfx\""
+					}
+				}
+			],
+			"sid": 178263871301480
+		},
+		{
+			"functionName": "PlayDead",
+			"functionDescription": "",
+			"functionCategory": "Audio",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 495151807406273,
+					"parameters": {
+						"audio-file": "hit2",
+						"loop": "not-looping",
+						"volume": "-5",
+						"stereo-pan": "0",
+						"tag-optional": "\"sfx\""
+					}
+				}
+			],
+			"sid": 698213999735313
+		},
+		{
+			"functionName": "PlayBGMMenu",
+			"functionDescription": "",
+			"functionCategory": "Audio",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 241780986357680,
+					"parameters": {
+						"audio-file": "Drumming Sticks",
+						"loop": "looping",
+						"volume": "-10",
+						"stereo-pan": "0",
+						"tag-optional": "\"bgm menu\""
+					}
+				}
+			],
+			"sid": 543756563904715
+		},
+		{
+			"functionName": "PlayBGMGame",
+			"functionDescription": "",
+			"functionCategory": "Audio",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 469107145753852,
+					"parameters": {
+						"audio-file": "Mission Plausible",
+						"loop": "looping",
+						"volume": "-10",
+						"stereo-pan": "0",
+						"tag-optional": "\"bgm game\""
+					}
+				}
+			],
+			"sid": 963683315251597
 		}
 	],
 	"sid": 896154704981924

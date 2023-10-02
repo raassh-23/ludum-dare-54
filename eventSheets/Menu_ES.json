@@ -155,6 +155,10 @@
 					],
 					"actions": [
 						{
+							"callFunction": "PlayClick",
+							"sid": 837907616636395
+						},
+						{
 							"id": "set-layer-interactive",
 							"objectClass": "System",
 							"sid": 414686191162655,
@@ -188,6 +192,17 @@
 								"loop": "no",
 								"ping-pong": "no",
 								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "fade-volume",
+							"objectClass": "Audio",
+							"sid": 595154004232494,
+							"parameters": {
+								"tag": "\"menu\"",
+								"db": "-100",
+								"duration": "0.5",
+								"ending": "stop"
 							}
 						},
 						{
@@ -230,6 +245,10 @@
 					],
 					"actions": [
 						{
+							"callFunction": "PlayClick",
+							"sid": 814111854608473
+						},
+						{
 							"callFunction": "showLeaderboard",
 							"sid": 855184805613181
 						}
@@ -259,6 +278,10 @@
 						}
 					],
 					"actions": [
+						{
+							"callFunction": "PlayClick",
+							"sid": 928993140611723
+						},
 						{
 							"callFunction": "hideLeaderboard",
 							"sid": 431532377034356
@@ -672,6 +695,10 @@
 							"parameters": {
 								"key": "\"best\""
 							}
+						},
+						{
+							"callFunction": "PlayBGMMenu",
+							"sid": 118929147600854
 						},
 						{
 							"id": "set-boolean-eventvar",

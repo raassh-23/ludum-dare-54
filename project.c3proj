@@ -8,6 +8,13 @@
 	"usedAddons": [
 		{
 			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Browser",
 			"name": "Browser",
 			"author": "Scirra",
@@ -145,7 +152,7 @@
 		"items": [
 			"Player",
 			"Browser",
-			"Coin",
+			"Star",
 			"Text",
 			"Keyboard",
 			"StraightEnemy",
@@ -164,7 +171,8 @@
 			"Particles",
 			"PlayerAnimation",
 			"SineEnemy",
-			"BouncingRotatingEnemy"
+			"BouncingRotatingEnemy",
+			"Audio"
 		],
 		"subfolders": []
 	},
@@ -222,11 +230,69 @@
 			"subfolders": []
 		},
 		"sound": {
-			"items": [],
+			"items": [
+				{
+					"name": "woosh1.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 554510651453349,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "click3.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 659963860090838,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "coin1.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 259986375674665,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "hit2.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 224424643221353,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "phaserUp4.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 312945333268228,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"music": {
-			"items": [],
+			"items": [
+				{
+					"name": "Drumming Sticks.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 361122620059804,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Mission Plausible.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 803322219005625,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"video": {

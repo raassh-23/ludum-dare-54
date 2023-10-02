@@ -339,6 +339,24 @@
 					"sid": 312037305851707
 				},
 				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-jump",
+							"objectClass": "Player",
+							"sid": 439490990878118,
+							"behaviorType": "Platform"
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PlayJump",
+							"sid": 202677277005483
+						}
+					],
+					"sid": 404621254918763
+				},
+				{
 					"eventType": "group",
 					"disabled": false,
 					"title": "Mouse",
@@ -393,13 +411,8 @@
 									}
 								},
 								{
-									"id": "set-width",
-									"objectClass": "Player",
-									"sid": 932571688786135,
-									"disabled": true,
-									"parameters": {
-										"width": "-1 * Self.Width"
-									}
+									"callFunction": "PlayWhoosh",
+									"sid": 591999889605545
 								},
 								{
 									"callFunction": "tweenMirror",
@@ -476,13 +489,8 @@
 											}
 										},
 										{
-											"id": "set-width",
-											"objectClass": "Player",
-											"sid": 358401771614207,
-											"disabled": true,
-											"parameters": {
-												"width": "-1 * Self.Width"
-											}
+											"callFunction": "PlayWhoosh",
+											"sid": 103318283072574
 										},
 										{
 											"callFunction": "tweenMirror",
@@ -980,6 +988,17 @@
 					],
 					"actions": [
 						{
+							"id": "fade-volume",
+							"objectClass": "Audio",
+							"sid": 923600056129310,
+							"parameters": {
+								"tag": "\"game\"",
+								"db": "-100",
+								"duration": "0.5",
+								"ending": "stop"
+							}
+						},
+						{
 							"id": "spawn-another-object",
 							"objectClass": "Player",
 							"sid": 603449045213691,
@@ -1005,6 +1024,10 @@
 								"duration": "0.4",
 								"mode": "reducing-magnitude"
 							}
+						},
+						{
+							"callFunction": "PlayDead",
+							"sid": 845549464359476
 						}
 					],
 					"sid": 760321122851403,
@@ -1175,6 +1198,10 @@
 												"layer": "\"GameOver\"",
 												"interactive": true
 											}
+										},
+										{
+											"callFunction": "PlayBGMMenu",
+											"sid": 812792346783990
 										}
 									],
 									"sid": 854783208215002
@@ -3474,83 +3501,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-created",
-					"objectClass": "Coin",
-					"sid": 472513923069457
-				}
-			],
-			"actions": [
-				{
-					"id": "set-size",
-					"objectClass": "Coin",
-					"sid": 956377302232816,
-					"parameters": {
-						"width": "0",
-						"height": "0"
-					}
-				}
-			],
-			"sid": 341024074563664,
-			"children": [
-				{
-					"eventType": "variable",
-					"name": "randomPosition",
-					"type": "string",
-					"initialValue": "",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 931904950633887
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 885090701196091,
-							"parameters": {
-								"variable": "randomPosition",
-								"value": "Functions.getRandomPosition(48, 100)"
-							}
-						},
-						{
-							"id": "set-position",
-							"objectClass": "Coin",
-							"sid": 258059571986711,
-							"parameters": {
-								"x": "int(tokenat(randomPosition, 0, \"|\"))",
-								"y": "int(tokenat(randomPosition, 1, \"|\"))"
-							}
-						},
-						{
-							"id": "tween-two-properties",
-							"objectClass": "Coin",
-							"sid": 483177512511217,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"Scale\"",
-								"property": "size",
-								"end-x": "24",
-								"end-y": "24",
-								"time": "0.5",
-								"ease": "easeoutelastic",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
-							}
-						}
-					],
-					"sid": 160907758901337
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
 					"sid": 587727830871526
@@ -3758,6 +3708,10 @@
 							"sid": 615351854257229
 						},
 						{
+							"callFunction": "PlayBGMGame",
+							"sid": 451462206725494
+						},
+						{
 							"id": "set-group-active",
 							"objectClass": "System",
 							"sid": 370242524494103,
@@ -3794,82 +3748,59 @@
 			"conditions": [
 				{
 					"id": "on-created",
-					"objectClass": "Coin",
-					"sid": 100044776033197
+					"objectClass": "Star",
+					"sid": 660185770615964
 				}
 			],
 			"actions": [
 				{
 					"id": "set-size",
-					"objectClass": "Coin",
-					"sid": 209955697509029,
+					"objectClass": "Star",
+					"sid": 791122819532076,
 					"parameters": {
 						"width": "0",
 						"height": "0"
 					}
-				},
-				{
-					"id": "set-position",
-					"objectClass": "Coin",
-					"sid": 682511759481918,
-					"parameters": {
-						"x": "random(48, LayoutWidth-48)",
-						"y": "random(48, LayoutHeight-48)"
-					}
 				}
 			],
-			"sid": 978897643633579,
+			"sid": 419292663866135,
 			"children": [
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "while",
-							"objectClass": "System",
-							"sid": 711318475657200
-						},
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 369087508405644,
-							"parameters": {
-								"first-value": "distance(Coin.X, Coin.Y, Player.X, Player.Y)",
-								"comparison": 3,
-								"second-value": "100"
-							}
-						},
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 789634399519751,
-							"parameters": {
-								"first-value": "Player.Count",
-								"comparison": 4,
-								"second-value": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-position",
-							"objectClass": "Coin",
-							"sid": 377223331718581,
-							"parameters": {
-								"x": "random(48, LayoutWidth-48)",
-								"y": "random(48, LayoutHeight-48)"
-							}
-						}
-					],
-					"sid": 957701717642203
+					"eventType": "variable",
+					"name": "randomPosition",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 223095406739022
 				},
 				{
 					"eventType": "block",
 					"conditions": [],
 					"actions": [
 						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 979113254746601,
+							"parameters": {
+								"variable": "randomPosition",
+								"value": "Functions.getRandomPosition(48, 100)"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Star",
+							"sid": 694403250401420,
+							"parameters": {
+								"x": "int(tokenat(randomPosition, 0, \"|\"))",
+								"y": "int(tokenat(randomPosition, 1, \"|\"))"
+							}
+						},
+						{
 							"id": "tween-two-properties",
-							"objectClass": "Coin",
-							"sid": 174682339897029,
+							"objectClass": "Star",
+							"sid": 411761431912676,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"Scale\"",
@@ -3885,7 +3816,7 @@
 							}
 						}
 					],
-					"sid": 178490936723928
+					"sid": 151179279029761
 				}
 			]
 		},
@@ -3897,14 +3828,18 @@
 					"objectClass": "Player",
 					"sid": 855020511617826,
 					"parameters": {
-						"object": "Coin"
+						"object": "Star"
 					}
 				}
 			],
 			"actions": [
 				{
+					"callFunction": "PlayStar",
+					"sid": 947362414140446
+				},
+				{
 					"id": "destroy",
-					"objectClass": "Coin",
+					"objectClass": "Star",
 					"sid": 544163982692493
 				},
 				{
@@ -3921,7 +3856,7 @@
 					"objectClass": "System",
 					"sid": 488222246796114,
 					"parameters": {
-						"object-to-create": "Coin",
+						"object-to-create": "Star",
 						"layer": "\"Game\"",
 						"x": "-100",
 						"y": "-100",
@@ -4252,6 +4187,10 @@
 					],
 					"actions": [
 						{
+							"callFunction": "PlayClick",
+							"sid": 866620651730756
+						},
+						{
 							"id": "set-layer-interactive",
 							"objectClass": "System",
 							"sid": 733451368243196,
@@ -4353,6 +4292,10 @@
 						}
 					],
 					"actions": [
+						{
+							"callFunction": "PlayClick",
+							"sid": 655556855347895
+						},
 						{
 							"type": "script",
 							"script": "addToLeaderboard(runtime);"
