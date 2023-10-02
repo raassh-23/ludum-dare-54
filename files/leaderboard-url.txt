@@ -1,1 +1,1 @@
-http://localhost:8080/
+https://ludum-dare-54-leaderboard-66c60535be63.herokuapp.com/

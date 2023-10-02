@@ -2126,12 +2126,11 @@
 							],
 							"actions": [
 								{
-									"id": "set-angle-toward-position",
+									"id": "set-angle",
 									"objectClass": "StraightHomingEnemy",
-									"sid": 226234723710138,
+									"sid": 811325150433684,
 									"parameters": {
-										"x": "Player.X",
-										"y": "Player.Y"
+										"angle": "anglelerp(Self.Angle, angle(Self.X, Self.Y, Player.X, Player.Y), 5*dt)"
 									}
 								}
 							],
@@ -2675,10 +2674,10 @@
 								{
 									"id": "set-angle-of-motion",
 									"objectClass": "HomingEnemy",
-									"sid": 150077145791322,
+									"sid": 459452631322396,
 									"behaviorType": "Bullet",
 									"parameters": {
-										"angle": "anglelerp(Self.Bullet.AngleOfMotion, angle(Self.X, Self.Y, Self.targetX, Self.targetY), 5 * dt)"
+										"angle": "anglelerp(Self.Bullet.AngleOfMotion, angle(Self.X, Self.Y, Self.targetX, Self.targetY), 3 * dt)"
 									}
 								}
 							],
@@ -3039,9 +3038,9 @@
 						{
 							"id": "set-function-return-value",
 							"objectClass": "Functions",
-							"sid": 981265861370520,
+							"sid": 496130862557061,
 							"parameters": {
-								"value": "random(clamp(minInterval - log10(score-scoreOffset + 1), 0, minInterval), clamp(maxInterval- log10(score-scoreOffset + 1), 0, maxInterval))"
+								"value": "random(clamp(minInterval - log10(score-scoreOffset + 1), 0, minInterval), clamp(maxInterval- log10(score-scoreOffset + 1), 1, maxInterval))"
 							}
 						}
 					],
@@ -4080,14 +4079,14 @@
 						{
 							"id": "tween-value",
 							"objectClass": "Text",
-							"sid": 634235009386850,
+							"sid": 968653148912138,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"AnimateFontSize\"",
 								"start-value": "Self.initialFontSize * 1.5",
 								"end-value": "Self.initialFontSize",
 								"time": "duration",
-								"ease": "default",
+								"ease": "easeinoutsine",
 								"destroy-on-complete": "no",
 								"loop": "no",
 								"ping-pong": "no",
@@ -4097,22 +4096,22 @@
 						{
 							"id": "set-angle",
 							"objectClass": "Text",
-							"sid": 427756613234446,
+							"sid": 268906115046477,
 							"parameters": {
-								"angle": "anglerotate(Self.Angle, Self.Angle + random(-30, 30), 30)"
+								"angle": "anglerotate(Self.Angle, Self.Angle + random(-45, 45), 45)"
 							}
 						},
 						{
 							"id": "tween-one-property",
 							"objectClass": "Text",
-							"sid": 817524949041583,
+							"sid": 479106245353062,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"AnimateAngle\"",
 								"property": "offsetAngle",
 								"end-value": "Self.initialAngle",
 								"time": "duration",
-								"ease": "default",
+								"ease": "easeinoutsine",
 								"destroy-on-complete": "no",
 								"loop": "no",
 								"ping-pong": "no",
