@@ -436,11 +436,11 @@
 										{
 											"id": "compare-touch-speed",
 											"objectClass": "Touch",
-											"sid": 445444674520620,
+											"sid": 244879106974564,
 											"parameters": {
 												"touch-index": "0",
 												"comparison": 2,
-												"speed": "200"
+												"speed": "300"
 											}
 										}
 									],
@@ -1215,7 +1215,8 @@
 							}
 						}
 					],
-					"sid": 133111555666914
+					"sid": 133111555666914,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -1249,7 +1250,8 @@
 							}
 						}
 					],
-					"sid": 820411584986592
+					"sid": 820411584986592,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -1283,7 +1285,8 @@
 							}
 						}
 					],
-					"sid": 792287449608857
+					"sid": 792287449608857,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -1317,7 +1320,90 @@
 							}
 						}
 					],
-					"sid": 201313231700714
+					"sid": 201313231700714,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 734024039663847,
+							"parameters": {
+								"variable": "score",
+								"comparison": 5,
+								"value": "1"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 695739394081829
+						}
+					],
+					"actions": [
+						{
+							"id": "start-timer",
+							"objectClass": "TimerManager",
+							"sid": 451049143073217,
+							"disabled": true,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "random(3,5)",
+								"type": "once",
+								"tag": "\"StraightHomingEnemy\""
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "TimerManager",
+							"sid": 450733290392654,
+							"disabled": true,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "random(3,5)",
+								"type": "once",
+								"tag": "\"StraightEnemy\""
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "TimerManager",
+							"sid": 169052892965917,
+							"disabled": true,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "random(2,4)",
+								"type": "once",
+								"tag": "\"BouncingEnemy\""
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "TimerManager",
+							"sid": 525868642424794,
+							"disabled": true,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "random(2,4)",
+								"type": "once",
+								"tag": "\"HomingEnemy\""
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "TimerManager",
+							"sid": 385936466468747,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "random(2,4)",
+								"type": "once",
+								"tag": "\"SineEnemy\""
+							}
+						}
+					],
+					"sid": 171823952918871
 				},
 				{
 					"eventType": "block",
@@ -1395,32 +1481,18 @@
 							}
 						}
 					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 874184776789780,
-							"parameters": {
-								"object-to-create": "StraightEnemy",
-								"layer": "\"Game\"",
-								"x": "-100",
-								"y": "-100",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						}
-					],
+					"actions": [],
 					"sid": 509453639687735,
 					"children": [
 						{
 							"eventType": "variable",
-							"name": "randNum",
-							"type": "number",
-							"initialValue": "0",
+							"name": "randomPosition",
+							"type": "string",
+							"initialValue": "",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
-							"sid": 495508015527613
+							"sid": 968258196831480
 						},
 						{
 							"eventType": "block",
@@ -1429,140 +1501,24 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 946553387913936,
+									"sid": 108604204902705,
 									"parameters": {
-										"variable": "randNum",
-										"value": "choose(1, 2, 3, 4)"
+										"variable": "randomPosition",
+										"value": "Functions.getRandomPositionOutsideLayout(64, 150)"
 									}
-								}
-							],
-							"sid": 911047365396654
-						},
-						{
-							"eventType": "block",
-							"conditions": [
+								},
 								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 404463791007980,
-									"parameters": {
-										"variable": "randNum",
-										"comparison": 0,
-										"value": "1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "StraightEnemy",
-									"sid": 660819928037053,
-									"parameters": {
-										"x": "-64",
-										"y": "random(LayoutHeight)"
-									}
-								}
-							],
-							"sid": 875632462893472
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 936301058528709,
-									"parameters": {
-										"variable": "randNum",
-										"comparison": 0,
-										"value": "2"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "StraightEnemy",
-									"sid": 701057227637762,
-									"parameters": {
-										"x": "LayoutWidth + 64",
-										"y": "random(LayoutHeight)"
-									}
-								}
-							],
-							"sid": 668666878203168
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 522888181804524,
-									"parameters": {
-										"variable": "randNum",
-										"comparison": 0,
-										"value": "3"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "StraightEnemy",
-									"sid": 396067079345022,
-									"parameters": {
-										"x": "random(LayoutWidth)",
-										"y": "-64"
-									}
-								}
-							],
-							"sid": 644150975181144
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 831939315447714,
-									"parameters": {
-										"variable": "randNum",
-										"comparison": 0,
-										"value": "4"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "StraightEnemy",
-									"sid": 811547317024145,
-									"parameters": {
-										"x": "random(LayoutWidth)",
-										"y": "LayoutHeight + 64"
-									}
-								}
-							],
-							"sid": 431103735199035
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "set-angle-of-motion",
-									"objectClass": "StraightEnemy",
-									"sid": 919609204097942,
-									"behaviorType": "Bullet",
-									"parameters": {
-										"angle": "angle(StraightEnemy.X, StraightEnemy.Y, 256, 256)"
-									}
+									"callFunction": "SpawnStraightEnemy",
+									"sid": 565816131180832,
+									"parameters": [
+										"int(tokenat(randomPosition, 0, \"|\"))",
+										"int(tokenat(randomPosition, 1, \"|\"))"
+									]
 								},
 								{
 									"id": "start-timer",
 									"objectClass": "TimerManager",
-									"sid": 708259074876020,
+									"sid": 758135374416253,
 									"behaviorType": "Timer",
 									"parameters": {
 										"duration": "random(3.5 - log10(score), 5.5 - log10(score))",
@@ -1571,7 +1527,7 @@
 									}
 								}
 							],
-							"sid": 146770013429297
+							"sid": 734150264085934
 						}
 					]
 				},
@@ -1588,125 +1544,55 @@
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 858372445799750,
+					"children": [
 						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 798159908986356,
-							"parameters": {
-								"object-to-create": "BouncingEnemy",
-								"layer": "\"Game\"",
-								"x": "random(64, LayoutWidth-64)",
-								"y": "random(64, LayoutHeight-64)",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
+							"eventType": "variable",
+							"name": "randomPosition",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 762675778862413
 						},
 						{
-							"id": "set-opacity",
-							"objectClass": "BouncingEnemy",
-							"sid": 653263441882498,
-							"parameters": {
-								"opacity": "0"
-							}
-						},
-						{
-							"id": "set-size",
-							"objectClass": "BouncingEnemy",
-							"sid": 711328070928645,
-							"parameters": {
-								"width": "0",
-								"height": "0"
-							}
-						},
-						{
-							"id": "tween-one-property",
-							"objectClass": "BouncingEnemy",
-							"sid": 969296539674657,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"FadeIn\"",
-								"property": "offsetOpacity",
-								"end-value": "100",
-								"time": "1",
-								"ease": "default",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
-							}
-						},
-						{
-							"id": "tween-two-properties",
-							"objectClass": "BouncingEnemy",
-							"sid": 228949457963599,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"Scale\"",
-								"property": "size",
-								"end-x": "24",
-								"end-y": "24",
-								"time": "1",
-								"ease": "default",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
-							}
-						},
-						{
-							"id": "wait-for-previous-actions",
-							"objectClass": "System",
-							"sid": 509536536733880
-						},
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "BouncingEnemy",
-							"sid": 187735588446709,
-							"parameters": {
-								"instance-variable": "active",
-								"value": "true"
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 588785907494222,
-							"parameters": {
-								"seconds": "0.5"
-							}
-						},
-						{
-							"id": "set-enabled",
-							"objectClass": "BouncingEnemy",
-							"sid": 656563957728088,
-							"behaviorType": "Bullet",
-							"parameters": {
-								"state": "enabled"
-							}
-						},
-						{
-							"id": "set-angle-of-motion",
-							"objectClass": "BouncingEnemy",
-							"sid": 329982934686371,
-							"behaviorType": "Bullet",
-							"parameters": {
-								"angle": "random(360)"
-							}
-						},
-						{
-							"id": "start-timer",
-							"objectClass": "TimerManager",
-							"sid": 261613813756555,
-							"behaviorType": "Timer",
-							"parameters": {
-								"duration": "random(2.5 - log10(score), 4.5 - log10(score))",
-								"type": "once",
-								"tag": "\"BouncingEnemy\""
-							}
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 807801757105432,
+									"parameters": {
+										"variable": "randomPosition",
+										"value": "Functions.getRandomPosition(64, 200)"
+									}
+								},
+								{
+									"callFunction": "SpawnBouncingEnemy",
+									"sid": 829845912407124,
+									"parameters": [
+										"int(tokenat(randomPosition, 0, \"|\"))",
+										"int(tokenat(randomPosition, 1, \"|\"))"
+									]
+								},
+								{
+									"id": "start-timer",
+									"objectClass": "TimerManager",
+									"sid": 201738620695038,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "random(2.5 - log10(score), 4.5 - log10(score))",
+										"type": "once",
+										"tag": "\"BouncingEnemy\""
+									}
+								}
+							],
+							"sid": 986465431063410
 						}
-					],
-					"sid": 858372445799750
+					]
 				},
 				{
 					"eventType": "block",
@@ -1721,32 +1607,18 @@
 							}
 						}
 					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 499097487031715,
-							"parameters": {
-								"object-to-create": "HomingEnemy",
-								"layer": "\"Game\"",
-								"x": "-100",
-								"y": "-100",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						}
-					],
+					"actions": [],
 					"sid": 396349359259401,
 					"children": [
 						{
 							"eventType": "variable",
-							"name": "randNum",
-							"type": "number",
-							"initialValue": "0",
+							"name": "randomPosition",
+							"type": "string",
+							"initialValue": "",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
-							"sid": 153461535885188
+							"sid": 102596568169066
 						},
 						{
 							"eventType": "block",
@@ -1755,131 +1627,41 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 213357644437293,
+									"sid": 387003334753331,
 									"parameters": {
-										"variable": "randNum",
-										"value": "choose(1, 2, 3, 4)"
+										"variable": "randomPosition",
+										"value": "Functions.getRandomPositionOutsideLayout(64, 150)"
 									}
-								}
-							],
-							"sid": 503388951470602
-						},
-						{
-							"eventType": "block",
-							"conditions": [
+								},
 								{
-									"id": "compare-eventvar",
+									"callFunction": "SpawnHomingEnemy",
+									"sid": 773750802188175,
+									"parameters": [
+										"int(tokenat(randomPosition, 0, \"|\"))",
+										"int(tokenat(randomPosition, 1, \"|\"))"
+									]
+								},
+								{
+									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 978312227810162,
+									"sid": 405512225715430,
 									"parameters": {
-										"variable": "randNum",
-										"comparison": 0,
-										"value": "1"
+										"variable": "randomPosition",
+										"value": "Functions.getRandomPositionOutsideLayout(64, 150)"
 									}
-								}
-							],
-							"actions": [
+								},
 								{
-									"id": "set-position",
-									"objectClass": "HomingEnemy",
-									"sid": 118124101328380,
-									"parameters": {
-										"x": "-64",
-										"y": "random(LayoutHeight)"
-									}
-								}
-							],
-							"sid": 716257227000006
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 456085156669836,
-									"parameters": {
-										"variable": "randNum",
-										"comparison": 0,
-										"value": "2"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "HomingEnemy",
-									"sid": 811400100209926,
-									"parameters": {
-										"x": "LayoutWidth + 64",
-										"y": "random(LayoutHeight)"
-									}
-								}
-							],
-							"sid": 419003024894643
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 424880835448967,
-									"parameters": {
-										"variable": "randNum",
-										"comparison": 0,
-										"value": "3"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "HomingEnemy",
-									"sid": 940911596594082,
-									"parameters": {
-										"x": "random(LayoutWidth)",
-										"y": "-64"
-									}
-								}
-							],
-							"sid": 416394092446198
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 909747849174839,
-									"parameters": {
-										"variable": "randNum",
-										"comparison": 0,
-										"value": "4"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "HomingEnemy",
-									"sid": 789807682070444,
-									"parameters": {
-										"x": "random(LayoutWidth)",
-										"y": "LayoutHeight + 64"
-									}
-								}
-							],
-							"sid": 987310052971166
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
+									"callFunction": "SpawnHomingEnemy",
+									"sid": 692358833546381,
+									"parameters": [
+										"int(tokenat(randomPosition, 0, \"|\"))",
+										"int(tokenat(randomPosition, 1, \"|\"))"
+									]
+								},
 								{
 									"id": "start-timer",
 									"objectClass": "TimerManager",
-									"sid": 487352954792784,
+									"sid": 492804684480219,
 									"behaviorType": "Timer",
 									"parameters": {
 										"duration": "random(2.5 - log10(score), 4.5 - log10(score))",
@@ -1888,7 +1670,70 @@
 									}
 								}
 							],
-							"sid": 574779561521940
+							"sid": 561052521473801
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "TimerManager",
+							"sid": 818879862082281,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"SineEnemy\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 919999968744309,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "randomPosition",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 885531321038268
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 491213468292792,
+									"parameters": {
+										"variable": "randomPosition",
+										"value": "Functions.getRandomPositionOutsideLayout(64, 150)"
+									}
+								},
+								{
+									"callFunction": "SpawnSineEnemy",
+									"sid": 313073294742570,
+									"parameters": [
+										"int(tokenat(randomPosition, 0, \"|\"))",
+										"int(tokenat(randomPosition, 1, \"|\"))"
+									]
+								},
+								{
+									"id": "start-timer",
+									"objectClass": "TimerManager",
+									"sid": 474598790839093,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "random(3.5 - log10(score), 5.5 - log10(score))",
+										"type": "once",
+										"tag": "\"SineEnemy\""
+									}
+								}
+							],
+							"sid": 223416810504426
 						}
 					]
 				},
@@ -2085,13 +1930,13 @@
 						{
 							"id": "is-enabled",
 							"objectClass": "StraightHomingEnemy",
-							"sid": 153247243832949,
+							"sid": 818916665485576,
 							"behaviorType": "Bullet",
 							"isInverted": true
 						}
 					],
 					"actions": [],
-					"sid": 692389004439129,
+					"sid": 377942801912390,
 					"children": [
 						{
 							"eventType": "block",
@@ -2099,7 +1944,7 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 782505931291384,
+									"sid": 203040190046657,
 									"parameters": {
 										"first-value": "Player.Count",
 										"comparison": 4,
@@ -2111,14 +1956,14 @@
 								{
 									"id": "set-angle-toward-position",
 									"objectClass": "StraightHomingEnemy",
-									"sid": 976292651742025,
+									"sid": 226234723710138,
 									"parameters": {
 										"x": "Player.X",
 										"y": "Player.Y"
 									}
 								}
 							],
-							"sid": 111050695181295
+							"sid": 617343285303671
 						},
 						{
 							"eventType": "block",
@@ -2126,11 +1971,11 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 311160666593475
+									"sid": 283697833392240
 								}
 							],
 							"actions": [],
-							"sid": 435010586750549,
+							"sid": 551584758519137,
 							"children": [
 								{
 									"eventType": "block",
@@ -2138,7 +1983,7 @@
 										{
 											"id": "compare-boolean-eventvar",
 											"objectClass": "System",
-											"sid": 472286467933406,
+											"sid": 459413109618901,
 											"parameters": {
 												"variable": "movingToRight"
 											}
@@ -2148,13 +1993,13 @@
 										{
 											"id": "rotate-counter-clockwise",
 											"objectClass": "StraightHomingEnemy",
-											"sid": 110544590274892,
+											"sid": 696997860724244,
 											"parameters": {
 												"degrees": "120 * dt"
 											}
 										}
 									],
-									"sid": 876000516378548
+									"sid": 885614445046945
 								},
 								{
 									"eventType": "block",
@@ -2162,24 +2007,268 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 734955343243160
+											"sid": 629103728429504
 										}
 									],
 									"actions": [
 										{
 											"id": "rotate-clockwise",
 											"objectClass": "StraightHomingEnemy",
-											"sid": 690872195229891,
+											"sid": 135089605547301,
 											"parameters": {
 												"degrees": "120 * dt"
 											}
 										}
 									],
-									"sid": 535693130749399
+									"sid": 975625436857453
 								}
 							]
 						}
 					]
+				},
+				{
+					"functionName": "SpawnStraightEnemy",
+					"functionDescription": "",
+					"functionCategory": "Spawn",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "x",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 487714440558468
+						},
+						{
+							"name": "y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 197254194383297
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 180775190175895,
+							"parameters": {
+								"object-to-create": "StraightEnemy",
+								"layer": "\"Game\"",
+								"x": "x",
+								"y": "y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-angle-of-motion",
+							"objectClass": "StraightEnemy",
+							"sid": 781029198973284,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"angle": "angle(StraightEnemy.X, StraightEnemy.Y, 256, 256)"
+							}
+						}
+					],
+					"sid": 769701695558951
+				},
+				{
+					"functionName": "SpawnSineEnemy",
+					"functionDescription": "",
+					"functionCategory": "Spawn",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "x",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 920135856649567
+						},
+						{
+							"name": "y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 245854204209284
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 342391925652887,
+							"parameters": {
+								"object-to-create": "SineEnemy",
+								"layer": "\"Game\"",
+								"x": "x",
+								"y": "y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "SineEnemy",
+							"sid": 181216592762034,
+							"parameters": {
+								"angle": "angle(SineEnemy.X, SineEnemy.Y, 256, 256) + 90"
+							}
+						},
+						{
+							"id": "set-angle-of-motion",
+							"objectClass": "SineEnemy",
+							"sid": 817999071751677,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"angle": "angle(SineEnemy.X, SineEnemy.Y, 256, 256)"
+							}
+						}
+					],
+					"sid": 647061944378721
+				},
+				{
+					"functionName": "SpawnBouncingEnemy",
+					"functionDescription": "",
+					"functionCategory": "Spawn",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "x",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 115319941411450
+						},
+						{
+							"name": "y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 147332945988194
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 152477333000885,
+							"parameters": {
+								"object-to-create": "BouncingEnemy",
+								"layer": "\"Game\"",
+								"x": "x",
+								"y": "y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "BouncingEnemy",
+							"sid": 830348308268473,
+							"parameters": {
+								"opacity": "0"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "BouncingEnemy",
+							"sid": 559676918885996,
+							"parameters": {
+								"width": "0",
+								"height": "0"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "BouncingEnemy",
+							"sid": 311019262638590,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"FadeIn\"",
+								"property": "offsetOpacity",
+								"end-value": "100",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "BouncingEnemy",
+							"sid": 199337295064728,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"Scale\"",
+								"property": "size",
+								"end-x": "24",
+								"end-y": "24",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 417365050962853
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "BouncingEnemy",
+							"sid": 888914612762135,
+							"parameters": {
+								"instance-variable": "active",
+								"value": "true"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 906239979063533,
+							"parameters": {
+								"seconds": "0.5"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "BouncingEnemy",
+							"sid": 668784462525233,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"id": "set-angle-of-motion",
+							"objectClass": "BouncingEnemy",
+							"sid": 538113520244832,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"angle": "random(360)"
+							}
+						}
+					],
+					"sid": 454757961477210
 				},
 				{
 					"eventType": "block",
@@ -2187,7 +2276,7 @@
 						{
 							"id": "compare-distance-travelled",
 							"objectClass": "BouncingEnemy",
-							"sid": 457397315528192,
+							"sid": 495156869727833,
 							"behaviorType": "Bullet",
 							"parameters": {
 								"comparison": 4,
@@ -2199,7 +2288,7 @@
 						{
 							"id": "set-boolean-instvar",
 							"objectClass": "BouncingEnemy",
-							"sid": 435995024319396,
+							"sid": 557233024294726,
 							"parameters": {
 								"instance-variable": "active",
 								"value": "false"
@@ -2208,7 +2297,7 @@
 						{
 							"id": "tween-two-properties",
 							"objectClass": "BouncingEnemy",
-							"sid": 510669501791558,
+							"sid": 489758954252560,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"Scale\"",
@@ -2226,7 +2315,7 @@
 						{
 							"id": "tween-one-property",
 							"objectClass": "BouncingEnemy",
-							"sid": 263961302449828,
+							"sid": 682836103934477,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"FadeOut\"",
@@ -2241,7 +2330,49 @@
 							}
 						}
 					],
-					"sid": 882588533008926
+					"sid": 397751051145010
+				},
+				{
+					"functionName": "SpawnHomingEnemy",
+					"functionDescription": "",
+					"functionCategory": "Spawn",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "x",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 822485688077677
+						},
+						{
+							"name": "y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 147414736392533
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 514433963382908,
+							"parameters": {
+								"object-to-create": "HomingEnemy",
+								"layer": "\"Game\"",
+								"x": "x",
+								"y": "y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 366933412226589
 				},
 				{
 					"eventType": "block",
@@ -2255,30 +2386,192 @@
 								"comparison": 2,
 								"distance": "1536"
 							}
+						}
+					],
+					"actions": [],
+					"sid": 998054114071434,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 732491958491211,
+									"parameters": {
+										"first-value": "Player.Count",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 907703153093632,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "HomingEnemy",
+											"sid": 561903771328580,
+											"parameters": {
+												"object": "HomingEnemy"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "HomingEnemy",
+											"sid": 496627995759163,
+											"parameters": {
+												"instance-variable": "targetX",
+												"value": "random(Player.X - Player.Width * 5, Player.X + Player.Width * 5)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "HomingEnemy",
+											"sid": 471440659122508,
+											"parameters": {
+												"instance-variable": "targetY",
+												"value": "random(Player.Y - Player.Height * 5, Player.Y + Player.Height * 5)"
+											}
+										}
+									],
+									"sid": 624712547382025
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 365045242769823
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "HomingEnemy",
+											"sid": 177221047163882,
+											"parameters": {
+												"instance-variable": "targetX",
+												"value": "Player.X"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "HomingEnemy",
+											"sid": 193515259467649,
+											"parameters": {
+												"instance-variable": "targetY",
+												"value": "Player.Y"
+											}
+										}
+									],
+									"sid": 880275597701703
+								}
+							]
 						},
 						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 556144364214541,
-							"parameters": {
-								"first-value": "Player.Count",
-								"comparison": 4,
-								"second-value": "0"
-							}
-						}
-					],
-					"actions": [
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 561090467426263,
+									"parameters": {
+										"first-value": "Player.Count",
+										"comparison": 3,
+										"second-value": "0"
+									}
+								},
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 946519115962373,
+									"parameters": {
+										"interval-seconds": "random(2)"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 431005636773716,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "randomPosition",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 871342347645007
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 515427241930121,
+											"parameters": {
+												"object": "HomingEnemy"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 142684793040880,
+											"parameters": {
+												"variable": "randomPosition",
+												"value": "Functions.getRandomPosition(64, 0)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "HomingEnemy",
+											"sid": 334445080023975,
+											"parameters": {
+												"instance-variable": "targetX",
+												"value": "int(tokenat(randomPosition, 0, \"|\"))"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "HomingEnemy",
+											"sid": 976491000808889,
+											"parameters": {
+												"instance-variable": "targetY",
+												"value": "int(tokenat(randomPosition, 1, \"|\"))"
+											}
+										}
+									],
+									"sid": 687953537706946
+								}
+							]
+						},
 						{
-							"id": "set-angle-of-motion",
-							"objectClass": "HomingEnemy",
-							"sid": 550029226769325,
-							"behaviorType": "Bullet",
-							"parameters": {
-								"angle": "anglelerp(Self.Bullet.AngleOfMotion, angle(Self.X, Self.Y, Player.X, Player.Y), 5 * dt)"
-							}
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "HomingEnemy",
+									"sid": 150077145791322,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"angle": "anglelerp(Self.Bullet.AngleOfMotion, angle(Self.X, Self.Y, Self.targetX, Self.targetY), 5 * dt)"
+									}
+								}
+							],
+							"sid": 411891379894772
 						}
-					],
-					"sid": 998054114071434
+					]
 				},
 				{
 					"eventType": "block",
@@ -2483,6 +2776,286 @@
 						}
 					],
 					"sid": 869643154985120
+				}
+			]
+		},
+		{
+			"functionName": "getRandomPositionOutsideLayout",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "margin",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 142442515906523
+				},
+				{
+					"name": "minDist",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "minimal distance from player",
+					"sid": 352065738152652
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 995896900493441,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "newX",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 916223905484463
+				},
+				{
+					"eventType": "variable",
+					"name": "newY",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 381751778379277
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 507445861573754,
+							"parameters": {
+								"variable": "newX",
+								"value": "random(-margin*2, LayoutWidth+margin*2)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 435834627372597,
+							"parameters": {
+								"variable": "newY",
+								"value": "random(-margin*2, LayoutHeight+margin*2)"
+							}
+						}
+					],
+					"sid": 657415271946654
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "while",
+							"objectClass": "System",
+							"sid": 946302256076238
+						},
+						{
+							"id": "evaluate-expression",
+							"objectClass": "System",
+							"sid": 607060879829823,
+							"parameters": {
+								"value": "Functions.isPointInLayoutOrNearPlayer(newX, newY, 0, minDist)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 735194148528707,
+							"parameters": {
+								"variable": "newY",
+								"value": "random(-margin*2, LayoutWidth+margin*2)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 202355203461978,
+							"parameters": {
+								"variable": "newY",
+								"value": "random(-margin*2, LayoutHeight+margin*2)"
+							}
+						}
+					],
+					"sid": 439864041771011
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 226472244414484,
+							"parameters": {
+								"value": "newX & \"|\" & newY"
+							}
+						}
+					],
+					"sid": 528474085510929
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 354262654893250
+				}
+			]
+		},
+		{
+			"functionName": "isPointInLayoutOrNearPlayer",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "x",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 517976879031038
+				},
+				{
+					"name": "y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 724745857762206
+				},
+				{
+					"name": "margin",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 674797314099323
+				},
+				{
+					"name": "minDist",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "minimal distance from player",
+					"sid": 185572812993331
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 552363301417278,
+					"parameters": {
+						"value": "0"
+					}
+				}
+			],
+			"sid": 279639049433221,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 298247063278787,
+							"parameters": {
+								"variable": "x",
+								"comparison": 5,
+								"value": "-margin"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 325661125520087,
+							"parameters": {
+								"variable": "x",
+								"comparison": 3,
+								"value": "LayoutWidth + margin"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 317953426280505,
+							"parameters": {
+								"variable": "y",
+								"comparison": 5,
+								"value": "-margin"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 400237050600990,
+							"parameters": {
+								"variable": "y",
+								"comparison": 3,
+								"value": "LayoutHeight + margin"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 442131160808046,
+							"parameters": {
+								"value": "1"
+							}
+						}
+					],
+					"sid": 312682082055327
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 351039367952200,
+							"parameters": {
+								"first-value": "Player.Count",
+								"comparison": 4,
+								"second-value": "0"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 333542361837579,
+							"parameters": {
+								"first-value": "distance(x, y, Player.X, Player.Y)",
+								"comparison": 3,
+								"second-value": "minDist"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 236580476561463,
+							"parameters": {
+								"value": "1"
+							}
+						}
+					],
+					"sid": 655376324661106
 				}
 			]
 		},

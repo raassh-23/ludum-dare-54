@@ -106,6 +106,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Timer",
 			"name": "Timer",
 			"author": "Scirra",
@@ -155,7 +162,8 @@
 			"Date",
 			"Ground",
 			"Particles",
-			"PlayerAnimation"
+			"PlayerAnimation",
+			"SineEnemy"
 		],
 		"subfolders": []
 	},

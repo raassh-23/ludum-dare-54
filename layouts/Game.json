@@ -433,8 +433,8 @@
 						"originY": 0.5,
 						"color": [
 							1,
-							0.5019607843137255,
 							0,
+							1,
 							1
 						],
 						"angle": 6.249670968576185,
@@ -572,8 +572,8 @@
 						"originY": 0.5,
 						"color": [
 							1,
+							0.5019607843137255,
 							0,
-							1,
 							1
 						],
 						"angle": 0,
@@ -592,7 +592,9 @@
 					"uid": 14,
 					"instanceVariables": {
 						"gotToLayout": false,
-						"active": true
+						"active": true,
+						"targetX": -1,
+						"targetY": -1
 					},
 					"behaviors": {
 						"Tween": {
@@ -736,6 +738,69 @@
 							1,
 							1,
 							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SineEnemy",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 65,
+					"instanceVariables": {
+						"gotToLayout": false,
+						"active": true
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						},
+						"Bullet": {
+							"properties": {
+								"speed": 200,
+								"acceleration": 0,
+								"gravity": 0,
+								"bounce-off-solids": false,
+								"set-angle": false,
+								"step": false,
+								"enabled": true
+							}
+						},
+						"Sine": {
+							"properties": {
+								"movement": "forwards-backwards",
+								"wave": "sine",
+								"period": 2,
+								"period-random": 1,
+								"period-offset": 0,
+								"period-offset-random": 2,
+								"magnitude": 50,
+								"magnitude-random": 20,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
+					"world": {
+						"x": 644.7683758004877,
+						"y": 332.66089196864795,
+						"width": 24,
+						"height": 24,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							0,
+							0.5019607843137255,
 							1
 						],
 						"angle": 0,

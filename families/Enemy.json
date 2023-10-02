@@ -30,6 +30,7 @@
 		"StraightEnemy",
 		"StraightHomingEnemy",
 		"BouncingEnemy",
-		"HomingEnemy"
+		"HomingEnemy",
+		"SineEnemy"
 	]
 }
