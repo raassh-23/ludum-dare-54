@@ -1438,6 +1438,7 @@
 							"id": "start-timer",
 							"objectClass": "TimerManager",
 							"sid": 461014958321774,
+							"disabled": true,
 							"behaviorType": "Timer",
 							"parameters": {
 								"duration": "Functions.calculateSpawnTime(3, 6, 1)",
@@ -1449,6 +1450,7 @@
 							"id": "start-timer",
 							"objectClass": "TimerManager",
 							"sid": 693234016655399,
+							"disabled": true,
 							"behaviorType": "Timer",
 							"parameters": {
 								"duration": "Functions.calculateSpawnTime(3, 6, 1)",
@@ -1460,6 +1462,7 @@
 							"id": "start-timer",
 							"objectClass": "TimerManager",
 							"sid": 307857930947282,
+							"disabled": true,
 							"behaviorType": "Timer",
 							"parameters": {
 								"duration": "Functions.calculateSpawnTime(3, 6, 1)",
@@ -1471,6 +1474,7 @@
 							"id": "start-timer",
 							"objectClass": "TimerManager",
 							"sid": 426685930102017,
+							"disabled": true,
 							"behaviorType": "Timer",
 							"parameters": {
 								"duration": "Functions.calculateSpawnTime(3, 6, 1)",
@@ -1482,6 +1486,7 @@
 							"id": "start-timer",
 							"objectClass": "TimerManager",
 							"sid": 224277542312108,
+							"disabled": true,
 							"behaviorType": "Timer",
 							"parameters": {
 								"duration": "Functions.calculateSpawnTime(3, 6,1)",
@@ -1493,6 +1498,7 @@
 							"id": "start-timer",
 							"objectClass": "TimerManager",
 							"sid": 610128807141771,
+							"disabled": true,
 							"behaviorType": "Timer",
 							"parameters": {
 								"duration": "Functions.calculateSpawnTime(3, 6, 1)",
@@ -1618,10 +1624,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 108604204902705,
+									"sid": 604412858558666,
 									"parameters": {
 										"variable": "randomPosition",
-										"value": "Functions.getRandomPositionOutsideLayout(64, 150)"
+										"value": "Functions.getRandomPositionOutsideLayout(64, 300)"
 									}
 								},
 								{
@@ -1834,10 +1840,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 491213468292792,
+									"sid": 779188268422101,
 									"parameters": {
 										"variable": "randomPosition",
-										"value": "Functions.getRandomPositionOutsideLayout(64, 150)"
+										"value": "Functions.getRandomPositionOutsideLayout(64, 300)"
 									}
 								},
 								{

@@ -414,7 +414,7 @@
 						},
 						"Bullet": {
 							"properties": {
-								"speed": 200,
+								"speed": 150,
 								"acceleration": 0,
 								"gravity": 0,
 								"bounce-off-solids": false,
@@ -766,7 +766,7 @@
 						},
 						"Bullet": {
 							"properties": {
-								"speed": 150,
+								"speed": 100,
 								"acceleration": 0,
 								"gravity": 0,
 								"bounce-off-solids": false,
