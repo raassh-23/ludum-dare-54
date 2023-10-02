@@ -545,7 +545,7 @@
 						},
 						"Bullet": {
 							"properties": {
-								"speed": 300,
+								"speed": 250,
 								"acceleration": 0,
 								"gravity": 0,
 								"bounce-off-solids": true,
@@ -564,8 +564,8 @@
 						}
 					},
 					"world": {
-						"x": 664.6241858242719,
-						"y": 358.2310433759497,
+						"x": 696.3160268283443,
+						"y": 354.952587127764,
 						"width": 24,
 						"height": 24,
 						"originX": 0.5,
@@ -829,7 +829,7 @@
 						},
 						"Bullet": {
 							"properties": {
-								"speed": 225,
+								"speed": 175,
 								"acceleration": 0,
 								"gravity": 0,
 								"bounce-off-solids": true,
