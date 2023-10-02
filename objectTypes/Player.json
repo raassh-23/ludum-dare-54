@@ -8,8 +8,22 @@
 			"name": "targetDisplayAngle",
 			"type": "number",
 			"desc": "",
-			"show": true,
+			"show": false,
 			"sid": 225985902757350
+		},
+		{
+			"name": "targetHeight",
+			"type": "number",
+			"desc": "",
+			"show": false,
+			"sid": 500390965465233
+		},
+		{
+			"name": "targetWidth",
+			"type": "number",
+			"desc": "",
+			"show": false,
+			"sid": 402548431476021
 		}
 	],
 	"behaviorTypes": [
@@ -37,7 +51,7 @@
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 1228336,
+						"imageSpriteId": 1820189,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""

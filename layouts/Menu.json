@@ -287,7 +287,7 @@
 						{
 							"type": "Text",
 							"properties": {
-								"text": "Play",
+								"text": "[u]Play[/u]",
 								"enable-bbcode": true,
 								"font": "Lato-Regular",
 								"size": 36,
@@ -1712,7 +1712,7 @@
 						{
 							"type": "Text",
 							"properties": {
-								"text": "Back",
+								"text": "[u]Back[/u]",
 								"enable-bbcode": true,
 								"font": "Lato-Regular",
 								"size": 36,
@@ -1911,7 +1911,7 @@
 				{
 					"type": "Text",
 					"properties": {
-						"text": "Leaderboard",
+						"text": "[u]Leaderboard[/u]",
 						"enable-bbcode": true,
 						"font": "Lato-Regular",
 						"size": 36,

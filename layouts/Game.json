@@ -227,7 +227,7 @@
 				{
 					"type": "Player",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -235,12 +235,14 @@
 					},
 					"uid": 3,
 					"instanceVariables": {
-						"targetDisplayAngle": 0
+						"targetDisplayAngle": 0,
+						"targetHeight": 0,
+						"targetWidth": 0
 					},
 					"behaviors": {
 						"Platform": {
 							"properties": {
-								"max-speed": 330,
+								"max-speed": 300,
 								"acceleration": 1500,
 								"deceleration": 1500,
 								"jump-strength": 650,
@@ -258,9 +260,54 @@
 							}
 						}
 					},
+					"sceneGraphData": {
+						"parent-uid": null,
+						"uid": 3,
+						"children": [
+							{
+								"uid": 17,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": false,
+									"h": false,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								}
+							}
+						],
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
 					"world": {
 						"x": 150,
-						"y": 397,
+						"y": 441.15063253934215,
 						"width": 32,
 						"height": 32,
 						"originX": 0.5,
@@ -286,7 +333,13 @@
 					},
 					"uid": 5,
 					"instanceVariables": {},
-					"behaviors": {},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
 					"world": {
 						"x": 287,
 						"y": 244,
@@ -611,6 +664,73 @@
 						"width": 100,
 						"height": 100,
 						"originX": 0,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "PlayerAnimation",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 17,
+					"instanceVariables": {
+						"targetDisplayAngle": 0,
+						"targetHeight": 0,
+						"targetWidth": 0
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"sceneGraphData": {
+						"parent-uid": 3,
+						"uid": 17,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": false,
+							"h": false,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"world": {
+						"x": 150,
+						"y": 441.15063253934215,
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
 							1,
@@ -1220,7 +1340,7 @@
 								{
 									"type": "Text",
 									"properties": {
-										"text": "Submit",
+										"text": "[u]Submit[/u]",
 										"enable-bbcode": true,
 										"font": "Lato-Regular",
 										"size": 24,
@@ -1449,7 +1569,7 @@
 				{
 					"type": "Text",
 					"properties": {
-						"text": "Back",
+						"text": "[u]Back[/u]",
 						"enable-bbcode": true,
 						"font": "Lato-Regular",
 						"size": 36,

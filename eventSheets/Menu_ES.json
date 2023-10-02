@@ -118,9 +118,9 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-touched-object",
+					"id": "on-tap-object",
 					"objectClass": "Touch",
-					"sid": 783777215434833,
+					"sid": 554214870265314,
 					"parameters": {
 						"object": "Text"
 					}
@@ -345,6 +345,14 @@
 					}
 				},
 				{
+					"id": "set-text",
+					"objectClass": "Text",
+					"sid": 245743637526213,
+					"parameters": {
+						"text": "\"Leaderboard\""
+					}
+				},
+				{
 					"id": "wait-for-previous-actions",
 					"objectClass": "System",
 					"sid": 858060162571857
@@ -417,6 +425,14 @@
 					"id": "wait-for-previous-actions",
 					"objectClass": "System",
 					"sid": 847004345850427
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Text",
+					"sid": 821621491260698,
+					"parameters": {
+						"text": "\"[u]Leaderboard[/u]\""
+					}
 				},
 				{
 					"id": "set-layer-interactive",

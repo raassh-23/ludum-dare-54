@@ -154,7 +154,8 @@
 			"TextInput",
 			"Date",
 			"Ground",
-			"Particles"
+			"Particles",
+			"PlayerAnimation"
 		],
 		"subfolders": []
 	},

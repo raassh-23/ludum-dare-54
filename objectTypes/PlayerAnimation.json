@@ -1,14 +1,36 @@
 {
-	"name": "Coin",
+	"name": "PlayerAnimation",
 	"plugin-id": "Sprite",
-	"sid": 517906638368022,
+	"sid": 991973027860700,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "targetDisplayAngle",
+			"type": "number",
+			"desc": "",
+			"show": false,
+			"sid": 474140457504118
+		},
+		{
+			"name": "targetHeight",
+			"type": "number",
+			"desc": "",
+			"show": false,
+			"sid": 159532466399653
+		},
+		{
+			"name": "targetWidth",
+			"type": "number",
+			"desc": "",
+			"show": false,
+			"sid": 324169306563111
+		}
+	],
 	"behaviorTypes": [
 		{
 			"behaviorId": "Tween",
 			"name": "Tween",
-			"sid": 867687443437232
+			"sid": 452556320459180
 		}
 	],
 	"effectTypes": [],
@@ -17,42 +39,20 @@
 			{
 				"frames": [
 					{
-						"width": 128,
-						"height": 128,
+						"width": 32,
+						"height": 32,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 1535952,
-						"collisionPoly": {
-							"points": [
-								0.5,
-								0,
-								0.5625,
-								0,
-								1,
-								0.375,
-								1,
-								0.4375,
-								0.8125,
-								1,
-								0.1875,
-								1,
-								0,
-								0.4375,
-								0,
-								0.375,
-								0.0625,
-								0.3125
-							]
-						},
+						"imageSpriteId": 4969464,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 835943838188491,
+				"sid": 877346124679771,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,
