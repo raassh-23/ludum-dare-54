@@ -550,7 +550,7 @@
 								"gravity": 0,
 								"bounce-off-solids": true,
 								"set-angle": false,
-								"step": false,
+								"step": true,
 								"enabled": false
 							}
 						},
@@ -834,7 +834,7 @@
 								"gravity": 0,
 								"bounce-off-solids": true,
 								"set-angle": true,
-								"step": false,
+								"step": true,
 								"enabled": false
 							}
 						},
