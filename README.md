@@ -1,7 +1,8 @@
 # Boxed In
 
 <p align="center">
-  <img src="./readme-images/cover.png" alt="Cover">
+  <img src="./readme-images/cover.png" 
+  height="256px" alt="Cover">
 </p>
 
 A casual game made with [Construct 3](https://construct.net/) for [Ludum Dare 54](https://ldjam.com/events/ludum-dare/54). The theme was "Limited Space".

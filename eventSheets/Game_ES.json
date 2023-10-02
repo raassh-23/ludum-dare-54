@@ -1202,6 +1202,10 @@
 										{
 											"callFunction": "PlayBGMMenu",
 											"sid": 812792346783990
+										},
+										{
+											"type": "script",
+											"script": "setupTextInput(\"name\", () => {\n\taddToLeaderboard(runtime);\n})"
 										}
 									],
 									"sid": 854783208215002

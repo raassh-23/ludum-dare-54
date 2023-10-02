@@ -37,7 +37,7 @@ async function getLeaderboard(runtime) {
             textName.text = name;
             textScore.text = `${item.score}`;
 
-            while (textName.textWidth > textName.width - 16) {
+            while (textName.textWidth > textName.width - 18) {
                 textName.text = textName.text.slice(0, -1);
             }
 
@@ -128,4 +128,12 @@ function resizeFont(id, multiplier) {
     element.style.fontSize = `${fontSize}px`;
     element.style.paddingLeft = paddingHorizontalString;
     element.style.paddingRight = paddingHorizontalString;
+}
+
+function setupTextInput(id, onEnter) {
+    document.getElementById(id).addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            onEnter();
+        }
+    });
 }
