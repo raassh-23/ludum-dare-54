@@ -4416,56 +4416,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "key-is-down",
-					"objectClass": "Keyboard",
-					"sid": 303328069010729,
-					"parameters": {
-						"key": 17
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-collisions-enabled",
-					"objectClass": "Player",
-					"sid": 894580165674323,
-					"parameters": {
-						"collisions": "enabled"
-					}
-				}
-			],
-			"sid": 195812533186222,
-			"disabled": true
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "key-is-down",
-					"objectClass": "Keyboard",
-					"sid": 384009032430012,
-					"parameters": {
-						"key": 16
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-collisions-enabled",
-					"objectClass": "Player",
-					"sid": 552551401181786,
-					"parameters": {
-						"collisions": "disabled"
-					}
-				}
-			],
-			"sid": 111027631823618,
-			"disabled": true
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "on-key-pressed",
 					"objectClass": "Keyboard",
 					"sid": 381591014665588,
