@@ -163,7 +163,8 @@
 			"Ground",
 			"Particles",
 			"PlayerAnimation",
-			"SineEnemy"
+			"SineEnemy",
+			"BouncingRotatingEnemy"
 		],
 		"subfolders": []
 	},
