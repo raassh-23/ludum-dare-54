@@ -172,7 +172,8 @@
 			"PlayerAnimation",
 			"SineEnemy",
 			"BouncingRotatingEnemy",
-			"Audio"
+			"Audio",
+			"Coin"
 		],
 		"subfolders": []
 	},

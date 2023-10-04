@@ -46,6 +46,16 @@
 			"sid": 321782595865981
 		},
 		{
+			"eventType": "variable",
+			"name": "coins",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 760501576129302
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Keyboard",
@@ -3532,6 +3542,11 @@
 					}
 				},
 				{
+					"id": "destroy",
+					"objectClass": "Coin",
+					"sid": 744526545887423
+				},
+				{
 					"id": "set-layer-interactive",
 					"objectClass": "System",
 					"sid": 505426242528275,
@@ -3834,6 +3849,119 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-created",
+					"objectClass": "Coin",
+					"sid": 971740701001786
+				}
+			],
+			"actions": [
+				{
+					"id": "set-size",
+					"objectClass": "Coin",
+					"sid": 914403200191974,
+					"parameters": {
+						"width": "0",
+						"height": "0"
+					}
+				}
+			],
+			"sid": 917214685708743,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "randomPosition",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 903170862191261
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 255341435699395,
+							"parameters": {
+								"variable": "randomPosition",
+								"value": "Functions.getRandomPosition(48, 100)"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Coin",
+							"sid": 242091433330573,
+							"parameters": {
+								"x": "int(tokenat(randomPosition, 0, \"|\"))",
+								"y": "int(tokenat(randomPosition, 1, \"|\"))"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Coin",
+							"sid": 502062091598050,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"Scale\"",
+								"property": "size",
+								"end-x": "24",
+								"end-y": "24",
+								"time": "0.5",
+								"ease": "easeoutelastic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 593878191451959
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 534328174243120,
+					"parameters": {
+						"first-value": "score % 10",
+						"comparison": 0,
+						"second-value": "0"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 827481195225494
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 341988801655131,
+					"parameters": {
+						"object-to-create": "Coin",
+						"layer": "\"Game\"",
+						"x": "-100",
+						"y": "-100",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 798235657401641
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-collision-with-another-object",
 					"objectClass": "Player",
 					"sid": 855020511617826,
@@ -3910,6 +4038,89 @@
 						}
 					],
 					"sid": 803859268130031
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 235750954224830,
+					"parameters": {
+						"object": "Coin"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "PlayStar",
+					"sid": 557053611182581
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Coin",
+					"sid": 727531011218650
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 589215787207504,
+					"parameters": {
+						"variable": "coins",
+						"value": "1"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 149571901684094,
+					"parameters": {
+						"object-to-create": "Coin",
+						"layer": "\"Game\"",
+						"x": "-100",
+						"y": "-100",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 974482097786627,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 549197522593663,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"score\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 519303324618863,
+							"parameters": {
+								"text": "score"
+							}
+						},
+						{
+							"customAction": "AnimateText",
+							"objectClass": "Text",
+							"sid": 218231037003523,
+							"parameters": [
+								"0.2"
+							]
+						}
+					],
+					"sid": 204937509665279
 				}
 			]
 		},
