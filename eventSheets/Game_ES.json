@@ -3902,13 +3902,13 @@
 						{
 							"id": "tween-two-properties",
 							"objectClass": "Coin",
-							"sid": 502062091598050,
+							"sid": 732282295473062,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"Scale\"",
 								"property": "size",
-								"end-x": "24",
-								"end-y": "24",
+								"end-x": "16",
+								"end-y": "16",
 								"time": "0.5",
 								"ease": "easeoutelastic",
 								"destroy-on-complete": "no",
@@ -3926,9 +3926,19 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 442483106529867,
+					"parameters": {
+						"variable": "score",
+						"comparison": 4,
+						"value": "0"
+					}
+				},
+				{
 					"id": "compare-two-values",
 					"objectClass": "System",
-					"sid": 534328174243120,
+					"sid": 169113605056962,
 					"parameters": {
 						"first-value": "score % 10",
 						"comparison": 0,
@@ -4071,58 +4081,9 @@
 						"variable": "coins",
 						"value": "1"
 					}
-				},
-				{
-					"id": "create-object",
-					"objectClass": "System",
-					"sid": 149571901684094,
-					"parameters": {
-						"object-to-create": "Coin",
-						"layer": "\"Game\"",
-						"x": "-100",
-						"y": "-100",
-						"create-hierarchy": false,
-						"template-name": "\"\""
-					}
 				}
 			],
-			"sid": 974482097786627,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Text",
-							"sid": 549197522593663,
-							"parameters": {
-								"instance-variable": "id",
-								"comparison": 0,
-								"value": "\"score\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "Text",
-							"sid": 519303324618863,
-							"parameters": {
-								"text": "score"
-							}
-						},
-						{
-							"customAction": "AnimateText",
-							"objectClass": "Text",
-							"sid": 218231037003523,
-							"parameters": [
-								"0.2"
-							]
-						}
-					],
-					"sid": 204937509665279
-				}
-			]
+			"sid": 974482097786627
 		},
 		{
 			"aceType": "action",
