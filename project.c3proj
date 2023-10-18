@@ -1,7 +1,7 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 35800,
-	"name": "ludum-dare-54",
+	"savedWithRelease": 36300,
+	"name": "Boxed In",
 	"runtime": "c3",
 	"useWorker": "auto",
 	"bundleAddons": false,
@@ -91,6 +91,13 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "advert",
+			"name": "Mobile advert",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "Bullet",
 			"name": "Bullet",
@@ -173,7 +180,8 @@
 			"SineEnemy",
 			"BouncingRotatingEnemy",
 			"Audio",
-			"Coin"
+			"Coin",
+			"MobileAdvert"
 		],
 		"subfolders": []
 	},
@@ -408,12 +416,12 @@
 		]
 	},
 	"properties": {
-		"description": "",
+		"description": "Collect all the stars",
 		"version": "1.0.0.0",
 		"author": "RushHourDream",
 		"authorEmail": "",
 		"authorWebsite": "",
-		"appId": "",
+		"appId": "com.raassh.boxedin",
 		"pixelRounding": false,
 		"zAxisScale": "normalized",
 		"fov": 0.7853981633974483,

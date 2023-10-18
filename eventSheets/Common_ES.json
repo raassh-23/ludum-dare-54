@@ -253,6 +253,106 @@
 				}
 			],
 			"sid": 963683315251597
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-configuration-complete",
+					"objectClass": "MobileAdvert",
+					"sid": 673193890099174
+				}
+			],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 544017029914927,
+					"parameters": {
+						"type": "log",
+						"message": "\"Ad configured success\""
+					}
+				},
+				{
+					"id": "create-banner",
+					"objectClass": "MobileAdvert",
+					"sid": 795825221269977,
+					"parameters": {
+						"advert-id": "\"ca-app-pub-9641841573410059/1868766855\"",
+						"banner-size": "portrait",
+						"show": "true",
+						"position": "bottom",
+						"reload": "false"
+					}
+				}
+			],
+			"sid": 521684297796388
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-configuration-failed",
+					"objectClass": "MobileAdvert",
+					"sid": 680893091220389
+				}
+			],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 332900517372300,
+					"parameters": {
+						"type": "log",
+						"message": "\"Ad configured failed\""
+					}
+				}
+			],
+			"sid": 931004423397688
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-banner-shown",
+					"objectClass": "MobileAdvert",
+					"sid": 391588339086817
+				}
+			],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 492112079165925,
+					"parameters": {
+						"type": "log",
+						"message": "\"banner shown success\""
+					}
+				}
+			],
+			"sid": 573715656908669
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-banner-failed-to-load",
+					"objectClass": "MobileAdvert",
+					"sid": 750314537737419
+				}
+			],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 571976919214069,
+					"parameters": {
+						"type": "log",
+						"message": "\"banner shown failed\""
+					}
+				}
+			],
+			"sid": 376886820793422
 		}
 	],
 	"sid": 896154704981924

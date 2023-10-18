@@ -1,0 +1,20 @@
+{
+	"name": "MobileAdvert",
+	"plugin-id": "advert",
+	"sid": 216851981893294,
+	"singleglobal-inst": {
+		"type": "MobileAdvert",
+		"properties": {
+			"test-mode": true,
+			"application-id": "ca-app-pub-9641841573410059~2617961490",
+			"ios-application-id": "",
+			"debug-location": "disabled",
+			"show-on-start-up": true,
+			"publisher-id": "",
+			"show-ad-free-option": false,
+			"privacy-policy": "",
+			"show-consent": "eu"
+		},
+		"uid": 69
+	}
+}
