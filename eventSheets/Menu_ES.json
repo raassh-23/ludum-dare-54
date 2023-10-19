@@ -880,6 +880,24 @@
 						}
 					],
 					"sid": 717655601156022
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-loaded-rewarded",
+							"objectClass": "MobileAdvert",
+							"sid": 849094537941225,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetupInterstitialAd",
+							"sid": 994905036393441
+						}
+					],
+					"sid": 570172435018544
 				}
 			]
 		}

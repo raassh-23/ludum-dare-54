@@ -52,6 +52,16 @@
 			"sid": 783125961163187
 		},
 		{
+			"eventType": "variable",
+			"name": "REWARD_COUNTDOWN",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 119325247056329
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -374,6 +384,61 @@
 			]
 		},
 		{
+			"functionName": "ShowVideoAd",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 174643428295222,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-loaded-rewarded",
+							"objectClass": "MobileAdvert",
+							"sid": 241854706208677
+						}
+					],
+					"actions": [
+						{
+							"id": "show-rewarded",
+							"objectClass": "MobileAdvert",
+							"sid": 167843536682440
+						}
+					],
+					"sid": 168565608703731
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 470032763837521
+						},
+						{
+							"id": "is-configured",
+							"objectClass": "MobileAdvert",
+							"sid": 281995665938937
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetupRewardedAd",
+							"sid": 177621710605928
+						}
+					],
+					"sid": 246991443508250
+				}
+			]
+		},
+		{
 			"functionName": "ShowBannerAd",
 			"functionDescription": "",
 			"functionCategory": "",
@@ -423,6 +488,29 @@
 			"sid": 137042503088671
 		},
 		{
+			"functionName": "SetupRewardedAd",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "create-rewarded",
+					"objectClass": "MobileAdvert",
+					"sid": 367159372117073,
+					"parameters": {
+						"advert-id": "REWARDED_UNIT_ID",
+						"show": "false"
+					}
+				}
+			],
+			"sid": 371273031767963
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -448,6 +536,29 @@
 				}
 			],
 			"sid": 465516559632296,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-rewarded-failed-to-load",
+					"objectClass": "MobileAdvert",
+					"sid": 168042586656128
+				},
+				{
+					"id": "on-rewarded-cancelled",
+					"objectClass": "MobileAdvert",
+					"sid": 468196390400441
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SetupRewardedAd",
+					"sid": 677427623682182
+				}
+			],
+			"sid": 974699482016471,
 			"isOrBlock": true
 		}
 	],
