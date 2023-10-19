@@ -2,6 +2,16 @@
 	"name": "Common_ES",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "BANNER_UNIT_ID",
+			"type": "string",
+			"initialValue": "ca-app-pub-3940256099942544/6300978111",
+			"comment": "real: ca-app-pub-9641841573410059/1868766855",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 204585355228074
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -276,17 +286,45 @@
 				{
 					"id": "create-banner",
 					"objectClass": "MobileAdvert",
-					"sid": 795825221269977,
+					"sid": 732525711995832,
 					"parameters": {
-						"advert-id": "\"ca-app-pub-9641841573410059/1868766855\"",
+						"advert-id": "BANNER_UNIT_ID",
 						"banner-size": "portrait",
 						"show": "true",
 						"position": "bottom",
-						"reload": "false"
+						"reload": "true"
 					}
 				}
 			],
-			"sid": 521684297796388
+			"sid": 521684297796388,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 522372975055567,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"debug\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 705771994259157,
+							"parameters": {
+								"text": "\"Ad configured success\""
+							}
+						}
+					],
+					"sid": 504043316993759
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -308,7 +346,35 @@
 					}
 				}
 			],
-			"sid": 931004423397688
+			"sid": 931004423397688,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 782678085568343,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"debug\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 985671998745785,
+							"parameters": {
+								"text": "\"Ad configured failed\" & newline & MobileAdvert.ErrorMessage"
+							}
+						}
+					],
+					"sid": 650704524472274
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -330,7 +396,35 @@
 					}
 				}
 			],
-			"sid": 573715656908669
+			"sid": 573715656908669,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 703244981724132,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"debug\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 567967802018464,
+							"parameters": {
+								"text": "\"banner shown success\""
+							}
+						}
+					],
+					"sid": 939433133332159
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -352,7 +446,35 @@
 					}
 				}
 			],
-			"sid": 376886820793422
+			"sid": 376886820793422,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 633402118263056,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"debug\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 934762887841270,
+							"parameters": {
+								"text": "\"banner shown failed\" & newline & MobileAdvert.ErrorMessage"
+							}
+						}
+					],
+					"sid": 194506625505895
+				}
+			]
 		}
 	],
 	"sid": 896154704981924
