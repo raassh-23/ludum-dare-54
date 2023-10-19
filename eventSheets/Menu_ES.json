@@ -624,6 +624,15 @@
 					],
 					"actions": [
 						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 782271473338916,
+							"parameters": {
+								"variable": "timeToInterstitial",
+								"value": "1"
+							}
+						},
+						{
 							"id": "set-position",
 							"objectClass": "Blank",
 							"sid": 357533626974781,
@@ -631,27 +640,58 @@
 								"x": "0",
 								"y": "0"
 							}
-						},
-						{
-							"id": "tween-two-properties",
-							"objectClass": "Blank",
-							"sid": 626577308968174,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"layoutTransition\"",
-								"property": "position",
-								"end-x": "LayoutWidth",
-								"end-y": "LayoutHeight",
-								"time": "0.5",
-								"ease": "easeinsine",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
-							}
 						}
 					],
-					"sid": 107485802672193
+					"sid": 107485802672193,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 928695898923075,
+									"parameters": {
+										"variable": "timeToInterstitial",
+										"comparison": 5,
+										"value": "INTERSTITIAL_LIMIT"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "ShowInterstitialAd",
+									"sid": 792863471870359
+								}
+							],
+							"sid": 130210075658678
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Blank",
+									"sid": 295817590813175,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"layoutTransition\"",
+										"property": "position",
+										"end-x": "LayoutWidth",
+										"end-y": "LayoutHeight",
+										"time": "0.5",
+										"ease": "easeinsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 668391768724544
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -790,6 +830,56 @@
 						}
 					],
 					"sid": 749275785027667
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-configuration-complete",
+					"objectClass": "MobileAdvert",
+					"sid": 673193890099174
+				}
+			],
+			"actions": [],
+			"sid": 521684297796388,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-showing-banner",
+							"objectClass": "MobileAdvert",
+							"sid": 736031224925525,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ShowBannerAd",
+							"sid": 944246777454957
+						}
+					],
+					"sid": 897744623783747
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-loaded-interstitial",
+							"objectClass": "MobileAdvert",
+							"sid": 449049149458969,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetupInterstitialAd",
+							"sid": 692541743308113
+						}
+					],
+					"sid": 717655601156022
 				}
 			]
 		}

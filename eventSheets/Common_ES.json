@@ -12,6 +12,46 @@
 			"sid": 204585355228074
 		},
 		{
+			"eventType": "variable",
+			"name": "INTERSTITIAL_UNIT_ID",
+			"type": "string",
+			"initialValue": "ca-app-pub-3940256099942544/1033173712",
+			"comment": "real: ",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 309897205955002
+		},
+		{
+			"eventType": "variable",
+			"name": "REWARDED_UNIT_ID",
+			"type": "string",
+			"initialValue": "ca-app-pub-3940256099942544/5224354917",
+			"comment": "real: ",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 383552012919200
+		},
+		{
+			"eventType": "variable",
+			"name": "timeToInterstitial",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 385620223325697
+		},
+		{
+			"eventType": "variable",
+			"name": "INTERSTITIAL_LIMIT",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 783125961163187
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -265,28 +305,89 @@
 			"sid": 963683315251597
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"functionName": "ShowInterstitialAd",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 727050346638116,
+			"children": [
 				{
-					"id": "on-configuration-complete",
-					"objectClass": "MobileAdvert",
-					"sid": 673193890099174
-				}
-			],
-			"actions": [
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 544017029914927,
-					"parameters": {
-						"type": "log",
-						"message": "\"Ad configured success\""
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-loaded-interstitial",
+							"objectClass": "MobileAdvert",
+							"sid": 977668286783455
+						}
+					],
+					"actions": [
+						{
+							"id": "show-interstitial",
+							"objectClass": "MobileAdvert",
+							"sid": 469539273895496
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 679672605819951
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 816318014342754,
+							"parameters": {
+								"variable": "timeToInterstitial",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 498086293586758
 				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 411170564843642
+						},
+						{
+							"id": "is-configured",
+							"objectClass": "MobileAdvert",
+							"sid": 561432985190029
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetupInterstitialAd",
+							"sid": 720236337699404
+						}
+					],
+					"sid": 956894167261528
+				}
+			]
+		},
+		{
+			"functionName": "ShowBannerAd",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
 				{
 					"id": "create-banner",
 					"objectClass": "MobileAdvert",
-					"sid": 732525711995832,
+					"sid": 798073913349176,
 					"parameters": {
 						"advert-id": "BANNER_UNIT_ID",
 						"banner-size": "portrait",
@@ -296,185 +397,58 @@
 					}
 				}
 			],
-			"sid": 521684297796388,
-			"children": [
+			"sid": 526608031360152
+		},
+		{
+			"functionName": "SetupInterstitialAd",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Text",
-							"sid": 522372975055567,
-							"parameters": {
-								"instance-variable": "id",
-								"comparison": 0,
-								"value": "\"debug\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "Text",
-							"sid": 705771994259157,
-							"parameters": {
-								"text": "\"Ad configured success\""
-							}
-						}
-					],
-					"sid": 504043316993759
+					"id": "create-interstitial",
+					"objectClass": "MobileAdvert",
+					"sid": 851577900887082,
+					"parameters": {
+						"advert-id": "INTERSTITIAL_UNIT_ID",
+						"show": "false"
+					}
 				}
-			]
+			],
+			"sid": 137042503088671
 		},
 		{
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-configuration-failed",
+					"id": "on-interstitial-complete",
 					"objectClass": "MobileAdvert",
-					"sid": 680893091220389
+					"sid": 809118087763107
+				},
+				{
+					"id": "on-interstitial-cancelled",
+					"objectClass": "MobileAdvert",
+					"sid": 904454229917670
+				},
+				{
+					"id": "on-interstitial-failed-to-load",
+					"objectClass": "MobileAdvert",
+					"sid": 253452002008192
 				}
 			],
 			"actions": [
 				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 332900517372300,
-					"parameters": {
-						"type": "log",
-						"message": "\"Ad configured failed\""
-					}
+					"callFunction": "SetupInterstitialAd",
+					"sid": 720986702533690
 				}
 			],
-			"sid": 931004423397688,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Text",
-							"sid": 782678085568343,
-							"parameters": {
-								"instance-variable": "id",
-								"comparison": 0,
-								"value": "\"debug\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "Text",
-							"sid": 985671998745785,
-							"parameters": {
-								"text": "\"Ad configured failed\" & newline & MobileAdvert.ErrorMessage"
-							}
-						}
-					],
-					"sid": 650704524472274
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-banner-shown",
-					"objectClass": "MobileAdvert",
-					"sid": 391588339086817
-				}
-			],
-			"actions": [
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 492112079165925,
-					"parameters": {
-						"type": "log",
-						"message": "\"banner shown success\""
-					}
-				}
-			],
-			"sid": 573715656908669,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Text",
-							"sid": 703244981724132,
-							"parameters": {
-								"instance-variable": "id",
-								"comparison": 0,
-								"value": "\"debug\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "Text",
-							"sid": 567967802018464,
-							"parameters": {
-								"text": "\"banner shown success\""
-							}
-						}
-					],
-					"sid": 939433133332159
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-banner-failed-to-load",
-					"objectClass": "MobileAdvert",
-					"sid": 750314537737419
-				}
-			],
-			"actions": [
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 571976919214069,
-					"parameters": {
-						"type": "log",
-						"message": "\"banner shown failed\""
-					}
-				}
-			],
-			"sid": 376886820793422,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Text",
-							"sid": 633402118263056,
-							"parameters": {
-								"instance-variable": "id",
-								"comparison": 0,
-								"value": "\"debug\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "Text",
-							"sid": 934762887841270,
-							"parameters": {
-								"text": "\"banner shown failed\" & newline & MobileAdvert.ErrorMessage"
-							}
-						}
-					],
-					"sid": 194506625505895
-				}
-			]
+			"sid": 465516559632296,
+			"isOrBlock": true
 		}
 	],
 	"sid": 896154704981924
