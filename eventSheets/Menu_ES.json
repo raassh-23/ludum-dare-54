@@ -893,8 +893,8 @@
 					],
 					"actions": [
 						{
-							"callFunction": "SetupInterstitialAd",
-							"sid": 994905036393441
+							"callFunction": "SetupRewardedAd",
+							"sid": 800239355316789
 						}
 					],
 					"sid": 570172435018544

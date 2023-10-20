@@ -384,7 +384,7 @@
 			]
 		},
 		{
-			"functionName": "ShowVideoAd",
+			"functionName": "ShowRewardedAd",
 			"functionDescription": "",
 			"functionCategory": "",
 			"functionReturnType": "none",

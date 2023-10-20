@@ -1065,6 +1065,169 @@
 							"sid": 161568356396262
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Player",
+							"sid": 397317192001508
+						}
+					],
+					"actions": [],
+					"sid": 701040676650493,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 206904285110468,
+									"parameters": {
+										"variable": "type",
+										"comparison": 0,
+										"value": "\"desktop\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-jump-strength",
+									"objectClass": "Player",
+									"sid": 526111889212355,
+									"behaviorType": "Platform",
+									"parameters": {
+										"jump-strength": "700"
+									}
+								}
+							],
+							"sid": 122143232537782
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 212236532326654,
+									"parameters": {
+										"variable": "type",
+										"comparison": 0,
+										"value": "\"mobile\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-jump-strength",
+									"objectClass": "Player",
+									"sid": 774047239303441,
+									"behaviorType": "Platform",
+									"parameters": {
+										"jump-strength": "825"
+									}
+								}
+							],
+							"sid": 169213154227085
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Player",
+									"sid": 387140511454659,
+									"parameters": {
+										"child": "PlayerAnimation",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "PlayerAnimation",
+									"sid": 626484798462877,
+									"parameters": {
+										"opacity": "0"
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "PlayerAnimation",
+									"sid": 198384046890488,
+									"parameters": {
+										"width": "0",
+										"height": "0"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 339895262380523,
+									"parameters": {
+										"seconds": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "PlayerAnimation",
+									"sid": 446303346762468,
+									"parameters": {
+										"instance-variable": "targetHeight",
+										"value": "dieHeight <> 0 & hasRevived ? dieHeight : 32"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "PlayerAnimation",
+									"sid": 491534684725038,
+									"parameters": {
+										"instance-variable": "targetWidth",
+										"value": "dieWidth <> 0 & hasRevived ? dieWidth : 32"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "PlayerAnimation",
+									"sid": 682981744715226,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"FadeIn\"",
+										"property": "offsetOpacity",
+										"end-value": "100",
+										"time": "0.5",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "PlayerAnimation",
+									"sid": 445713145976461,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"Scale\"",
+										"property": "size",
+										"end-x": "Self.targetWidth",
+										"end-y": "Self.targetHeight",
+										"time": "0.5",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 279517083160080
+						}
+					]
 				}
 			],
 			"sid": 905388039738711
@@ -1202,31 +1365,37 @@
 									"sid": 337920457128162,
 									"parameters": {
 										"variable": "hasRevived"
-									}
-								},
-								{
-									"id": "is-configured",
-									"objectClass": "MobileAdvert",
-									"sid": 783856089877762,
-									"disabled": true,
+									},
 									"isInverted": true
 								},
 								{
 									"id": "is-loaded-rewarded",
 									"objectClass": "MobileAdvert",
 									"sid": 348226806525428,
-									"disabled": true,
-									"isInverted": true
+									"disabled": true
 								}
 							],
 							"actions": [
 								{
-									"callFunction": "GameOver",
-									"sid": 935948428257338
+									"id": "start-timer",
+									"objectClass": "TimerManager",
+									"sid": 888671671480266,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "REWARD_COUNTDOWN",
+										"type": "once",
+										"tag": "\"RewardCountdown\""
+									}
+								},
+								{
+									"callFunction": "SetReviveView",
+									"sid": 414141079083434,
+									"parameters": [
+										true
+									]
 								}
 							],
-							"sid": 230914732725886,
-							"isOrBlock": true
+							"sid": 230914732725886
 						},
 						{
 							"eventType": "block",
@@ -1235,72 +1404,12 @@
 									"id": "else",
 									"objectClass": "System",
 									"sid": 990486398008343
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Text",
-									"sid": 386603236051848,
-									"parameters": {
-										"instance-variable": "id",
-										"comparison": 0,
-										"value": "\"watch-ad-title\""
-									}
 								}
 							],
 							"actions": [
 								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 966809140372907,
-									"parameters": {
-										"layer": "\"Revive\"",
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-layer-interactive",
-									"objectClass": "System",
-									"sid": 994052004505093,
-									"parameters": {
-										"layer": "\"Revive\"",
-										"interactive": true
-									}
-								},
-								{
-									"id": "set-opacity",
-									"objectClass": "Text",
-									"sid": 248784695702591,
-									"parameters": {
-										"opacity": "0"
-									}
-								},
-								{
-									"id": "tween-one-property",
-									"objectClass": "Text",
-									"sid": 129137975571509,
-									"behaviorType": "Tween",
-									"parameters": {
-										"tags": "\"FadeIn\"",
-										"property": "offsetOpacity",
-										"end-value": "100",
-										"time": "0.5",
-										"ease": "easeoutsine",
-										"destroy-on-complete": "no",
-										"loop": "no",
-										"ping-pong": "no",
-										"repeat-count": "1"
-									}
-								},
-								{
-									"id": "start-timer",
-									"objectClass": "TimerManager",
-									"sid": 122728024350981,
-									"behaviorType": "Timer",
-									"parameters": {
-										"duration": "REWARD_COUNTDOWN",
-										"type": "once",
-										"tag": "\"RewardCountdown\""
-									}
+									"callFunction": "GameOver",
+									"sid": 808005184044554
 								}
 							],
 							"sid": 628954141342118
@@ -4611,16 +4720,8 @@
 					],
 					"actions": [
 						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 113479032794004,
-							"parameters": {
-								"seconds": "0.1"
-							}
-						},
-						{
-							"callFunction": "Respawn",
-							"sid": 618962563565797
+							"callFunction": "ShowRewardedAd",
+							"sid": 145882733122986
 						}
 					],
 					"sid": 204301447578986
@@ -5085,58 +5186,19 @@
 				},
 				{
 					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Text",
-							"sid": 809023634197000,
-							"parameters": {
-								"instance-variable": "id",
-								"comparison": 0,
-								"value": "\"watch-ad-title\""
-							}
-						}
-					],
+					"conditions": [],
 					"actions": [
 						{
-							"id": "set-layer-interactive",
-							"objectClass": "System",
-							"sid": 289712559758421,
-							"parameters": {
-								"layer": "\"Revive\"",
-								"interactive": false
-							}
-						},
-						{
-							"id": "tween-one-property",
-							"objectClass": "Text",
-							"sid": 785215977610552,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"FadeOut\"",
-								"property": "offsetOpacity",
-								"end-value": "0",
-								"time": "0.5",
-								"ease": "easeoutsine",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
-							}
+							"callFunction": "SetReviveView",
+							"sid": 363119585443708,
+							"parameters": [
+								false
+							]
 						},
 						{
 							"id": "wait-for-previous-actions",
 							"objectClass": "System",
 							"sid": 445829098617033
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 113096062998267,
-							"parameters": {
-								"layer": "\"Revive\"",
-								"visibility": "invisible"
-							}
 						},
 						{
 							"callFunction": "GameOver",
@@ -5252,29 +5314,180 @@
 							"parameters": {
 								"angle": "dieGravity"
 							}
+						},
+						{
+							"callFunction": "SetReviveView",
+							"sid": 241829114618332,
+							"parameters": [
+								false
+							]
 						}
 					],
 					"sid": 366317720163405
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-rewarded-complete",
+					"objectClass": "MobileAdvert",
+					"sid": 918295908668067
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Respawn",
+					"sid": 618962563565797
+				}
+			],
+			"sid": 287440878970833
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-rewarded-cancelled",
+					"objectClass": "MobileAdvert",
+					"sid": 292999511027762
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Text",
+					"sid": 993788017638954,
+					"parameters": {
+						"instance-variable": "id",
+						"comparison": 0,
+						"value": "\"watch-ad-title\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SetReviveView",
+					"sid": 562199590075073,
+					"parameters": [
+						false
+					]
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 722908466174521
+				},
+				{
+					"callFunction": "GameOver",
+					"sid": 943621732717853
+				}
+			],
+			"sid": 947498273143830
+		},
+		{
+			"functionName": "SetReviveView",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": true,
+			"functionParameters": [
+				{
+					"name": "show",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"sid": 841381102403365
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Text",
+					"sid": 867801181852714,
+					"parameters": {
+						"instance-variable": "id",
+						"comparison": 0,
+						"value": "\"watch-ad-title\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 963208270988564,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 189758661093834,
+							"parameters": {
+								"variable": "show"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 174278982896322,
+							"parameters": {
+								"layer": "\"Revive\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 413515171919362,
+							"parameters": {
+								"layer": "\"Revive\"",
+								"interactive": true
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "Text",
+							"sid": 497129615816328,
+							"parameters": {
+								"opacity": "0"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Text",
+							"sid": 110418778519181,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"FadeIn\"",
+								"property": "offsetOpacity",
+								"end-value": "100",
+								"time": "0.5",
+								"ease": "easeoutsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 532034641661183
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "Text",
-							"sid": 656771491940248,
-							"parameters": {
-								"instance-variable": "id",
-								"comparison": 0,
-								"value": "\"watch-ad-title\""
-							}
+							"id": "else",
+							"objectClass": "System",
+							"sid": 700761292406382
 						}
 					],
 					"actions": [
 						{
 							"id": "set-layer-interactive",
 							"objectClass": "System",
-							"sid": 633258982133248,
+							"sid": 289554258935779,
 							"parameters": {
 								"layer": "\"Revive\"",
 								"interactive": false
@@ -5283,7 +5496,7 @@
 						{
 							"id": "tween-one-property",
 							"objectClass": "Text",
-							"sid": 470896033990662,
+							"sid": 945146308031585,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"FadeOut\"",
@@ -5300,121 +5513,21 @@
 						{
 							"id": "wait-for-previous-actions",
 							"objectClass": "System",
-							"sid": 736875784735272
+							"sid": 814934266747970
 						},
 						{
 							"id": "set-layer-visible",
 							"objectClass": "System",
-							"sid": 497497147710612,
+							"sid": 983403065694169,
 							"parameters": {
 								"layer": "\"Revive\"",
 								"visibility": "invisible"
 							}
 						}
 					],
-					"sid": 303666097285204
+					"sid": 560429224604725
 				}
 			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-created",
-					"objectClass": "Player",
-					"sid": 397317192001508
-				},
-				{
-					"id": "pick-children",
-					"objectClass": "Player",
-					"sid": 991017858937944,
-					"parameters": {
-						"child": "PlayerAnimation",
-						"which": "own"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 443551776711124,
-					"parameters": {
-						"seconds": "0"
-					}
-				},
-				{
-					"id": "set-instvar-value",
-					"objectClass": "PlayerAnimation",
-					"sid": 174155394265159,
-					"parameters": {
-						"instance-variable": "targetHeight",
-						"value": "dieHeight <> 0 & hasRevived ? dieHeight : 32"
-					}
-				},
-				{
-					"id": "set-instvar-value",
-					"objectClass": "PlayerAnimation",
-					"sid": 947240952204165,
-					"parameters": {
-						"instance-variable": "targetWidth",
-						"value": "dieWidth <> 0 & hasRevived ? dieWidth : 32"
-					}
-				},
-				{
-					"id": "set-opacity",
-					"objectClass": "PlayerAnimation",
-					"sid": 432373001090545,
-					"parameters": {
-						"opacity": "0"
-					}
-				},
-				{
-					"id": "set-size",
-					"objectClass": "PlayerAnimation",
-					"sid": 870539028218729,
-					"parameters": {
-						"width": "0",
-						"height": "0"
-					}
-				},
-				{
-					"id": "tween-one-property",
-					"objectClass": "PlayerAnimation",
-					"sid": 147232529912540,
-					"behaviorType": "Tween",
-					"parameters": {
-						"tags": "\"FadeIn\"",
-						"property": "offsetOpacity",
-						"end-value": "100",
-						"time": "0.5",
-						"ease": "default",
-						"destroy-on-complete": "no",
-						"loop": "no",
-						"ping-pong": "no",
-						"repeat-count": "1"
-					}
-				},
-				{
-					"id": "tween-two-properties",
-					"objectClass": "PlayerAnimation",
-					"sid": 952338486392281,
-					"behaviorType": "Tween",
-					"parameters": {
-						"tags": "\"Scale\"",
-						"property": "size",
-						"end-x": "Self.targetWidth",
-						"end-y": "Self.targetHeight",
-						"time": "0.5",
-						"ease": "default",
-						"destroy-on-complete": "no",
-						"loop": "no",
-						"ping-pong": "no",
-						"repeat-count": "1"
-					}
-				}
-			],
-			"sid": 701040676650493
 		}
 	],
 	"sid": 461194139659853
