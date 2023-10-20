@@ -5,13 +5,6 @@
 	"isGlobal": false,
 	"instanceVariables": [
 		{
-			"name": "targetDisplayAngle",
-			"type": "number",
-			"desc": "",
-			"show": false,
-			"sid": 474140457504118
-		},
-		{
 			"name": "targetHeight",
 			"type": "number",
 			"desc": "",

@@ -10,20 +10,6 @@
 			"desc": "",
 			"show": false,
 			"sid": 225985902757350
-		},
-		{
-			"name": "targetHeight",
-			"type": "number",
-			"desc": "",
-			"show": false,
-			"sid": 500390965465233
-		},
-		{
-			"name": "targetWidth",
-			"type": "number",
-			"desc": "",
-			"show": false,
-			"sid": 402548431476021
 		}
 	],
 	"behaviorTypes": [

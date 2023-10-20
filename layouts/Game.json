@@ -235,9 +235,7 @@
 					},
 					"uid": 3,
 					"instanceVariables": {
-						"targetDisplayAngle": 0,
-						"targetHeight": 0,
-						"targetWidth": 0
+						"targetDisplayAngle": 0
 					},
 					"behaviors": {
 						"Platform": {
@@ -259,6 +257,203 @@
 								"enabled": true
 							}
 						}
+					},
+					"template": {
+						"mode": "template",
+						"templateName": "player",
+						"sourceTemplateName": "",
+						"components": [
+							{
+								"id": "plugin",
+								"component": [
+									{
+										"key": "plugin",
+										"state": [
+											[
+												"initially-visible",
+												true
+											],
+											[
+												"initial-animation",
+												true
+											],
+											[
+												"initial-frame",
+												true
+											],
+											[
+												"enable-collisions",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "instance-variable",
+								"component": [
+									{
+										"key": "instance-variable",
+										"state": [
+											{
+												"iv": "targetDisplayAngle",
+												"state": true
+											}
+										]
+									}
+								]
+							},
+							{
+								"id": "behavior",
+								"component": [
+									{
+										"key": "Platform",
+										"state": [
+											[
+												"max-speed",
+												true
+											],
+											[
+												"acceleration",
+												true
+											],
+											[
+												"deceleration",
+												true
+											],
+											[
+												"jump-strength",
+												true
+											],
+											[
+												"gravity",
+												true
+											],
+											[
+												"max-fall-speed",
+												true
+											],
+											[
+												"double-jump",
+												true
+											],
+											[
+												"jump-sustain",
+												true
+											],
+											[
+												"default-controls",
+												true
+											],
+											[
+												"enabled",
+												true
+											]
+										]
+									},
+									{
+										"key": "Tween",
+										"state": [
+											[
+												"enabled",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "effect",
+								"component": []
+							},
+							{
+								"id": "world-instance",
+								"component": [
+									{
+										"key": "world-instance",
+										"state": [
+											[
+												"x",
+												false
+											],
+											[
+												"y",
+												false
+											],
+											[
+												"z",
+												true
+											],
+											[
+												"w",
+												true
+											],
+											[
+												"h",
+												true
+											],
+											[
+												"a",
+												true
+											],
+											[
+												"o",
+												true
+											],
+											[
+												"c",
+												true
+											],
+											[
+												"sx",
+												true
+											],
+											[
+												"sy",
+												true
+											],
+											[
+												"bm",
+												true
+											],
+											[
+												"twpx",
+												true
+											],
+											[
+												"twpy",
+												true
+											],
+											[
+												"twpz",
+												true
+											],
+											[
+												"twpw",
+												true
+											],
+											[
+												"twph",
+												true
+											],
+											[
+												"twpa",
+												true
+											],
+											[
+												"dwp",
+												true
+											],
+											[
+												"ssm",
+												true
+											]
+										]
+									}
+								]
+							}
+						],
+						"replicasUIDs": null
 					},
 					"sceneGraphData": {
 						"parent-uid": null,
@@ -688,7 +883,6 @@
 					},
 					"uid": 17,
 					"instanceVariables": {
-						"targetDisplayAngle": 0,
 						"targetHeight": 0,
 						"targetWidth": 0
 					},
@@ -729,7 +923,7 @@
 					},
 					"world": {
 						"x": 150,
-						"y": 441.15063253934215,
+						"y": 441.150633,
 						"width": 32,
 						"height": 32,
 						"originX": 0.5,

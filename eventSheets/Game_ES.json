@@ -57,6 +57,66 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "dieX",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 648375407198103
+		},
+		{
+			"eventType": "variable",
+			"name": "dieY",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 949212136131891
+		},
+		{
+			"eventType": "variable",
+			"name": "dieRotate",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 416018220958420
+		},
+		{
+			"eventType": "variable",
+			"name": "dieWidth",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 400889578520958
+		},
+		{
+			"eventType": "variable",
+			"name": "dieHeight",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 362124779863446
+		},
+		{
+			"eventType": "variable",
+			"name": "dieGravity",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 344026825737411
+		},
+		{
+			"eventType": "variable",
 			"name": "hasRevived",
 			"type": "boolean",
 			"initialValue": "false",
@@ -393,6 +453,16 @@
 									"parameters": {
 										"mouse-button": "left"
 									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 217249498526854,
+									"parameters": {
+										"first-value": "Player.Count",
+										"comparison": 4,
+										"second-value": "0"
+									}
 								}
 							],
 							"actions": [
@@ -418,6 +488,16 @@
 									"parameters": {
 										"mouse-button": "right",
 										"click-type": "clicked"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 496379705418284,
+									"parameters": {
+										"first-value": "Player.Count",
+										"comparison": 4,
+										"second-value": "0"
 									}
 								}
 							],
@@ -458,6 +538,16 @@
 									"id": "on-any-touch-end",
 									"objectClass": "Touch",
 									"sid": 168611178295035
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 615087818532386,
+									"parameters": {
+										"first-value": "Player.Count",
+										"comparison": 4,
+										"second-value": "0"
+									}
 								}
 							],
 							"actions": [],
@@ -1007,6 +1097,60 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 490065853965374,
+							"parameters": {
+								"variable": "dieX",
+								"value": "Player.X"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 740542836106687,
+							"parameters": {
+								"variable": "dieY",
+								"value": "Player.Y"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 900614558769752,
+							"parameters": {
+								"variable": "dieRotate",
+								"value": "Player.targetDisplayAngle"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 513807921592990,
+							"parameters": {
+								"variable": "dieGravity",
+								"value": "Player.Platform.GravityAngle"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 943904798640078,
+							"parameters": {
+								"variable": "dieWidth",
+								"value": "PlayerAnimation.targetWidth"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 400033616441189,
+							"parameters": {
+								"variable": "dieHeight",
+								"value": "PlayerAnimation.targetHeight"
+							}
+						},
 						{
 							"id": "spawn-another-object",
 							"objectClass": "Player",
@@ -4298,9 +4442,9 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-touched-object",
+					"id": "on-tap-object",
 					"objectClass": "Touch",
-					"sid": 183296726976067,
+					"sid": 530482137154697,
 					"parameters": {
 						"object": "Text"
 					}
@@ -4450,6 +4594,36 @@
 						}
 					],
 					"sid": 499511354792101
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 760130708048121,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"watch-ad\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 113479032794004,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"callFunction": "Respawn",
+							"sid": 618962563565797
+						}
+					],
+					"sid": 204301447578986
 				}
 			],
 			"isOrBlock": true
@@ -4925,6 +5099,15 @@
 					],
 					"actions": [
 						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 289712559758421,
+							"parameters": {
+								"layer": "\"Revive\"",
+								"interactive": false
+							}
+						},
+						{
 							"id": "tween-one-property",
 							"objectClass": "Text",
 							"sid": 785215977610552,
@@ -4956,15 +5139,6 @@
 							}
 						},
 						{
-							"id": "set-layer-interactive",
-							"objectClass": "System",
-							"sid": 857072674165926,
-							"parameters": {
-								"layer": "\"Revive\"",
-								"interactive": false
-							}
-						},
-						{
 							"callFunction": "GameOver",
 							"sid": 458420869265988
 						}
@@ -4972,6 +5146,275 @@
 					"sid": 903488992735422
 				}
 			]
+		},
+		{
+			"functionName": "Respawn",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "stop-timer",
+					"objectClass": "TimerManager",
+					"sid": 800176268871918,
+					"behaviorType": "Timer",
+					"parameters": {
+						"tag": "\"RewardCountdown\""
+					}
+				}
+			],
+			"sid": 895937210376897,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 551844861030087,
+							"parameters": {
+								"object": "Enemy"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Enemy",
+							"sid": 858186408425323,
+							"parameters": {
+								"object": "Particles",
+								"layer": "\"Game\"",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "Particles",
+							"sid": 585098075555906,
+							"parameters": {
+								"color": "Enemy.ColorValue"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Enemy",
+							"sid": 295351388294584
+						}
+					],
+					"sid": 660630557693379
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 643068686517454,
+							"parameters": {
+								"variable": "hasRevived",
+								"value": "true"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 790634730616271,
+							"parameters": {
+								"object-to-create": "Player",
+								"layer": "\"Game\"",
+								"x": "dieX",
+								"y": "dieY",
+								"create-hierarchy": true,
+								"template-name": "\"player\""
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Player",
+							"sid": 934405118640131,
+							"parameters": {
+								"angle": "dieRotate"
+							}
+						},
+						{
+							"id": "set-angle-of-gravity",
+							"objectClass": "Player",
+							"sid": 827764458071873,
+							"behaviorType": "Platform",
+							"parameters": {
+								"angle": "dieGravity"
+							}
+						}
+					],
+					"sid": 366317720163405
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 656771491940248,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"watch-ad-title\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 633258982133248,
+							"parameters": {
+								"layer": "\"Revive\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Text",
+							"sid": 470896033990662,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"FadeOut\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "0.5",
+								"ease": "easeoutsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 736875784735272
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 497497147710612,
+							"parameters": {
+								"layer": "\"Revive\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 303666097285204
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Player",
+					"sid": 397317192001508
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "Player",
+					"sid": 991017858937944,
+					"parameters": {
+						"child": "PlayerAnimation",
+						"which": "own"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 443551776711124,
+					"parameters": {
+						"seconds": "0"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "PlayerAnimation",
+					"sid": 174155394265159,
+					"parameters": {
+						"instance-variable": "targetHeight",
+						"value": "dieHeight <> 0 & hasRevived ? dieHeight : 32"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "PlayerAnimation",
+					"sid": 947240952204165,
+					"parameters": {
+						"instance-variable": "targetWidth",
+						"value": "dieWidth <> 0 & hasRevived ? dieWidth : 32"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "PlayerAnimation",
+					"sid": 432373001090545,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "PlayerAnimation",
+					"sid": 870539028218729,
+					"parameters": {
+						"width": "0",
+						"height": "0"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "PlayerAnimation",
+					"sid": 147232529912540,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"FadeIn\"",
+						"property": "offsetOpacity",
+						"end-value": "100",
+						"time": "0.5",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "tween-two-properties",
+					"objectClass": "PlayerAnimation",
+					"sid": 952338486392281,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"Scale\"",
+						"property": "size",
+						"end-x": "Self.targetWidth",
+						"end-y": "Self.targetHeight",
+						"time": "0.5",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 701040676650493
 		}
 	],
 	"sid": 461194139659853
