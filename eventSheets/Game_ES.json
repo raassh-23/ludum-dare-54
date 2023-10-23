@@ -1352,6 +1352,10 @@
 							"parameters": {
 								"seconds": "1"
 							}
+						},
+						{
+							"callFunction": "GameOver",
+							"sid": 952563960722110
 						}
 					],
 					"sid": 760321122851403,
@@ -1371,8 +1375,7 @@
 								{
 									"id": "is-loaded-rewarded",
 									"objectClass": "MobileAdvert",
-									"sid": 348226806525428,
-									"disabled": true
+									"sid": 348226806525428
 								}
 							],
 							"actions": [
@@ -1395,7 +1398,8 @@
 									]
 								}
 							],
-							"sid": 230914732725886
+							"sid": 230914732725886,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -1412,7 +1416,8 @@
 									"sid": 808005184044554
 								}
 							],
-							"sid": 628954141342118
+							"sid": 628954141342118,
+							"disabled": true
 						}
 					]
 				},
@@ -4185,7 +4190,8 @@
 					}
 				}
 			],
-			"sid": 798235657401641
+			"sid": 798235657401641,
+			"disabled": true
 		},
 		{
 			"eventType": "block",
@@ -4830,94 +4836,6 @@
 			"sid": 254576879608764
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-key-pressed",
-					"objectClass": "Keyboard",
-					"sid": 381591014665588,
-					"parameters": {
-						"key": 32
-					}
-				},
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Text",
-					"sid": 564935013874446,
-					"parameters": {
-						"instance-variable": "id",
-						"comparison": 0,
-						"value": "\"score\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "add-to-eventvar",
-					"objectClass": "System",
-					"sid": 632083418219658,
-					"parameters": {
-						"variable": "score",
-						"value": "5"
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "Text",
-					"sid": 164635510982692,
-					"parameters": {
-						"text": "score"
-					}
-				}
-			],
-			"sid": 354878531752915,
-			"disabled": true
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-key-pressed",
-					"objectClass": "Keyboard",
-					"sid": 826837055670314,
-					"parameters": {
-						"key": 90
-					}
-				},
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Text",
-					"sid": 988926629459657,
-					"parameters": {
-						"instance-variable": "id",
-						"comparison": 0,
-						"value": "\"score\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "add-to-eventvar",
-					"objectClass": "System",
-					"sid": 342657482753708,
-					"parameters": {
-						"variable": "score",
-						"value": "1"
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "Text",
-					"sid": 492212036206898,
-					"parameters": {
-						"text": "score"
-					}
-				}
-			],
-			"sid": 519545758222878,
-			"disabled": true
-		},
-		{
 			"functionName": "GameOver",
 			"functionDescription": "",
 			"functionCategory": "",
@@ -5528,6 +5446,130 @@
 					"sid": 560429224604725
 				}
 			]
+		},
+		{
+			"eventType": "group",
+			"disabled": true,
+			"title": "Debug Tools",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 618835866412805,
+							"parameters": {
+								"key": 32
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 316523128149452,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "jump"
+							}
+						}
+					],
+					"sid": 354878531752915,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 342051314947565,
+							"parameters": {
+								"key": 88
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 722147889631184,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"score\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 615602667883842,
+							"parameters": {
+								"variable": "score",
+								"value": "5"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 107323507261406,
+							"parameters": {
+								"text": "score"
+							}
+						}
+					],
+					"sid": 933805512133747,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 826837055670314,
+							"parameters": {
+								"key": 90
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 988926629459657,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"score\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 342657482753708,
+							"parameters": {
+								"variable": "score",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 492212036206898,
+							"parameters": {
+								"text": "score"
+							}
+						}
+					],
+					"sid": 519545758222878,
+					"disabled": true
+				}
+			],
+			"sid": 799959532552308
 		}
 	],
 	"sid": 461194139659853

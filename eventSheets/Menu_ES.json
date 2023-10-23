@@ -259,35 +259,75 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "Text",
-							"sid": 153572948480657,
-							"parameters": {
-								"instance-variable": "id",
-								"comparison": 0,
-								"value": "\"back\""
-							}
-						},
-						{
 							"id": "layer-is-interactive",
 							"objectClass": "System",
-							"sid": 242516735374467,
+							"sid": 355383308103944,
 							"parameters": {
 								"layer": "\"Leaderboard\""
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 638477321097971,
+					"children": [
 						{
-							"callFunction": "PlayClick",
-							"sid": 928993140611723
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 617774455070557,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"back\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "PlayClick",
+									"sid": 425740740330852
+								},
+								{
+									"callFunction": "hideLeaderboard",
+									"sid": 347090262185058
+								}
+							],
+							"sid": 608689685027095
 						},
 						{
-							"callFunction": "hideLeaderboard",
-							"sid": 431532377034356
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 923342451356084,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"more\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "PlayClick",
+									"sid": 603820591501528
+								},
+								{
+									"id": "open-url-in-new-window",
+									"objectClass": "Browser",
+									"sid": 948569776271754,
+									"parameters": {
+										"url": "\"https://ludum-dare-54-leaderboard-66c60535be63.herokuapp.com/\"",
+										"tag": "\"Leaderboard\""
+									}
+								}
+							],
+							"sid": 998691337356063
 						}
-					],
-					"sid": 923313820570775
+					]
 				}
 			],
 			"isOrBlock": true
@@ -320,6 +360,15 @@
 					"sid": 783930730550469,
 					"parameters": {
 						"layer": "\"Main\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 732074005721097,
+					"parameters": {
+						"layer": "\"Shop\"",
 						"interactive": false
 					}
 				},
@@ -465,6 +514,15 @@
 						"layer": "\"Main\"",
 						"interactive": true
 					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 646303876349917,
+					"parameters": {
+						"layer": "\"Shop\"",
+						"interactive": true
+					}
 				}
 			],
 			"sid": 135769921388893
@@ -510,6 +568,15 @@
 						"layer": "\"Main\"",
 						"opacity": "(1 - Text.Tween.Progress(\"ShowLeaderboard\")) * 100"
 					}
+				},
+				{
+					"id": "set-layer-opacity",
+					"objectClass": "System",
+					"sid": 146178296264364,
+					"parameters": {
+						"layer": "\"Shop\"",
+						"opacity": "(1 - Text.Tween.Progress(\"ShowLeaderboard\")) * 100"
+					}
 				}
 			],
 			"sid": 753941322359456
@@ -553,6 +620,15 @@
 					"sid": 303890030193759,
 					"parameters": {
 						"layer": "\"Main\"",
+						"opacity": "Text.Tween.Progress(\"hideLeaderboard\") * 100"
+					}
+				},
+				{
+					"id": "set-layer-opacity",
+					"objectClass": "System",
+					"sid": 972932502393802,
+					"parameters": {
+						"layer": "\"Shop\"",
 						"opacity": "Text.Tween.Progress(\"hideLeaderboard\") * 100"
 					}
 				}
@@ -844,6 +920,7 @@
 			],
 			"actions": [],
 			"sid": 521684297796388,
+			"disabled": true,
 			"children": [
 				{
 					"eventType": "block",
@@ -861,7 +938,8 @@
 							"sid": 944246777454957
 						}
 					],
-					"sid": 897744623783747
+					"sid": 897744623783747,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -879,7 +957,8 @@
 							"sid": 692541743308113
 						}
 					],
-					"sid": 717655601156022
+					"sid": 717655601156022,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -897,7 +976,8 @@
 							"sid": 800239355316789
 						}
 					],
-					"sid": 570172435018544
+					"sid": 570172435018544,
+					"disabled": true
 				}
 			]
 		}

@@ -366,11 +366,6 @@
 							"id": "else",
 							"objectClass": "System",
 							"sid": 411170564843642
-						},
-						{
-							"id": "is-configured",
-							"objectClass": "MobileAdvert",
-							"sid": 561432985190029
 						}
 					],
 					"actions": [
@@ -421,11 +416,6 @@
 							"id": "else",
 							"objectClass": "System",
 							"sid": 470032763837521
-						},
-						{
-							"id": "is-configured",
-							"objectClass": "MobileAdvert",
-							"sid": 281995665938937
 						}
 					],
 					"actions": [
@@ -447,7 +437,13 @@
 			"functionIsAsync": false,
 			"functionParameters": [],
 			"eventType": "function-block",
-			"conditions": [],
+			"conditions": [
+				{
+					"id": "is-configured",
+					"objectClass": "MobileAdvert",
+					"sid": 543989636925536
+				}
+			],
 			"actions": [
 				{
 					"id": "create-banner",
@@ -473,7 +469,13 @@
 			"functionIsAsync": false,
 			"functionParameters": [],
 			"eventType": "function-block",
-			"conditions": [],
+			"conditions": [
+				{
+					"id": "is-configured",
+					"objectClass": "MobileAdvert",
+					"sid": 693940974944946
+				}
+			],
 			"actions": [
 				{
 					"id": "create-interstitial",
@@ -496,7 +498,13 @@
 			"functionIsAsync": false,
 			"functionParameters": [],
 			"eventType": "function-block",
-			"conditions": [],
+			"conditions": [
+				{
+					"id": "is-configured",
+					"objectClass": "MobileAdvert",
+					"sid": 824780424453011
+				}
+			],
 			"actions": [
 				{
 					"id": "create-rewarded",

@@ -417,8 +417,8 @@
 	},
 	"properties": {
 		"description": "Collect all the stars",
-		"version": "1.0.0.10",
-		"author": "RushHourDream",
+		"version": "1.0.1.0",
+		"author": "Raassh",
 		"authorEmail": "",
 		"authorWebsite": "",
 		"appId": "com.raassh.boxedin",
