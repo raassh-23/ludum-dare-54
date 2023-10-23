@@ -1,27 +1,14 @@
 {
-	"name": "Player",
+	"name": "Coin",
 	"plugin-id": "Sprite",
-	"sid": 661082134425240,
+	"sid": 204996216644233,
 	"isGlobal": false,
-	"instanceVariables": [
-		{
-			"name": "targetDisplayAngle",
-			"type": "number",
-			"desc": "",
-			"show": false,
-			"sid": 225985902757350
-		}
-	],
+	"instanceVariables": [],
 	"behaviorTypes": [
-		{
-			"behaviorId": "Platform",
-			"name": "Platform",
-			"sid": 364611294186747
-		},
 		{
 			"behaviorId": "Tween",
 			"name": "Tween",
-			"sid": 258180963385325
+			"sid": 892133870081890
 		}
 	],
 	"effectTypes": [],
@@ -30,20 +17,42 @@
 			{
 				"frames": [
 					{
-						"width": 32,
-						"height": 32,
+						"width": 128,
+						"height": 128,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 1820189,
+						"imageSpriteId": 9364964,
+						"collisionPoly": {
+							"points": [
+								0.5,
+								0,
+								0.5625,
+								0,
+								1,
+								0.375,
+								1,
+								0.4375,
+								0.8125,
+								1,
+								0.1875,
+								1,
+								0,
+								0.4375,
+								0,
+								0.375,
+								0.0625,
+								0.3125
+							]
+						},
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 407908068381326,
+				"sid": 895506303033211,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

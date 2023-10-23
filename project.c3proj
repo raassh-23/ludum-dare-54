@@ -1,7 +1,7 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 35800,
-	"name": "ludum-dare-54",
+	"savedWithRelease": 36300,
+	"name": "Boxed In",
 	"runtime": "c3",
 	"useWorker": "auto",
 	"bundleAddons": false,
@@ -91,6 +91,13 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "advert",
+			"name": "Mobile advert",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "Bullet",
 			"name": "Bullet",
@@ -172,7 +179,9 @@
 			"PlayerAnimation",
 			"SineEnemy",
 			"BouncingRotatingEnemy",
-			"Audio"
+			"Audio",
+			"Coin",
+			"MobileAdvert"
 		],
 		"subfolders": []
 	},
@@ -407,12 +416,12 @@
 		]
 	},
 	"properties": {
-		"description": "",
-		"version": "1.0.0.0",
-		"author": "RushHourDream",
+		"description": "Collect all the stars",
+		"version": "1.0.1.0",
+		"author": "Raassh",
 		"authorEmail": "",
 		"authorWebsite": "",
-		"appId": "",
+		"appId": "com.raassh.boxedin",
 		"pixelRounding": false,
 		"zAxisScale": "normalized",
 		"fov": 0.7853981633974483,
@@ -439,20 +448,20 @@
 			1,
 			0
 		],
-		"orientations": "landscape",
+		"orientations": "portrait",
 		"webgpu": "auto",
 		"gpuPreference": "high-performance",
 		"scriptsType": "module",
 		"framerateMode": "vsync",
 		"compositingMode": "standard",
-		"sampling": "trilinear",
+		"sampling": "nearest",
 		"downscaling": "medium",
 		"renderingMode": "auto",
 		"anisotropicFiltering": "auto",
 		"zNear": 1,
 		"zFar": 10000,
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "splash",
+		"loaderStyle": "percent",
 		"preloadSounds": true,
 		"cordovaiOSScheme": "app",
 		"cordovaAndroidScheme": "https",

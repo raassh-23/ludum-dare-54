@@ -2,6 +2,66 @@
 	"name": "Common_ES",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "BANNER_UNIT_ID",
+			"type": "string",
+			"initialValue": "ca-app-pub-3940256099942544/6300978111",
+			"comment": "real: ca-app-pub-9641841573410059/1868766855",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 204585355228074
+		},
+		{
+			"eventType": "variable",
+			"name": "INTERSTITIAL_UNIT_ID",
+			"type": "string",
+			"initialValue": "ca-app-pub-3940256099942544/1033173712",
+			"comment": "real: ",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 309897205955002
+		},
+		{
+			"eventType": "variable",
+			"name": "REWARDED_UNIT_ID",
+			"type": "string",
+			"initialValue": "ca-app-pub-3940256099942544/5224354917",
+			"comment": "real: ",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 383552012919200
+		},
+		{
+			"eventType": "variable",
+			"name": "timeToInterstitial",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 385620223325697
+		},
+		{
+			"eventType": "variable",
+			"name": "INTERSTITIAL_LIMIT",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 783125961163187
+		},
+		{
+			"eventType": "variable",
+			"name": "REWARD_COUNTDOWN",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 119325247056329
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -253,6 +313,261 @@
 				}
 			],
 			"sid": 963683315251597
+		},
+		{
+			"functionName": "ShowInterstitialAd",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 727050346638116,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-loaded-interstitial",
+							"objectClass": "MobileAdvert",
+							"sid": 977668286783455
+						}
+					],
+					"actions": [
+						{
+							"id": "show-interstitial",
+							"objectClass": "MobileAdvert",
+							"sid": 469539273895496
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 679672605819951
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 816318014342754,
+							"parameters": {
+								"variable": "timeToInterstitial",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 498086293586758
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 411170564843642
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetupInterstitialAd",
+							"sid": 720236337699404
+						}
+					],
+					"sid": 956894167261528
+				}
+			]
+		},
+		{
+			"functionName": "ShowRewardedAd",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 174643428295222,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-loaded-rewarded",
+							"objectClass": "MobileAdvert",
+							"sid": 241854706208677
+						}
+					],
+					"actions": [
+						{
+							"id": "show-rewarded",
+							"objectClass": "MobileAdvert",
+							"sid": 167843536682440
+						}
+					],
+					"sid": 168565608703731
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 470032763837521
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetupRewardedAd",
+							"sid": 177621710605928
+						}
+					],
+					"sid": 246991443508250
+				}
+			]
+		},
+		{
+			"functionName": "ShowBannerAd",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "is-configured",
+					"objectClass": "MobileAdvert",
+					"sid": 543989636925536
+				}
+			],
+			"actions": [
+				{
+					"id": "create-banner",
+					"objectClass": "MobileAdvert",
+					"sid": 798073913349176,
+					"parameters": {
+						"advert-id": "BANNER_UNIT_ID",
+						"banner-size": "portrait",
+						"show": "true",
+						"position": "bottom",
+						"reload": "true"
+					}
+				}
+			],
+			"sid": 526608031360152
+		},
+		{
+			"functionName": "SetupInterstitialAd",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "is-configured",
+					"objectClass": "MobileAdvert",
+					"sid": 693940974944946
+				}
+			],
+			"actions": [
+				{
+					"id": "create-interstitial",
+					"objectClass": "MobileAdvert",
+					"sid": 851577900887082,
+					"parameters": {
+						"advert-id": "INTERSTITIAL_UNIT_ID",
+						"show": "false"
+					}
+				}
+			],
+			"sid": 137042503088671
+		},
+		{
+			"functionName": "SetupRewardedAd",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "is-configured",
+					"objectClass": "MobileAdvert",
+					"sid": 824780424453011
+				}
+			],
+			"actions": [
+				{
+					"id": "create-rewarded",
+					"objectClass": "MobileAdvert",
+					"sid": 367159372117073,
+					"parameters": {
+						"advert-id": "REWARDED_UNIT_ID",
+						"show": "false"
+					}
+				}
+			],
+			"sid": 371273031767963
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-interstitial-complete",
+					"objectClass": "MobileAdvert",
+					"sid": 809118087763107
+				},
+				{
+					"id": "on-interstitial-cancelled",
+					"objectClass": "MobileAdvert",
+					"sid": 904454229917670
+				},
+				{
+					"id": "on-interstitial-failed-to-load",
+					"objectClass": "MobileAdvert",
+					"sid": 253452002008192
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SetupInterstitialAd",
+					"sid": 720986702533690
+				}
+			],
+			"sid": 465516559632296,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-rewarded-failed-to-load",
+					"objectClass": "MobileAdvert",
+					"sid": 168042586656128
+				},
+				{
+					"id": "on-rewarded-cancelled",
+					"objectClass": "MobileAdvert",
+					"sid": 468196390400441
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SetupRewardedAd",
+					"sid": 677427623682182
+				}
+			],
+			"sid": 974699482016471,
+			"isOrBlock": true
 		}
 	],
 	"sid": 896154704981924

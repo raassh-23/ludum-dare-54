@@ -46,6 +46,86 @@
 			"sid": 321782595865981
 		},
 		{
+			"eventType": "variable",
+			"name": "coins",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 760501576129302
+		},
+		{
+			"eventType": "variable",
+			"name": "dieX",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 648375407198103
+		},
+		{
+			"eventType": "variable",
+			"name": "dieY",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 949212136131891
+		},
+		{
+			"eventType": "variable",
+			"name": "dieRotate",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 416018220958420
+		},
+		{
+			"eventType": "variable",
+			"name": "dieWidth",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 400889578520958
+		},
+		{
+			"eventType": "variable",
+			"name": "dieHeight",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 362124779863446
+		},
+		{
+			"eventType": "variable",
+			"name": "dieGravity",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 344026825737411
+		},
+		{
+			"eventType": "variable",
+			"name": "hasRevived",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 400697758405201
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Keyboard",
@@ -373,6 +453,16 @@
 									"parameters": {
 										"mouse-button": "left"
 									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 217249498526854,
+									"parameters": {
+										"first-value": "Player.Count",
+										"comparison": 4,
+										"second-value": "0"
+									}
 								}
 							],
 							"actions": [
@@ -398,6 +488,16 @@
 									"parameters": {
 										"mouse-button": "right",
 										"click-type": "clicked"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 496379705418284,
+									"parameters": {
+										"first-value": "Player.Count",
+										"comparison": 4,
+										"second-value": "0"
 									}
 								}
 							],
@@ -438,6 +538,16 @@
 									"id": "on-any-touch-end",
 									"objectClass": "Touch",
 									"sid": 168611178295035
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 615087818532386,
+									"parameters": {
+										"first-value": "Player.Count",
+										"comparison": 4,
+										"second-value": "0"
+									}
 								}
 							],
 							"actions": [],
@@ -955,6 +1065,169 @@
 							"sid": 161568356396262
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Player",
+							"sid": 397317192001508
+						}
+					],
+					"actions": [],
+					"sid": 701040676650493,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 206904285110468,
+									"parameters": {
+										"variable": "type",
+										"comparison": 0,
+										"value": "\"desktop\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-jump-strength",
+									"objectClass": "Player",
+									"sid": 526111889212355,
+									"behaviorType": "Platform",
+									"parameters": {
+										"jump-strength": "700"
+									}
+								}
+							],
+							"sid": 122143232537782
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 212236532326654,
+									"parameters": {
+										"variable": "type",
+										"comparison": 0,
+										"value": "\"mobile\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-jump-strength",
+									"objectClass": "Player",
+									"sid": 774047239303441,
+									"behaviorType": "Platform",
+									"parameters": {
+										"jump-strength": "825"
+									}
+								}
+							],
+							"sid": 169213154227085
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Player",
+									"sid": 387140511454659,
+									"parameters": {
+										"child": "PlayerAnimation",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "PlayerAnimation",
+									"sid": 626484798462877,
+									"parameters": {
+										"opacity": "0"
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "PlayerAnimation",
+									"sid": 198384046890488,
+									"parameters": {
+										"width": "0",
+										"height": "0"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 339895262380523,
+									"parameters": {
+										"seconds": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "PlayerAnimation",
+									"sid": 446303346762468,
+									"parameters": {
+										"instance-variable": "targetHeight",
+										"value": "dieHeight <> 0 & hasRevived ? dieHeight : 32"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "PlayerAnimation",
+									"sid": 491534684725038,
+									"parameters": {
+										"instance-variable": "targetWidth",
+										"value": "dieWidth <> 0 & hasRevived ? dieWidth : 32"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "PlayerAnimation",
+									"sid": 682981744715226,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"FadeIn\"",
+										"property": "offsetOpacity",
+										"end-value": "100",
+										"time": "0.5",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "PlayerAnimation",
+									"sid": 445713145976461,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"Scale\"",
+										"property": "size",
+										"end-x": "Self.targetWidth",
+										"end-y": "Self.targetHeight",
+										"time": "0.5",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 279517083160080
+						}
+					]
 				}
 			],
 			"sid": 905388039738711
@@ -988,14 +1261,57 @@
 					],
 					"actions": [
 						{
-							"id": "fade-volume",
-							"objectClass": "Audio",
-							"sid": 923600056129310,
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 490065853965374,
 							"parameters": {
-								"tag": "\"game\"",
-								"db": "-100",
-								"duration": "0.5",
-								"ending": "stop"
+								"variable": "dieX",
+								"value": "Player.X"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 740542836106687,
+							"parameters": {
+								"variable": "dieY",
+								"value": "Player.Y"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 900614558769752,
+							"parameters": {
+								"variable": "dieRotate",
+								"value": "Player.targetDisplayAngle"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 513807921592990,
+							"parameters": {
+								"variable": "dieGravity",
+								"value": "Player.Platform.GravityAngle"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 943904798640078,
+							"parameters": {
+								"variable": "dieWidth",
+								"value": "PlayerAnimation.targetWidth"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 400033616441189,
+							"parameters": {
+								"variable": "dieHeight",
+								"value": "PlayerAnimation.targetHeight"
 							}
 						},
 						{
@@ -1028,6 +1344,18 @@
 						{
 							"callFunction": "PlayDead",
 							"sid": 845549464359476
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 330648389846882,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"callFunction": "GameOver",
+							"sid": 952563960722110
 						}
 					],
 					"sid": 760321122851403,
@@ -1036,181 +1364,60 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-eventvar",
+									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 757144311587344,
+									"sid": 337920457128162,
 									"parameters": {
-										"variable": "score",
-										"comparison": 4,
-										"value": "best"
-									}
+										"variable": "hasRevived"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-loaded-rewarded",
+									"objectClass": "MobileAdvert",
+									"sid": 348226806525428
 								}
 							],
 							"actions": [
 								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 278434536196084,
+									"id": "start-timer",
+									"objectClass": "TimerManager",
+									"sid": 888671671480266,
+									"behaviorType": "Timer",
 									"parameters": {
-										"variable": "best",
-										"value": "score"
+										"duration": "REWARD_COUNTDOWN",
+										"type": "once",
+										"tag": "\"RewardCountdown\""
 									}
 								},
 								{
-									"id": "set-item",
-									"objectClass": "LocalStorage",
-									"sid": 213455271744092,
-									"parameters": {
-										"key": "\"best\"",
-										"value": "best"
-									}
+									"callFunction": "SetReviveView",
+									"sid": 414141079083434,
+									"parameters": [
+										true
+									]
 								}
 							],
-							"sid": 814372214308919
+							"sid": 230914732725886,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-instance-variable",
-									"objectClass": "TextInput",
-									"sid": 884161799836232,
-									"parameters": {
-										"instance-variable": "id",
-										"comparison": 0,
-										"value": "\"name\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "TextInput",
-									"sid": 187704979716747,
-									"parameters": {
-										"visibility": "visible"
-									}
-								}
-							],
-							"sid": 278157984043503
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "wait",
+									"id": "else",
 									"objectClass": "System",
-									"sid": 170818961266697,
-									"parameters": {
-										"seconds": "1"
-									}
+									"sid": 990486398008343
 								}
 							],
-							"sid": 442288399756087,
-							"children": [
+							"actions": [
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Text",
-											"sid": 181434711901364,
-											"parameters": {
-												"instance-variable": "id",
-												"comparison": 0,
-												"value": "\"score\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "tween-one-property",
-											"objectClass": "Text",
-											"sid": 326604683402656,
-											"behaviorType": "Tween",
-											"parameters": {
-												"tags": "\"moveUp\"",
-												"property": "offsetY",
-												"end-value": "Self.y - 50",
-												"time": "0.5",
-												"ease": "easeoutsine",
-												"destroy-on-complete": "no",
-												"loop": "no",
-												"ping-pong": "no",
-												"repeat-count": "1"
-											}
-										}
-									],
-									"sid": 684555795360947
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Text",
-											"sid": 949848431742820,
-											"parameters": {
-												"instance-variable": "id",
-												"comparison": 0,
-												"value": "\"back\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 345480044502857,
-											"parameters": {
-												"layer": "\"GameOver\"",
-												"visibility": "visible"
-											}
-										},
-										{
-											"id": "tween-one-property",
-											"objectClass": "Text",
-											"sid": 685612777088262,
-											"behaviorType": "Tween",
-											"parameters": {
-												"tags": "\"showBack\"",
-												"property": "offsetY",
-												"end-value": "Self.initialY",
-												"time": "0.5",
-												"ease": "easeoutsine",
-												"destroy-on-complete": "no",
-												"loop": "no",
-												"ping-pong": "no",
-												"repeat-count": "1"
-											}
-										},
-										{
-											"id": "wait-for-previous-actions",
-											"objectClass": "System",
-											"sid": 625136177752780
-										},
-										{
-											"id": "set-layer-interactive",
-											"objectClass": "System",
-											"sid": 603173107921089,
-											"parameters": {
-												"layer": "\"GameOver\"",
-												"interactive": true
-											}
-										},
-										{
-											"callFunction": "PlayBGMMenu",
-											"sid": 812792346783990
-										},
-										{
-											"type": "script",
-											"script": "setupTextInput(\"name\", () => {\n\taddToLeaderboard(runtime);\n})"
-										}
-									],
-									"sid": 854783208215002
+									"callFunction": "GameOver",
+									"sid": 808005184044554
 								}
-							]
+							],
+							"sid": 628954141342118,
+							"disabled": true
 						}
 					]
 				},
@@ -3518,6 +3725,15 @@
 			],
 			"actions": [
 				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 548604019104569,
+					"parameters": {
+						"variable": "hasRevived",
+						"value": "false"
+					}
+				},
+				{
 					"id": "destroy",
 					"objectClass": "Enemy",
 					"sid": 251256169163207
@@ -3529,6 +3745,29 @@
 					"parameters": {
 						"variable": "score",
 						"value": "0"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Coin",
+					"sid": 744526545887423
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 794689989008911,
+					"parameters": {
+						"layer": "\"Revive\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 100919244653066,
+					"parameters": {
+						"layer": "\"Revive\"",
+						"visibility": "invisible"
 					}
 				},
 				{
@@ -3834,6 +4073,130 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-created",
+					"objectClass": "Coin",
+					"sid": 971740701001786
+				}
+			],
+			"actions": [
+				{
+					"id": "set-size",
+					"objectClass": "Coin",
+					"sid": 914403200191974,
+					"parameters": {
+						"width": "0",
+						"height": "0"
+					}
+				}
+			],
+			"sid": 917214685708743,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "randomPosition",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 903170862191261
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 255341435699395,
+							"parameters": {
+								"variable": "randomPosition",
+								"value": "Functions.getRandomPosition(48, 100)"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Coin",
+							"sid": 242091433330573,
+							"parameters": {
+								"x": "int(tokenat(randomPosition, 0, \"|\"))",
+								"y": "int(tokenat(randomPosition, 1, \"|\"))"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Coin",
+							"sid": 732282295473062,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"Scale\"",
+								"property": "size",
+								"end-x": "16",
+								"end-y": "16",
+								"time": "0.5",
+								"ease": "easeoutelastic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 593878191451959
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 442483106529867,
+					"parameters": {
+						"variable": "score",
+						"comparison": 4,
+						"value": "0"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 169113605056962,
+					"parameters": {
+						"first-value": "score % 10",
+						"comparison": 0,
+						"second-value": "0"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 827481195225494
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 341988801655131,
+					"parameters": {
+						"object-to-create": "Coin",
+						"layer": "\"Game\"",
+						"x": "-100",
+						"y": "-100",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 798235657401641,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-collision-with-another-object",
 					"objectClass": "Player",
 					"sid": 855020511617826,
@@ -3912,6 +4275,40 @@
 					"sid": 803859268130031
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 235750954224830,
+					"parameters": {
+						"object": "Coin"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "PlayStar",
+					"sid": 557053611182581
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Coin",
+					"sid": 727531011218650
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 589215787207504,
+					"parameters": {
+						"variable": "coins",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 974482097786627
 		},
 		{
 			"aceType": "action",
@@ -4160,9 +4557,9 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-touched-object",
+					"id": "on-tap-object",
 					"objectClass": "Touch",
-					"sid": 183296726976067,
+					"sid": 530482137154697,
 					"parameters": {
 						"object": "Text"
 					}
@@ -4312,6 +4709,28 @@
 						}
 					],
 					"sid": 499511354792101
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 760130708048121,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"watch-ad\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ShowRewardedAd",
+							"sid": 145882733122986
+						}
+					],
+					"sid": 204301447578986
 				}
 			],
 			"isOrBlock": true
@@ -4417,92 +4836,740 @@
 			"sid": 254576879608764
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-key-pressed",
-					"objectClass": "Keyboard",
-					"sid": 381591014665588,
-					"parameters": {
-						"key": 32
-					}
-				},
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Text",
-					"sid": 564935013874446,
-					"parameters": {
-						"instance-variable": "id",
-						"comparison": 0,
-						"value": "\"score\""
-					}
-				}
-			],
+			"functionName": "GameOver",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
 			"actions": [
 				{
-					"id": "add-to-eventvar",
-					"objectClass": "System",
-					"sid": 632083418219658,
+					"id": "fade-volume",
+					"objectClass": "Audio",
+					"sid": 492333423426088,
 					"parameters": {
-						"variable": "score",
-						"value": "5"
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "Text",
-					"sid": 164635510982692,
-					"parameters": {
-						"text": "score"
+						"tag": "\"game\"",
+						"db": "-100",
+						"duration": "0.5",
+						"ending": "stop"
 					}
 				}
 			],
-			"sid": 354878531752915,
-			"disabled": true
+			"sid": 297672352817050,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 310011304737474,
+							"parameters": {
+								"variable": "score",
+								"comparison": 4,
+								"value": "best"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 650630532365324,
+							"parameters": {
+								"variable": "best",
+								"value": "score"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 847826127457288,
+							"parameters": {
+								"key": "\"best\"",
+								"value": "best"
+							}
+						}
+					],
+					"sid": 376908909017790
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TextInput",
+							"sid": 252984087681529,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"name\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "TextInput",
+							"sid": 398801762602109,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 891163948097648
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 614095325426984,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"score\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "Text",
+							"sid": 822474861648374,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"moveUp\"",
+								"property": "offsetY",
+								"end-value": "Self.y - 50",
+								"time": "0.5",
+								"ease": "easeoutsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 791674869295179
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 385130809559108,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"back\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 360168826596404,
+							"parameters": {
+								"layer": "\"GameOver\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Text",
+							"sid": 278802234984693,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"showBack\"",
+								"property": "offsetY",
+								"end-value": "Self.initialY",
+								"time": "0.5",
+								"ease": "easeoutsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 754198011820088
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 706278988241116,
+							"parameters": {
+								"layer": "\"GameOver\"",
+								"interactive": true
+							}
+						},
+						{
+							"callFunction": "PlayBGMMenu",
+							"sid": 779552110599064
+						},
+						{
+							"type": "script",
+							"script": "setupTextInput(\"name\", () => {\n\taddToLeaderboard(runtime);\n})"
+						}
+					],
+					"sid": 612862067796177
+				}
+			]
 		},
 		{
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-key-pressed",
-					"objectClass": "Keyboard",
-					"sid": 826837055670314,
+					"id": "is-timer-running",
+					"objectClass": "TimerManager",
+					"sid": 641953581164795,
+					"behaviorType": "Timer",
 					"parameters": {
-						"key": 90
+						"tag": "\"RewardCountdown\""
 					}
 				},
 				{
 					"id": "compare-instance-variable",
 					"objectClass": "Text",
-					"sid": 988926629459657,
+					"sid": 616086588447318,
 					"parameters": {
 						"instance-variable": "id",
 						"comparison": 0,
-						"value": "\"score\""
+						"value": "\"watch-ad-countdown\""
 					}
 				}
 			],
 			"actions": [
 				{
-					"id": "add-to-eventvar",
-					"objectClass": "System",
-					"sid": 342657482753708,
-					"parameters": {
-						"variable": "score",
-						"value": "1"
-					}
-				},
-				{
 					"id": "set-text",
 					"objectClass": "Text",
-					"sid": 492212036206898,
+					"sid": 296452709652679,
 					"parameters": {
-						"text": "score"
+						"text": "REWARD_COUNTDOWN - floor(TimerManager.Timer.CurrentTime(\"RewardCountdown\"))"
 					}
 				}
 			],
-			"sid": 519545758222878,
-			"disabled": true
+			"sid": 520955013263410
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-timer",
+					"objectClass": "TimerManager",
+					"sid": 123336188843645,
+					"behaviorType": "Timer",
+					"parameters": {
+						"tag": "\"RewardCountdown\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 622109332529837,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 432327932582927,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"watch-ad-countdown\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 221866117648789,
+							"parameters": {
+								"text": "0"
+							}
+						}
+					],
+					"sid": 280923682609767
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "SetReviveView",
+							"sid": 363119585443708,
+							"parameters": [
+								false
+							]
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 445829098617033
+						},
+						{
+							"callFunction": "GameOver",
+							"sid": 458420869265988
+						}
+					],
+					"sid": 903488992735422
+				}
+			]
+		},
+		{
+			"functionName": "Respawn",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "stop-timer",
+					"objectClass": "TimerManager",
+					"sid": 800176268871918,
+					"behaviorType": "Timer",
+					"parameters": {
+						"tag": "\"RewardCountdown\""
+					}
+				}
+			],
+			"sid": 895937210376897,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 551844861030087,
+							"parameters": {
+								"object": "Enemy"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Enemy",
+							"sid": 858186408425323,
+							"parameters": {
+								"object": "Particles",
+								"layer": "\"Game\"",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "Particles",
+							"sid": 585098075555906,
+							"parameters": {
+								"color": "Enemy.ColorValue"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Enemy",
+							"sid": 295351388294584
+						}
+					],
+					"sid": 660630557693379
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 643068686517454,
+							"parameters": {
+								"variable": "hasRevived",
+								"value": "true"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 790634730616271,
+							"parameters": {
+								"object-to-create": "Player",
+								"layer": "\"Game\"",
+								"x": "dieX",
+								"y": "dieY",
+								"create-hierarchy": true,
+								"template-name": "\"player\""
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Player",
+							"sid": 934405118640131,
+							"parameters": {
+								"angle": "dieRotate"
+							}
+						},
+						{
+							"id": "set-angle-of-gravity",
+							"objectClass": "Player",
+							"sid": 827764458071873,
+							"behaviorType": "Platform",
+							"parameters": {
+								"angle": "dieGravity"
+							}
+						},
+						{
+							"callFunction": "SetReviveView",
+							"sid": 241829114618332,
+							"parameters": [
+								false
+							]
+						}
+					],
+					"sid": 366317720163405
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-rewarded-complete",
+					"objectClass": "MobileAdvert",
+					"sid": 918295908668067
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Respawn",
+					"sid": 618962563565797
+				}
+			],
+			"sid": 287440878970833
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-rewarded-cancelled",
+					"objectClass": "MobileAdvert",
+					"sid": 292999511027762
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Text",
+					"sid": 993788017638954,
+					"parameters": {
+						"instance-variable": "id",
+						"comparison": 0,
+						"value": "\"watch-ad-title\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SetReviveView",
+					"sid": 562199590075073,
+					"parameters": [
+						false
+					]
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 722908466174521
+				},
+				{
+					"callFunction": "GameOver",
+					"sid": 943621732717853
+				}
+			],
+			"sid": 947498273143830
+		},
+		{
+			"functionName": "SetReviveView",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": true,
+			"functionParameters": [
+				{
+					"name": "show",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"sid": 841381102403365
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Text",
+					"sid": 867801181852714,
+					"parameters": {
+						"instance-variable": "id",
+						"comparison": 0,
+						"value": "\"watch-ad-title\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 963208270988564,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 189758661093834,
+							"parameters": {
+								"variable": "show"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 174278982896322,
+							"parameters": {
+								"layer": "\"Revive\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 413515171919362,
+							"parameters": {
+								"layer": "\"Revive\"",
+								"interactive": true
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "Text",
+							"sid": 497129615816328,
+							"parameters": {
+								"opacity": "0"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Text",
+							"sid": 110418778519181,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"FadeIn\"",
+								"property": "offsetOpacity",
+								"end-value": "100",
+								"time": "0.5",
+								"ease": "easeoutsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 532034641661183
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 700761292406382
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 289554258935779,
+							"parameters": {
+								"layer": "\"Revive\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Text",
+							"sid": 945146308031585,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"FadeOut\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "0.5",
+								"ease": "easeoutsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 814934266747970
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 983403065694169,
+							"parameters": {
+								"layer": "\"Revive\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 560429224604725
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": true,
+			"title": "Debug Tools",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 618835866412805,
+							"parameters": {
+								"key": 32
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 316523128149452,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "jump"
+							}
+						}
+					],
+					"sid": 354878531752915,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 342051314947565,
+							"parameters": {
+								"key": 88
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 722147889631184,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"score\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 615602667883842,
+							"parameters": {
+								"variable": "score",
+								"value": "5"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 107323507261406,
+							"parameters": {
+								"text": "score"
+							}
+						}
+					],
+					"sid": 933805512133747,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 826837055670314,
+							"parameters": {
+								"key": 90
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 988926629459657,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"score\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 342657482753708,
+							"parameters": {
+								"variable": "score",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 492212036206898,
+							"parameters": {
+								"text": "score"
+							}
+						}
+					],
+					"sid": 519545758222878,
+					"disabled": true
+				}
+			],
+			"sid": 799959532552308
 		}
 	],
 	"sid": 461194139659853
