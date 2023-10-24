@@ -198,6 +198,15 @@
 					}
 				},
 				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 759472331911304,
+					"parameters": {
+						"key": "\"playCount\"",
+						"value": "playCount"
+					}
+				},
+				{
 					"id": "destroy",
 					"objectClass": "Coin",
 					"sid": 744526545887423

@@ -807,6 +807,14 @@
 						{
 							"id": "get-item",
 							"objectClass": "LocalStorage",
+							"sid": 224760882842418,
+							"parameters": {
+								"key": "\"playCount\""
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
 							"sid": 913556689102214,
 							"parameters": {
 								"key": "\"best\""
@@ -908,6 +916,31 @@
 					"sid": 749275785027667
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 539434915148720,
+					"parameters": {
+						"key": "\"playCount\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 406363366723970,
+					"parameters": {
+						"variable": "playCount",
+						"value": "int(LocalStorage.ItemValue)"
+					}
+				}
+			],
+			"sid": 795955883798922
 		},
 		{
 			"eventType": "block",
