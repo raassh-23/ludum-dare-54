@@ -36,17 +36,27 @@
 			"sid": 627058403236808
 		},
 		{
+			"eventType": "variable",
+			"name": "shopMenu",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": true,
+			"isConstant": false,
+			"sid": 269428043857369
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
 					"id": "on-any-touch-start",
 					"objectClass": "Touch",
-					"sid": 908673359694897
+					"sid": 377166409909059
 				},
 				{
 					"id": "compare-eventvar",
 					"objectClass": "System",
-					"sid": 165517402882188,
+					"sid": 335017058195614,
 					"parameters": {
 						"variable": "type",
 						"comparison": 1,
@@ -58,14 +68,278 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 157976393677915,
+					"sid": 799731208483790,
 					"parameters": {
 						"variable": "type",
 						"value": "\"mobile\""
 					}
 				}
 			],
-			"sid": 399397525481292
+			"sid": 159990410565416
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 351695228016420
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 295226142899353,
+					"parameters": {
+						"variable": "shopMenu",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 891451943890342,
+					"parameters": {
+						"layer": "\"Main\"",
+						"interactive": true
+					}
+				},
+				{
+					"id": "set-layer-opacity",
+					"objectClass": "System",
+					"sid": 828008157301558,
+					"parameters": {
+						"layer": "\"Main\"",
+						"opacity": "100"
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 379298004152236,
+					"parameters": {
+						"layer": "\"Leaderboard\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "set-layer-opacity",
+					"objectClass": "System",
+					"sid": 527989532870731,
+					"parameters": {
+						"layer": "\"Leaderboard\"",
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 708282078818104,
+					"parameters": {
+						"layer": "\"Shop\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "set-layer-opacity",
+					"objectClass": "System",
+					"sid": 340696421549416,
+					"parameters": {
+						"layer": "\"Shop\"",
+						"opacity": "0"
+					}
+				}
+			],
+			"sid": 226766902473189,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 299933055031610,
+							"parameters": {
+								"variable": "prevLayout",
+								"comparison": 0,
+								"value": "\"Game\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 738226378728540,
+							"parameters": {
+								"variable": "timeToInterstitial",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Blank",
+							"sid": 623595309699303,
+							"parameters": {
+								"x": "0",
+								"y": "0"
+							}
+						}
+					],
+					"sid": 680350323834800,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 924908163436591,
+									"parameters": {
+										"variable": "timeToInterstitial",
+										"comparison": 5,
+										"value": "INTERSTITIAL_LIMIT"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "ShowInterstitialAd",
+									"sid": 506694882477015
+								}
+							],
+							"sid": 724213885422248
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Blank",
+									"sid": 848752045633057,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"layoutTransition\"",
+										"property": "position",
+										"end-x": "LayoutWidth",
+										"end-y": "LayoutHeight",
+										"time": "0.5",
+										"ease": "easeinsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 798292747363742
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 938020787630680
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Blank",
+							"sid": 306357017728700,
+							"parameters": {
+								"x": "-LayoutWidth",
+								"y": "-LayoutHeight"
+							}
+						}
+					],
+					"sid": 931125134691217
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 154916709295544,
+							"parameters": {
+								"variable": "firstOpen"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 578522539972053,
+							"parameters": {
+								"key": "\"playCount\""
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 758500799371140,
+							"parameters": {
+								"key": "\"coins\""
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 863092825431925,
+							"parameters": {
+								"key": "\"best\""
+							}
+						},
+						{
+							"callFunction": "PlayBGMMenu",
+							"sid": 478416584056952
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 735384492340595,
+							"parameters": {
+								"variable": "firstOpen",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 759000778396596
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 259900329300363,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"best\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 332585265480627,
+							"parameters": {
+								"text": "best"
+							}
+						}
+					],
+					"sid": 885039501290440
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -259,6 +533,40 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 569063419176239,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"shop\""
+							}
+						},
+						{
+							"id": "layer-is-interactive",
+							"objectClass": "System",
+							"sid": 506419556888326,
+							"parameters": {
+								"layer": "\"Main\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PlayClick",
+							"sid": 440466668190373
+						},
+						{
+							"callFunction": "showShop",
+							"sid": 425064016352793
+						}
+					],
+					"sid": 537288120891642
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "layer-is-interactive",
 							"objectClass": "System",
 							"sid": 355383308103944,
@@ -276,11 +584,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Text",
-									"sid": 617774455070557,
+									"sid": 218802615226008,
 									"parameters": {
 										"instance-variable": "id",
 										"comparison": 0,
-										"value": "\"back\""
+										"value": "\"back-leaderboard\""
 									}
 								}
 							],
@@ -328,513 +636,290 @@
 							"sid": 998691337356063
 						}
 					]
-				}
-			],
-			"isOrBlock": true
-		},
-		{
-			"functionName": "showLeaderboard",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionCopyPicked": false,
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Text",
-					"sid": 753452132866924,
-					"parameters": {
-						"instance-variable": "id",
-						"comparison": 0,
-						"value": "\"leaderboard\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-layer-interactive",
-					"objectClass": "System",
-					"sid": 783930730550469,
-					"parameters": {
-						"layer": "\"Main\"",
-						"interactive": false
-					}
 				},
-				{
-					"id": "set-layer-interactive",
-					"objectClass": "System",
-					"sid": 732074005721097,
-					"parameters": {
-						"layer": "\"Shop\"",
-						"interactive": false
-					}
-				},
-				{
-					"id": "set-layer-visible",
-					"objectClass": "System",
-					"sid": 528645046802536,
-					"parameters": {
-						"layer": "\"Loading\"",
-						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-layer-visible",
-					"objectClass": "System",
-					"sid": 272119406969279,
-					"parameters": {
-						"layer": "\"Content\"",
-						"visibility": "invisible"
-					}
-				},
-				{
-					"id": "set-layer-visible",
-					"objectClass": "System",
-					"sid": 416973888706200,
-					"parameters": {
-						"layer": "\"Error\"",
-						"visibility": "invisible"
-					}
-				},
-				{
-					"id": "tween-one-property",
-					"objectClass": "Text",
-					"sid": 199151010076989,
-					"behaviorType": "Tween",
-					"parameters": {
-						"tags": "\"showLeaderboard\"",
-						"property": "offsetY",
-						"end-value": "69",
-						"time": "0.5",
-						"ease": "easeoutsine",
-						"destroy-on-complete": "no",
-						"loop": "no",
-						"ping-pong": "no",
-						"repeat-count": "1"
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "Text",
-					"sid": 245743637526213,
-					"parameters": {
-						"text": "\"Leaderboard\""
-					}
-				},
-				{
-					"id": "wait-for-previous-actions",
-					"objectClass": "System",
-					"sid": 858060162571857
-				},
-				{
-					"type": "script",
-					"script": "await getLeaderboard(runtime);"
-				},
-				{
-					"id": "set-layer-interactive",
-					"objectClass": "System",
-					"sid": 242563445804128,
-					"parameters": {
-						"layer": "\"Leaderboard\"",
-						"interactive": true
-					}
-				}
-			],
-			"sid": 386784971817723
-		},
-		{
-			"functionName": "hideLeaderboard",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionCopyPicked": false,
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Text",
-					"sid": 516955848506257,
-					"parameters": {
-						"instance-variable": "id",
-						"comparison": 0,
-						"value": "\"leaderboard\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-layer-interactive",
-					"objectClass": "System",
-					"sid": 243319381620281,
-					"parameters": {
-						"layer": "\"Leaderboard\"",
-						"interactive": false
-					}
-				},
-				{
-					"id": "tween-one-property",
-					"objectClass": "Text",
-					"sid": 325628875195052,
-					"behaviorType": "Tween",
-					"parameters": {
-						"tags": "\"hideLeaderboard\"",
-						"property": "offsetY",
-						"end-value": "Self.initialY",
-						"time": "0.5",
-						"ease": "easeinsine",
-						"destroy-on-complete": "no",
-						"loop": "no",
-						"ping-pong": "no",
-						"repeat-count": "1"
-					}
-				},
-				{
-					"id": "wait-for-previous-actions",
-					"objectClass": "System",
-					"sid": 847004345850427
-				},
-				{
-					"id": "set-text",
-					"objectClass": "Text",
-					"sid": 821621491260698,
-					"parameters": {
-						"text": "\"[u]Leaderboard[/u]\""
-					}
-				},
-				{
-					"id": "set-layer-interactive",
-					"objectClass": "System",
-					"sid": 260257120956620,
-					"parameters": {
-						"layer": "\"Main\"",
-						"interactive": true
-					}
-				},
-				{
-					"id": "set-layer-interactive",
-					"objectClass": "System",
-					"sid": 646303876349917,
-					"parameters": {
-						"layer": "\"Shop\"",
-						"interactive": true
-					}
-				}
-			],
-			"sid": 135769921388893
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Text",
-					"sid": 100599197388475,
-					"parameters": {
-						"instance-variable": "id",
-						"comparison": 0,
-						"value": "\"leaderboard\""
-					}
-				},
-				{
-					"id": "is-playing",
-					"objectClass": "Text",
-					"sid": 663808551141764,
-					"behaviorType": "Tween",
-					"parameters": {
-						"tags": "\"showLeaderboard\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-layer-opacity",
-					"objectClass": "System",
-					"sid": 688762146188952,
-					"parameters": {
-						"layer": "\"Leaderboard\"",
-						"opacity": "Text.Tween.Progress(\"ShowLeaderboard\") * 100"
-					}
-				},
-				{
-					"id": "set-layer-opacity",
-					"objectClass": "System",
-					"sid": 501521722537708,
-					"parameters": {
-						"layer": "\"Main\"",
-						"opacity": "(1 - Text.Tween.Progress(\"ShowLeaderboard\")) * 100"
-					}
-				},
-				{
-					"id": "set-layer-opacity",
-					"objectClass": "System",
-					"sid": 146178296264364,
-					"parameters": {
-						"layer": "\"Shop\"",
-						"opacity": "(1 - Text.Tween.Progress(\"ShowLeaderboard\")) * 100"
-					}
-				}
-			],
-			"sid": 753941322359456
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Text",
-					"sid": 712150144007751,
-					"parameters": {
-						"instance-variable": "id",
-						"comparison": 0,
-						"value": "\"leaderboard\""
-					}
-				},
-				{
-					"id": "is-playing",
-					"objectClass": "Text",
-					"sid": 660385920081432,
-					"behaviorType": "Tween",
-					"parameters": {
-						"tags": "\"hideLeaderboard\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-layer-opacity",
-					"objectClass": "System",
-					"sid": 635825699229571,
-					"parameters": {
-						"layer": "\"Leaderboard\"",
-						"opacity": "(1 - Text.Tween.Progress(\"hideLeaderboard\")) * 100"
-					}
-				},
-				{
-					"id": "set-layer-opacity",
-					"objectClass": "System",
-					"sid": 303890030193759,
-					"parameters": {
-						"layer": "\"Main\"",
-						"opacity": "Text.Tween.Progress(\"hideLeaderboard\") * 100"
-					}
-				},
-				{
-					"id": "set-layer-opacity",
-					"objectClass": "System",
-					"sid": 972932502393802,
-					"parameters": {
-						"layer": "\"Shop\"",
-						"opacity": "Text.Tween.Progress(\"hideLeaderboard\") * 100"
-					}
-				}
-			],
-			"sid": 291056619460976
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 795226600480425
-				}
-			],
-			"actions": [
-				{
-					"id": "set-layer-interactive",
-					"objectClass": "System",
-					"sid": 994874346553114,
-					"parameters": {
-						"layer": "\"Main\"",
-						"interactive": true
-					}
-				},
-				{
-					"id": "set-layer-opacity",
-					"objectClass": "System",
-					"sid": 394136768698262,
-					"parameters": {
-						"layer": "\"Main\"",
-						"opacity": "100"
-					}
-				},
-				{
-					"id": "set-layer-interactive",
-					"objectClass": "System",
-					"sid": 898138595161584,
-					"parameters": {
-						"layer": "\"Leaderboard\"",
-						"interactive": false
-					}
-				},
-				{
-					"id": "set-layer-opacity",
-					"objectClass": "System",
-					"sid": 603739782539325,
-					"parameters": {
-						"layer": "\"Leaderboard\"",
-						"opacity": "0"
-					}
-				}
-			],
-			"sid": 782831515401118,
-			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-eventvar",
+							"id": "layer-is-interactive",
 							"objectClass": "System",
-							"sid": 275718744522537,
+							"sid": 521455672503836,
 							"parameters": {
-								"variable": "prevLayout",
-								"comparison": 0,
-								"value": "\"Game\""
+								"layer": "\"Shop\""
 							}
 						}
 					],
-					"actions": [
-						{
-							"id": "add-to-eventvar",
-							"objectClass": "System",
-							"sid": 782271473338916,
-							"parameters": {
-								"variable": "timeToInterstitial",
-								"value": "1"
-							}
-						},
-						{
-							"id": "set-position",
-							"objectClass": "Blank",
-							"sid": 357533626974781,
-							"parameters": {
-								"x": "0",
-								"y": "0"
-							}
-						}
-					],
-					"sid": 107485802672193,
+					"actions": [],
+					"sid": 564954804615428,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 928695898923075,
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 817189170700447,
 									"parameters": {
-										"variable": "timeToInterstitial",
-										"comparison": 5,
-										"value": "INTERSTITIAL_LIMIT"
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"back-shop\""
 									}
 								}
 							],
 							"actions": [
 								{
-									"callFunction": "ShowInterstitialAd",
-									"sid": 792863471870359
+									"callFunction": "PlayClick",
+									"sid": 479467532068398
+								},
+								{
+									"callFunction": "hideShop",
+									"sid": 712818731346300
 								}
 							],
-							"sid": 130210075658678
+							"sid": 472100012128650
 						},
 						{
 							"eventType": "block",
-							"conditions": [],
-							"actions": [
+							"conditions": [
 								{
-									"id": "tween-two-properties",
-									"objectClass": "Blank",
-									"sid": 295817590813175,
-									"behaviorType": "Tween",
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 597085624527901,
 									"parameters": {
-										"tags": "\"layoutTransition\"",
-										"property": "position",
-										"end-x": "LayoutWidth",
-										"end-y": "LayoutHeight",
-										"time": "0.5",
-										"ease": "easeinsine",
-										"destroy-on-complete": "no",
-										"loop": "no",
-										"ping-pong": "no",
-										"repeat-count": "1"
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"character\""
 									}
 								}
 							],
-							"sid": 668391768724544
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 117850155967920,
+									"parameters": {
+										"variable": "shopMenu",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 778697040182873
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 623293150097605,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"theme\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 395130946742778,
+									"parameters": {
+										"variable": "shopMenu",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 755447467238926
 						}
 					]
-				},
+				}
+			],
+			"isOrBlock": true
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Leaderboard",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"eventType": "block",
+					"functionName": "showLeaderboard",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
 					"conditions": [
 						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 620468334838695
-						}
-					],
-					"actions": [
-						{
-							"id": "set-position",
-							"objectClass": "Blank",
-							"sid": 366932796133225,
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 101904476701309,
 							"parameters": {
-								"x": "-LayoutWidth",
-								"y": "-LayoutHeight"
-							}
-						}
-					],
-					"sid": 119747236140354
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 753425380661093,
-							"parameters": {
-								"variable": "firstOpen"
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"leaderboard\""
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "get-item",
-							"objectClass": "LocalStorage",
-							"sid": 224760882842418,
-							"parameters": {
-								"key": "\"playCount\""
-							}
-						},
-						{
-							"id": "get-item",
-							"objectClass": "LocalStorage",
-							"sid": 913556689102214,
-							"parameters": {
-								"key": "\"best\""
-							}
-						},
-						{
-							"callFunction": "PlayBGMMenu",
-							"sid": 118929147600854
-						},
-						{
-							"id": "set-boolean-eventvar",
+							"id": "set-layer-interactive",
 							"objectClass": "System",
-							"sid": 931954080854804,
+							"sid": 302384214934947,
 							"parameters": {
-								"variable": "firstOpen",
-								"value": "false"
+								"layer": "\"Main\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 305416639934362,
+							"parameters": {
+								"layer": "\"Loading\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 602880732057298,
+							"parameters": {
+								"layer": "\"Content\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 434942514772345,
+							"parameters": {
+								"layer": "\"Error\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Text",
+							"sid": 145759577241981,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"showLeaderboard\"",
+								"property": "offsetY",
+								"end-value": "69",
+								"time": "0.5",
+								"ease": "easeoutsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 523590597790101,
+							"parameters": {
+								"text": "\"Leaderboard\""
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 577676699102757
+						},
+						{
+							"type": "script",
+							"script": "await getLeaderboard(runtime);"
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 970811285564493,
+							"parameters": {
+								"layer": "\"Leaderboard\"",
+								"interactive": true
 							}
 						}
 					],
-					"sid": 296207465393743
+					"sid": 313114233593800
+				},
+				{
+					"functionName": "hideLeaderboard",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 935119970284127,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"leaderboard\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 942777014668870,
+							"parameters": {
+								"layer": "\"Leaderboard\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Text",
+							"sid": 624203865795754,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"hideLeaderboard\"",
+								"property": "offsetY",
+								"end-value": "Self.initialY",
+								"time": "0.5",
+								"ease": "easeinsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 284795956323380
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 799709758082155,
+							"parameters": {
+								"text": "Functions.underlineText(\"Leaderboard\")"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 367184192591560,
+							"parameters": {
+								"layer": "\"Main\"",
+								"interactive": true
+							}
+						}
+					],
+					"sid": 889895810883955
 				},
 				{
 					"eventType": "block",
@@ -842,11 +927,761 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Text",
-							"sid": 646083732587238,
+							"sid": 285637539335798,
 							"parameters": {
 								"instance-variable": "id",
 								"comparison": 0,
-								"value": "\"best\""
+								"value": "\"leaderboard\""
+							}
+						},
+						{
+							"id": "is-playing",
+							"objectClass": "Text",
+							"sid": 519921777639866,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"showLeaderboard\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 975366154523670,
+							"parameters": {
+								"layer": "\"Leaderboard\"",
+								"opacity": "Text.Tween.Progress(\"showLeaderboard\") * 100"
+							}
+						},
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 658255707459505,
+							"parameters": {
+								"layer": "\"Main\"",
+								"opacity": "(1 - Text.Tween.Progress(\"showLeaderboard\")) * 100"
+							}
+						}
+					],
+					"sid": 718709303770905,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 472497886467361,
+									"parameters": {
+										"object": "Text"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 203367669117243,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"shop\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "Text",
+									"sid": 795793435819325,
+									"parameters": {
+										"opacity": "LayerOpacity(\"Main\")"
+									}
+								}
+							],
+							"sid": 383379470911003
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 756122529791679,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"leaderboard\""
+							}
+						},
+						{
+							"id": "is-playing",
+							"objectClass": "Text",
+							"sid": 308102525844292,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"hideLeaderboard\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 362919038125875,
+							"parameters": {
+								"layer": "\"Leaderboard\"",
+								"opacity": "(1 - Text.Tween.Progress(\"hideLeaderboard\")) * 100"
+							}
+						},
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 925257514386324,
+							"parameters": {
+								"layer": "\"Main\"",
+								"opacity": "Text.Tween.Progress(\"hideLeaderboard\") * 100"
+							}
+						}
+					],
+					"sid": 306647708691189,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 814527224158031,
+									"parameters": {
+										"object": "Text"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 833562294775711,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"shop\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "Text",
+									"sid": 948268497794774,
+									"parameters": {
+										"opacity": "LayerOpacity(\"Main\")"
+									}
+								}
+							],
+							"sid": 229030259191013
+						}
+					]
+				}
+			],
+			"sid": 424345896449202
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Shop",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "showShop",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 899315520156151,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"shop\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 746466426769784,
+							"parameters": {
+								"layer": "\"Main\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Text",
+							"sid": 117652554665831,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"showShop\"",
+								"property": "offsetY",
+								"end-value": "69",
+								"time": "0.5",
+								"ease": "easeoutsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 188626895622971,
+							"parameters": {
+								"text": "\"Shop\""
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 649207070011921
+						},
+						{
+							"type": "script",
+							"script": "await getLeaderboard(runtime);"
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 893756343669349,
+							"parameters": {
+								"layer": "\"Shop\"",
+								"interactive": true
+							}
+						}
+					],
+					"sid": 274920231083215
+				},
+				{
+					"functionName": "hideShop",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 646657436284783,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"shop\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 942197407784691,
+							"parameters": {
+								"layer": "\"Shop\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Text",
+							"sid": 851308204394963,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"hideShop\"",
+								"property": "offsetY",
+								"end-value": "Self.initialY",
+								"time": "0.5",
+								"ease": "easeinsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 238824316097275
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 971648048934011,
+							"parameters": {
+								"text": "Functions.underlineText(\"Shop\")"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 843101003032682,
+							"parameters": {
+								"layer": "\"Main\"",
+								"interactive": true
+							}
+						}
+					],
+					"sid": 241285580921877
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 660160498717326,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"shop\""
+							}
+						},
+						{
+							"id": "is-playing",
+							"objectClass": "Text",
+							"sid": 318794937016145,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"showShop\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 918336553977198,
+							"parameters": {
+								"layer": "\"Shop\"",
+								"opacity": "Text.Tween.Progress(\"showShop\") * 100"
+							}
+						},
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 568393820509991,
+							"parameters": {
+								"layer": "\"Main\"",
+								"opacity": "(1 - Text.Tween.Progress(\"showShop\")) * 100"
+							}
+						}
+					],
+					"sid": 735266729991796,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 435792345507864,
+									"parameters": {
+										"object": "Text"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 275757234366375,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"leaderboard\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "Text",
+									"sid": 303757160770827,
+									"parameters": {
+										"opacity": "LayerOpacity(\"Main\")"
+									}
+								}
+							],
+							"sid": 120065773661503
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 988783878675399,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"shop\""
+							}
+						},
+						{
+							"id": "is-playing",
+							"objectClass": "Text",
+							"sid": 560221319326293,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"hideShop\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 492292537566903,
+							"parameters": {
+								"layer": "\"Shop\"",
+								"opacity": "(1 - Text.Tween.Progress(\"hideShop\")) * 100"
+							}
+						},
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 657795114348966,
+							"parameters": {
+								"layer": "\"Main\"",
+								"opacity": "Text.Tween.Progress(\"hideShop\") * 100"
+							}
+						}
+					],
+					"sid": 927285146201091,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 176026783865648,
+									"parameters": {
+										"object": "Text"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 629916496717955,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"leaderboard\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "Text",
+									"sid": 589894615135773,
+									"parameters": {
+										"opacity": "LayerOpacity(\"Main\")"
+									}
+								}
+							],
+							"sid": 873219062119660
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 224072920381627,
+							"parameters": {
+								"variable": "shopMenu",
+								"comparison": 0,
+								"value": "0"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 221271871323960
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 435537444002800,
+							"parameters": {
+								"layer": "\"Character\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 369653724156822,
+							"parameters": {
+								"layer": "\"Character\"",
+								"interactive": true
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 888275288590972,
+							"parameters": {
+								"layer": "\"Theme\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 401596188526296,
+							"parameters": {
+								"layer": "\"Theme\"",
+								"interactive": false
+							}
+						}
+					],
+					"sid": 480300657159703,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 313231628792534,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"character\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 397998911685337,
+									"parameters": {
+										"text": "\"Character\""
+									}
+								},
+								{
+									"id": "set-font-color",
+									"objectClass": "Text",
+									"sid": 782052326428871,
+									"parameters": {
+										"color": "rgbEx255(0, 0, 0)"
+									}
+								}
+							],
+							"sid": 529665448281545
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 721811082279514,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"theme\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 722108862168594,
+									"parameters": {
+										"text": "Functions.underlineText(\"Theme\")"
+									}
+								},
+								{
+									"id": "set-font-color",
+									"objectClass": "Text",
+									"sid": 866657264020217,
+									"parameters": {
+										"color": "rgbEx255(255, 255, 255)"
+									}
+								}
+							],
+							"sid": 730050975157525
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 604179693872103,
+							"parameters": {
+								"variable": "shopMenu",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 453714059639059
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 986053063683540,
+							"parameters": {
+								"layer": "\"Character\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 707361213319198,
+							"parameters": {
+								"layer": "\"Character\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 290243237443358,
+							"parameters": {
+								"layer": "\"Theme\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 905270548303395,
+							"parameters": {
+								"layer": "\"Theme\"",
+								"interactive": true
+							}
+						}
+					],
+					"sid": 919248334706757,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 890265583661022,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"character\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 148833846805096,
+									"parameters": {
+										"text": "Functions.underlineText(\"Character\")"
+									}
+								},
+								{
+									"id": "set-font-color",
+									"objectClass": "Text",
+									"sid": 589833134373898,
+									"parameters": {
+										"color": "rgbEx255(255, 255, 255)"
+									}
+								}
+							],
+							"sid": 136189281954212
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 371994597438097,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"theme\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 819118914584161,
+									"parameters": {
+										"text": "\"Theme\""
+									}
+								},
+								{
+									"id": "set-font-color",
+									"objectClass": "Text",
+									"sid": 630371598577612,
+									"parameters": {
+										"color": "rgbEx255(0, 0, 0)"
+									}
+								}
+							],
+							"sid": 795833987150627
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 121456529617713,
+							"parameters": {
+								"layer": "\"Shop\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 772670884883069,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"coins\""
 							}
 						}
 					],
@@ -854,15 +1689,16 @@
 						{
 							"id": "set-text",
 							"objectClass": "Text",
-							"sid": 187291376423452,
+							"sid": 441465681290183,
 							"parameters": {
-								"text": "best"
+								"text": "coins"
 							}
 						}
 					],
-					"sid": 391187032099780
+					"sid": 975242772284874
 				}
-			]
+			],
+			"sid": 638809692234106
 		},
 		{
 			"eventType": "block",
@@ -946,6 +1782,31 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 618404877128925,
+					"parameters": {
+						"key": "\"coins\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 938295895597660,
+					"parameters": {
+						"variable": "coins",
+						"value": "int(LocalStorage.ItemValue)"
+					}
+				}
+			],
+			"sid": 143551169010449
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-configuration-complete",
 					"objectClass": "MobileAdvert",
 					"sid": 673193890099174
@@ -1013,6 +1874,36 @@
 					"disabled": true
 				}
 			]
+		},
+		{
+			"functionName": "underlineText",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "text",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 828446296205052
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 643817778496549,
+					"parameters": {
+						"value": "\"[u]\"&text&\"[/u]\""
+					}
+				}
+			],
+			"sid": 932171156733771
 		}
 	],
 	"sid": 728013641924937

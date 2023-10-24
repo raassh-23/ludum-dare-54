@@ -49,7 +49,7 @@
 						},
 						"useCollisionPoly": true,
 						"duration": 1,
-						"tag": ""
+						"tag": "coin"
 					}
 				],
 				"sid": 895506303033211,

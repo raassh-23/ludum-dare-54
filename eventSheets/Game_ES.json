@@ -4572,10 +4572,18 @@
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
+				},
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 584785296323370,
+					"parameters": {
+						"key": "\"coins\"",
+						"value": "coins"
+					}
 				}
 			],
-			"sid": 798235657401641,
-			"disabled": true
+			"sid": 798235657401641
 		},
 		{
 			"eventType": "block",
@@ -5954,6 +5962,73 @@
 				}
 			],
 			"sid": 799959532552308
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-end-of-layout",
+					"objectClass": "System",
+					"sid": 427179835271687
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 875084452140856,
+					"parameters": {
+						"variable": "dieX",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 600269690366936,
+					"parameters": {
+						"variable": "dieY",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 174008229566040,
+					"parameters": {
+						"variable": "dieRotate",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 422094539110395,
+					"parameters": {
+						"variable": "dieGravity",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 713135835973080,
+					"parameters": {
+						"variable": "dieWidth",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 990346623029870,
+					"parameters": {
+						"variable": "dieHeight",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 823089405197195
 		}
 	],
 	"sid": 461194139659853

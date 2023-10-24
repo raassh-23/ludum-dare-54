@@ -269,7 +269,7 @@
 							},
 							"world": {
 								"x": 256,
-								"y": 178.745,
+								"y": 147.745,
 								"width": 385.09467986094546,
 								"height": 64.47203797362204,
 								"originX": 0.5,
@@ -325,7 +325,7 @@
 							},
 							"world": {
 								"x": 256,
-								"y": 271.745,
+								"y": 240.745,
 								"width": 99.09467986094546,
 								"height": 60.91836940763551,
 								"originX": 0.5,
@@ -428,12 +428,173 @@
 				{
 					"name": "Shop",
 					"overriden": 0,
-					"subLayers": [],
+					"subLayers": [
+						{
+							"name": "Theme",
+							"overriden": 0,
+							"subLayers": [],
+							"instances": [
+								{
+									"type": "Ground",
+									"properties": {
+										"initially-visible": true,
+										"origin": "top-left",
+										"wrap-horizontal": "repeat",
+										"wrap-vertical": "repeat",
+										"image-offset-x": 0,
+										"image-offset-y": 0,
+										"image-scale-x": 1,
+										"image-scale-y": 1,
+										"image-angle": 0,
+										"enable-tile-randomization": false,
+										"x-random": 1,
+										"y-random": 1,
+										"angle-random": 1,
+										"blend-margin-x": 0.1,
+										"blend-margin-y": 0.1
+									},
+									"uid": 83,
+									"instanceVariables": {},
+									"behaviors": {
+										"Solid": {
+											"properties": {
+												"enabled": true,
+												"tags": ""
+											}
+										}
+									},
+									"world": {
+										"x": 193.27549588103287,
+										"y": 116,
+										"width": 103.110436,
+										"height": 37.50602629460501,
+										"originX": 0,
+										"originY": 0,
+										"color": [
+											1,
+											1,
+											1,
+											1
+										],
+										"angle": 0,
+										"zElevation": 0
+									}
+								}
+							],
+							"sid": 658817087935854,
+							"effectTypes": [],
+							"isInitiallyVisible": true,
+							"isInitiallyInteractive": true,
+							"color": [
+								1,
+								1,
+								1,
+								1
+							],
+							"backgroundColor": [
+								0.29411764705882354,
+								0.44313725490196076,
+								0.44313725490196076,
+								1
+							],
+							"isTransparent": true,
+							"parallaxX": 1,
+							"parallaxY": 1,
+							"scaleRate": 1,
+							"forceOwnTexture": false,
+							"renderingMode": "3d",
+							"drawOrder": "z-order",
+							"useRenderCells": false,
+							"blendMode": "normal",
+							"zElevation": 0,
+							"global": false
+						},
+						{
+							"name": "Character",
+							"overriden": 0,
+							"subLayers": [],
+							"instances": [
+								{
+									"type": "Ground",
+									"properties": {
+										"initially-visible": true,
+										"origin": "top-left",
+										"wrap-horizontal": "repeat",
+										"wrap-vertical": "repeat",
+										"image-offset-x": 0,
+										"image-offset-y": 0,
+										"image-scale-x": 1,
+										"image-scale-y": 1,
+										"image-angle": 0,
+										"enable-tile-randomization": false,
+										"x-random": 1,
+										"y-random": 1,
+										"angle-random": 1,
+										"blend-margin-x": 0.1,
+										"blend-margin-y": 0.1
+									},
+									"uid": 82,
+									"instanceVariables": {},
+									"behaviors": {
+										"Solid": {
+											"properties": {
+												"enabled": true,
+												"tags": ""
+											}
+										}
+									},
+									"world": {
+										"x": 43.015045317911756,
+										"y": 116,
+										"width": 143.599718,
+										"height": 37.50602629460501,
+										"originX": 0,
+										"originY": 0,
+										"color": [
+											1,
+											1,
+											1,
+											1
+										],
+										"angle": 0,
+										"zElevation": 0
+									}
+								}
+							],
+							"sid": 466533239150053,
+							"effectTypes": [],
+							"isInitiallyVisible": true,
+							"isInitiallyInteractive": true,
+							"color": [
+								1,
+								1,
+								1,
+								1
+							],
+							"backgroundColor": [
+								0.29411764705882354,
+								0.44313725490196076,
+								0.44313725490196076,
+								1
+							],
+							"isTransparent": true,
+							"parallaxX": 1,
+							"parallaxY": 1,
+							"scaleRate": 1,
+							"forceOwnTexture": false,
+							"renderingMode": "3d",
+							"drawOrder": "z-order",
+							"useRenderCells": false,
+							"blendMode": "normal",
+							"zElevation": 0,
+							"global": false
+						}
+					],
 					"instances": [
 						{
 							"type": "Text",
 							"properties": {
-								"text": "[u]Shop[/u]",
+								"text": "[u]Back[/u]",
 								"enable-bbcode": true,
 								"font": "Lato-Regular",
 								"size": 36,
@@ -460,7 +621,7 @@
 								"initialY": 0,
 								"initialFontSize": 0,
 								"initialAngle": 0,
-								"id": "shop"
+								"id": "back-shop"
 							},
 							"behaviors": {
 								"Tween": {
@@ -471,8 +632,211 @@
 							},
 							"world": {
 								"x": 256,
-								"y": 711,
-								"width": 285.09467986094546,
+								"y": 450.3269473398073,
+								"width": 125.09467986094546,
+								"height": 60.91836940763551,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Text",
+							"properties": {
+								"text": "Character",
+								"enable-bbcode": true,
+								"font": "Lato-Regular",
+								"size": 24,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									0,
+									0,
+									0,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"icon-set": -1,
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 80,
+							"instanceVariables": {
+								"initialX": 0,
+								"initialY": 0,
+								"initialFontSize": 0,
+								"initialAngle": 0,
+								"id": "character"
+							},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
+							"world": {
+								"x": 114.60574643316605,
+								"y": 136.1071984932308,
+								"width": 143.59971832318786,
+								"height": 60.91836940763551,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Text",
+							"properties": {
+								"text": "[u]Theme[/u]",
+								"enable-bbcode": true,
+								"font": "Lato-Regular",
+								"size": 24,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"icon-set": -1,
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 81,
+							"instanceVariables": {
+								"initialX": 0,
+								"initialY": 0,
+								"initialFontSize": 0,
+								"initialAngle": 0,
+								"id": "theme"
+							},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
+							"world": {
+								"x": 244.97040881049867,
+								"y": 136.1071984932308,
+								"width": 103.11043557475443,
+								"height": 60.91836940763551,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Coin",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 85,
+							"instanceVariables": {},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
+							"world": {
+								"x": 453.375885240488,
+								"y": 134.6852127049104,
+								"width": 30.915323262748956,
+								"height": 30.915323262748956,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									0.8431372549019608,
+									0,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Text",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Lato-Regular",
+								"size": 24,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"horizontal-alignment": "right",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"icon-set": 204996216644233,
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 86,
+							"instanceVariables": {
+								"initialX": 0,
+								"initialY": 0,
+								"initialFontSize": 0,
+								"initialAngle": 0,
+								"id": "coins"
+							},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
+							"world": {
+								"x": 370.74138248942137,
+								"y": 136.39306592904086,
+								"width": 120.5317492575623,
 								"height": 60.91836940763551,
 								"originX": 0.5,
 								"originY": 0.5,
@@ -2053,7 +2417,7 @@
 								"initialY": 0,
 								"initialFontSize": 0,
 								"initialAngle": 0,
-								"id": "back"
+								"id": "back-leaderboard"
 							},
 							"behaviors": {
 								"Tween": {
@@ -2107,66 +2471,155 @@
 					"blendMode": "normal",
 					"zElevation": 0,
 					"global": false
-				}
-			],
-			"instances": [
+				},
 				{
-					"type": "Text",
-					"properties": {
-						"text": "[u]Leaderboard[/u]",
-						"enable-bbcode": true,
-						"font": "Lato-Regular",
-						"size": 36,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"horizontal-alignment": "center",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"icon-set": -1,
-						"initially-visible": true,
-						"origin": "center",
-						"read-aloud": false
-					},
-					"uid": 64,
-					"instanceVariables": {
-						"initialX": 0,
-						"initialY": 0,
-						"initialFontSize": 0,
-						"initialAngle": 0,
-						"id": "leaderboard"
-					},
-					"behaviors": {
-						"Tween": {
+					"name": "Top",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "Text",
 							"properties": {
-								"enabled": true
+								"text": "[u]Leaderboard[/u]",
+								"enable-bbcode": true,
+								"font": "Lato-Regular",
+								"size": 36,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"icon-set": -1,
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 64,
+							"instanceVariables": {
+								"initialX": 0,
+								"initialY": 0,
+								"initialFontSize": 0,
+								"initialAngle": 0,
+								"id": "leaderboard"
+							},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
+							"world": {
+								"x": 256.285,
+								"y": 303.416,
+								"width": 285.09467986094546,
+								"height": 60.91836940763551,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Text",
+							"properties": {
+								"text": "[u]Shop[/u]",
+								"enable-bbcode": true,
+								"font": "Lato-Regular",
+								"size": 36,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"icon-set": -1,
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 78,
+							"instanceVariables": {
+								"initialX": 0,
+								"initialY": 0,
+								"initialFontSize": 0,
+								"initialAngle": 0,
+								"id": "shop"
+							},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
+							"world": {
+								"x": 256,
+								"y": 366,
+								"width": 285.09467986094546,
+								"height": 60.91836940763551,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
 							}
 						}
-					},
-					"world": {
-						"x": 256.285,
-						"y": 334.416,
-						"width": 285.09467986094546,
-						"height": 60.91836940763551,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
+					],
+					"sid": 594713749977158,
+					"effectTypes": [],
+					"isInitiallyVisible": true,
+					"isInitiallyInteractive": true,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.29411764705882354,
+						0.44313725490196076,
+						0.44313725490196076,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
 				}
 			],
+			"instances": [],
 			"sid": 505190928579076,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
@@ -2236,9 +2689,9 @@
 						"originX": 0,
 						"originY": 0,
 						"color": [
-							1,
-							1,
-							1,
+							0,
+							0,
+							0,
 							1
 						],
 						"angle": 0,
