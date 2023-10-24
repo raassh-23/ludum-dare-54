@@ -98,6 +98,13 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "googleplay",
+			"name": "Google Play",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "Bullet",
 			"name": "Bullet",
@@ -158,32 +165,40 @@
 	"objectTypes": {
 		"items": [
 			"Player",
-			"Browser",
 			"Star",
 			"Text",
-			"Keyboard",
 			"StraightEnemy",
 			"TimerManager",
 			"StraightHomingEnemy",
-			"Mouse",
-			"Touch",
 			"BouncingEnemy",
 			"HomingEnemy",
-			"LocalStorage",
 			"Blank",
 			"ScreenShaker",
 			"TextInput",
-			"Date",
 			"Ground",
 			"Particles",
 			"PlayerAnimation",
 			"SineEnemy",
 			"BouncingRotatingEnemy",
-			"Audio",
-			"Coin",
-			"MobileAdvert"
+			"Coin"
 		],
-		"subfolders": []
+		"subfolders": [
+			{
+				"items": [
+					"Audio",
+					"Browser",
+					"Date",
+					"GooglePlay",
+					"Keyboard",
+					"LocalStorage",
+					"MobileAdvert",
+					"Mouse",
+					"Touch"
+				],
+				"subfolders": [],
+				"name": "Misc"
+			}
+		]
 	},
 	"autosaveData": null,
 	"containers": [],
@@ -417,7 +432,7 @@
 	},
 	"properties": {
 		"description": "Collect all the stars",
-		"version": "1.0.1.1",
+		"version": "1.0.1.2",
 		"author": "Raassh",
 		"authorEmail": "",
 		"authorWebsite": "",

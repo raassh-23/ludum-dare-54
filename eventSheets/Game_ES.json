@@ -2652,6 +2652,13 @@
 							"parameters": {
 								"state": "enabled"
 							}
+						},
+						{
+							"callFunction": "UnlockAchievement",
+							"sid": 732293028839856,
+							"parameters": [
+								"\"CgkIjZK_y-MREAIQAQ\""
+							]
 						}
 					],
 					"sid": 553733623082190
@@ -2804,6 +2811,13 @@
 							"parameters": {
 								"angle": "angle(StraightEnemy.X, StraightEnemy.Y, 256, 256)"
 							}
+						},
+						{
+							"callFunction": "UnlockAchievement",
+							"sid": 976321355798976,
+							"parameters": [
+								"\"CgkIjZK_y-MREAIQAg\""
+							]
 						}
 					],
 					"sid": 769701695558951
@@ -2938,6 +2952,13 @@
 							"parameters": {
 								"angle": "random(360)"
 							}
+						},
+						{
+							"callFunction": "UnlockAchievement",
+							"sid": 126345822359395,
+							"parameters": [
+								"\"CgkIjZK_y-MREAIQAw\""
+							]
 						}
 					],
 					"sid": 454757961477210

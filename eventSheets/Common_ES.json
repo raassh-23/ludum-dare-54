@@ -568,6 +568,47 @@
 			],
 			"sid": 974699482016471,
 			"isOrBlock": true
+		},
+		{
+			"functionName": "UnlockAchievement",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "achievementId",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 302882432697649
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "is-loaded",
+					"objectClass": "GooglePlay",
+					"sid": 345758131775996
+				},
+				{
+					"id": "is-signed-in",
+					"objectClass": "GooglePlay",
+					"sid": 921585050647071
+				}
+			],
+			"actions": [
+				{
+					"id": "unlock",
+					"objectClass": "GooglePlay",
+					"sid": 794767927650892,
+					"parameters": {
+						"achievement-id": "achievementId"
+					}
+				}
+			],
+			"sid": 716204733110339
 		}
 	],
 	"sid": 896154704981924
