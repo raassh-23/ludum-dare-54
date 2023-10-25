@@ -49,38 +49,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-any-touch-start",
-					"objectClass": "Touch",
-					"sid": 377166409909059
-				},
-				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 335017058195614,
-					"parameters": {
-						"variable": "type",
-						"comparison": 1,
-						"value": "\"mobile\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 799731208483790,
-					"parameters": {
-						"variable": "type",
-						"value": "\"mobile\""
-					}
-				}
-			],
-			"sid": 159990410565416
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
 					"sid": 351695228016420
@@ -340,6 +308,38 @@
 					"sid": 885039501290440
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-start",
+					"objectClass": "Touch",
+					"sid": 244135606335692
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 179906036382555,
+					"parameters": {
+						"variable": "type",
+						"comparison": 1,
+						"value": "\"mobile\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 687227679580759,
+					"parameters": {
+						"variable": "type",
+						"value": "\"mobile\""
+					}
+				}
+			],
+			"sid": 171668807274795
 		},
 		{
 			"eventType": "block",

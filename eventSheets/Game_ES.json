@@ -161,14 +161,14 @@
 				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
-					"sid": 587727830871526
+					"sid": 989910658739706
 				}
 			],
 			"actions": [
 				{
 					"id": "set-boolean-eventvar",
 					"objectClass": "System",
-					"sid": 548604019104569,
+					"sid": 638832032977422,
 					"parameters": {
 						"variable": "hasRevived",
 						"value": "false"
@@ -177,12 +177,12 @@
 				{
 					"id": "destroy",
 					"objectClass": "Enemy",
-					"sid": 251256169163207
+					"sid": 626509364822576
 				},
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 841556736512346,
+					"sid": 170380787545465,
 					"parameters": {
 						"variable": "score",
 						"value": "0"
@@ -191,7 +191,7 @@
 				{
 					"id": "add-to-eventvar",
 					"objectClass": "System",
-					"sid": 721351466421971,
+					"sid": 357204834205843,
 					"parameters": {
 						"variable": "playCount",
 						"value": "1"
@@ -200,7 +200,7 @@
 				{
 					"id": "set-item",
 					"objectClass": "LocalStorage",
-					"sid": 759472331911304,
+					"sid": 434801883052139,
 					"parameters": {
 						"key": "\"playCount\"",
 						"value": "playCount"
@@ -209,12 +209,12 @@
 				{
 					"id": "destroy",
 					"objectClass": "Coin",
-					"sid": 744526545887423
+					"sid": 751116454356788
 				},
 				{
 					"id": "set-layer-interactive",
 					"objectClass": "System",
-					"sid": 794689989008911,
+					"sid": 714143850879364,
 					"parameters": {
 						"layer": "\"Revive\"",
 						"interactive": false
@@ -223,7 +223,7 @@
 				{
 					"id": "set-layer-visible",
 					"objectClass": "System",
-					"sid": 100919244653066,
+					"sid": 586572280984619,
 					"parameters": {
 						"layer": "\"Revive\"",
 						"visibility": "invisible"
@@ -232,7 +232,7 @@
 				{
 					"id": "set-layer-interactive",
 					"objectClass": "System",
-					"sid": 505426242528275,
+					"sid": 623719816232389,
 					"parameters": {
 						"layer": "\"GameOver\"",
 						"interactive": false
@@ -241,7 +241,7 @@
 				{
 					"id": "set-layer-visible",
 					"objectClass": "System",
-					"sid": 194303778766219,
+					"sid": 134289308740324,
 					"parameters": {
 						"layer": "\"GameOver\"",
 						"visibility": "invisible"
@@ -250,7 +250,7 @@
 				{
 					"id": "set-layer-interactive",
 					"objectClass": "System",
-					"sid": 328627338620204,
+					"sid": 266233025775294,
 					"parameters": {
 						"layer": "\"Content\"",
 						"interactive": true
@@ -259,7 +259,7 @@
 				{
 					"id": "set-layer-visible",
 					"objectClass": "System",
-					"sid": 695695918849051,
+					"sid": 579311912887276,
 					"parameters": {
 						"layer": "\"Content\"",
 						"visibility": "visible"
@@ -268,7 +268,7 @@
 				{
 					"id": "set-layer-interactive",
 					"objectClass": "System",
-					"sid": 590726332264443,
+					"sid": 212974872909023,
 					"parameters": {
 						"layer": "\"Loading\"",
 						"interactive": false
@@ -277,7 +277,7 @@
 				{
 					"id": "set-layer-visible",
 					"objectClass": "System",
-					"sid": 696514995992699,
+					"sid": 804174229444391,
 					"parameters": {
 						"layer": "\"Loading\"",
 						"visibility": "invisible"
@@ -286,7 +286,7 @@
 				{
 					"id": "set-layer-interactive",
 					"objectClass": "System",
-					"sid": 496457054789316,
+					"sid": 518930464168512,
 					"parameters": {
 						"layer": "\"Success\"",
 						"interactive": false
@@ -295,7 +295,7 @@
 				{
 					"id": "set-layer-visible",
 					"objectClass": "System",
-					"sid": 997083429078366,
+					"sid": 718824402004055,
 					"parameters": {
 						"layer": "\"Success\"",
 						"visibility": "invisible"
@@ -304,7 +304,7 @@
 				{
 					"id": "set-layer-interactive",
 					"objectClass": "System",
-					"sid": 472387727963471,
+					"sid": 423569397768361,
 					"parameters": {
 						"layer": "\"Error\"",
 						"interactive": false
@@ -313,7 +313,7 @@
 				{
 					"id": "set-layer-visible",
 					"objectClass": "System",
-					"sid": 469808961944155,
+					"sid": 796016133542095,
 					"parameters": {
 						"layer": "\"Error\"",
 						"visibility": "invisible"
@@ -322,7 +322,7 @@
 				{
 					"id": "set-group-active",
 					"objectClass": "System",
-					"sid": 554215722372470,
+					"sid": 606220069779712,
 					"parameters": {
 						"group-name": "\"Player\"",
 						"state": "deactivated"
@@ -331,7 +331,7 @@
 				{
 					"id": "set-group-active",
 					"objectClass": "System",
-					"sid": 366320100283234,
+					"sid": 543246432171221,
 					"parameters": {
 						"group-name": "\"MouseTouch\"",
 						"state": "deactivated"
@@ -340,18 +340,18 @@
 				{
 					"id": "destroy",
 					"objectClass": "Particles",
-					"sid": 175508510520948
+					"sid": 996549121965638
 				},
 				{
 					"id": "get-item",
 					"objectClass": "LocalStorage",
-					"sid": 915703138088675,
+					"sid": 401746871347598,
 					"parameters": {
 						"key": "\"name\""
 					}
 				}
 			],
-			"sid": 996732833506874,
+			"sid": 901781538684749,
 			"children": [
 				{
 					"eventType": "block",
@@ -359,7 +359,7 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Text",
-							"sid": 737567192938880,
+							"sid": 481451176272719,
 							"parameters": {
 								"instance-variable": "id",
 								"comparison": 0,
@@ -371,13 +371,13 @@
 						{
 							"id": "set-y",
 							"objectClass": "Text",
-							"sid": 843197335628572,
+							"sid": 151823799391305,
 							"parameters": {
 								"y": "Self.Y + 200"
 							}
 						}
 					],
-					"sid": 839166683004209
+					"sid": 230336234045697
 				},
 				{
 					"eventType": "block",
@@ -386,7 +386,7 @@
 						{
 							"id": "set-position",
 							"objectClass": "Blank",
-							"sid": 906137987638052,
+							"sid": 446372102680458,
 							"parameters": {
 								"x": "0",
 								"y": "0"
@@ -395,7 +395,7 @@
 						{
 							"id": "tween-two-properties",
 							"objectClass": "Blank",
-							"sid": 485406816285718,
+							"sid": 949248625877956,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"layoutTransition\"",
@@ -413,16 +413,16 @@
 						{
 							"id": "wait-for-previous-actions",
 							"objectClass": "System",
-							"sid": 615351854257229
+							"sid": 945699379261386
 						},
 						{
 							"callFunction": "PlayBGMGame",
-							"sid": 451462206725494
+							"sid": 482884750675460
 						},
 						{
 							"id": "set-group-active",
 							"objectClass": "System",
-							"sid": 370242524494103,
+							"sid": 915373328496489,
 							"parameters": {
 								"group-name": "\"Player\"",
 								"state": "activated"
@@ -431,7 +431,7 @@
 						{
 							"id": "set-group-active",
 							"objectClass": "System",
-							"sid": 325577898427317,
+							"sid": 236545115909056,
 							"parameters": {
 								"group-name": "\"MouseTouch\"",
 								"state": "activated"
@@ -440,14 +440,14 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 170388317312293,
+							"sid": 675717056015323,
 							"parameters": {
 								"variable": "startTime",
 								"value": "Date.Now"
 							}
 						}
 					],
-					"sid": 795858232105659
+					"sid": 339958193382346
 				}
 			]
 		},
@@ -577,9 +577,17 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-start-of-layout",
+							"id": "is-group-active",
 							"objectClass": "System",
-							"sid": 823024503942011
+							"sid": 947372716005541,
+							"parameters": {
+								"group-name": "\"MouseTouch\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 751781974518216
 						}
 					],
 					"actions": [
