@@ -180,7 +180,8 @@
 			"PlayerAnimation",
 			"SineEnemy",
 			"BouncingRotatingEnemy",
-			"Coin"
+			"Coin",
+			"PlayerAnimationSelected"
 		],
 		"subfolders": [
 			{
@@ -432,7 +433,7 @@
 	},
 	"properties": {
 		"description": "Collect all the stars",
-		"version": "1.0.1.3",
+		"version": "1.0.1.4",
 		"author": "Raassh",
 		"authorEmail": "",
 		"authorWebsite": "",

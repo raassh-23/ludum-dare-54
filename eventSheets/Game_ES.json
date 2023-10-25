@@ -166,6 +166,15 @@
 			],
 			"actions": [
 				{
+					"id": "set-animation",
+					"objectClass": "PlayerAnimation",
+					"sid": 711198057317625,
+					"parameters": {
+						"animation": "selectedAnimation",
+						"from": "beginning"
+					}
+				},
+				{
 					"id": "set-boolean-eventvar",
 					"objectClass": "System",
 					"sid": 638832032977422,
@@ -4518,13 +4527,13 @@
 						{
 							"id": "tween-two-properties",
 							"objectClass": "Coin",
-							"sid": 732282295473062,
+							"sid": 453616492493258,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"Scale\"",
 								"property": "size",
-								"end-x": "16",
-								"end-y": "16",
+								"end-x": "20",
+								"end-y": "20",
 								"time": "0.5",
 								"ease": "easeoutelastic",
 								"destroy-on-complete": "no",

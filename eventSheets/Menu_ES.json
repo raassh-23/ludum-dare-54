@@ -46,6 +46,36 @@
 			"sid": 269428043857369
 		},
 		{
+			"eventType": "variable",
+			"name": "availableAnimation",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": true,
+			"isConstant": false,
+			"sid": 732036565435148
+		},
+		{
+			"eventType": "variable",
+			"name": "unlockedAnimation",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": true,
+			"isConstant": false,
+			"sid": 417943763345879
+		},
+		{
+			"eventType": "variable",
+			"name": "selectedAnimation",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": true,
+			"isConstant": false,
+			"sid": 955059543524185
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -263,6 +293,22 @@
 							"sid": 863092825431925,
 							"parameters": {
 								"key": "\"best\""
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 518758123623328,
+							"parameters": {
+								"key": "\"unlockedAnimation\""
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 225163078583304,
+							"parameters": {
+								"key": "\"selectedAnimation\""
 							}
 						},
 						{
@@ -1696,6 +1742,552 @@
 						}
 					],
 					"sid": 975242772284874
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-all-gets-complete",
+							"objectClass": "LocalStorage",
+							"sid": 752503396285475
+						}
+					],
+					"actions": [],
+					"sid": 785326373873338,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "priceWidth",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 708765978729246
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 912699420231596,
+									"parameters": {
+										"object": "PlayerAnimation"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "PlayerAnimation",
+									"sid": 542679070989802,
+									"parameters": {
+										"child": "Text",
+										"which": "own"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "Text",
+									"sid": 341135201048265,
+									"parameters": {
+										"child": "Coin",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Text",
+									"sid": 584470552494168,
+									"parameters": {
+										"instance-variable": "id",
+										"value": "\"price-\" & PlayerAnimation.AnimationName"
+									}
+								},
+								{
+									"id": "set-width",
+									"objectClass": "Text",
+									"sid": 192730276846222,
+									"parameters": {
+										"width": "Self.TextWidth + 2"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 428352349574412,
+									"parameters": {
+										"variable": "priceWidth",
+										"value": "Coin.BBoxRight - Text.BBoxLeft"
+									}
+								},
+								{
+									"id": "set-x",
+									"objectClass": "Text",
+									"sid": 249936909212809,
+									"parameters": {
+										"x": "PlayerAnimation.BBoxLeft + Self.Width + (PlayerAnimation.Width - priceWidth)/2"
+									}
+								}
+							],
+							"sid": 208214892973544,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 589617465226862,
+											"parameters": {
+												"first-value": "find(availableAnimation, PlayerAnimation.AnimationName)",
+												"comparison": 0,
+												"second-value": "-1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 912198271730939,
+											"parameters": {
+												"variable": "availableAnimation",
+												"value": "availableAnimation & (availableAnimation <> \"\" ? \";\" : \"\") & PlayerAnimation.AnimationName"
+											}
+										}
+									],
+									"sid": 956238735033994
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 721772392522948,
+											"parameters": {
+												"first-value": "int(Text.Text)",
+												"comparison": 0,
+												"second-value": "0"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 535229034899860,
+											"parameters": {
+												"first-value": "find(unlockedAnimation, PlayerAnimation.AnimationName)",
+												"comparison": 0,
+												"second-value": "-1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 862273921053782,
+											"parameters": {
+												"variable": "unlockedAnimation",
+												"value": "unlockedAnimation & (unlockedAnimation <> \"\" ? \";\" : \"\") & PlayerAnimation.AnimationName"
+											}
+										}
+									],
+									"sid": 535746877981148
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "evaluate-expression",
+											"objectClass": "System",
+											"sid": 575996085641703,
+											"parameters": {
+												"value": "Functions.IsAnimationUnlocked(PlayerAnimation.AnimationName)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Text",
+											"sid": 371028570386940,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 837935903137528
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 404101294850648,
+									"parameters": {
+										"variable": "selectedAnimation",
+										"comparison": 1,
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "PlayerAnimation",
+									"sid": 636417343691466,
+									"parameters": {
+										"animation": "selectedAnimation"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position-to-another-object",
+									"objectClass": "PlayerAnimationSelected",
+									"sid": 888264234531520,
+									"parameters": {
+										"object": "PlayerAnimation",
+										"image-point-optional": "0"
+									}
+								}
+							],
+							"sid": 911627429605327
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 316687722964532
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "PlayerAnimationSelected",
+									"sid": 205583794590561,
+									"parameters": {
+										"object": "PlayerAnimation"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 630042622661251,
+									"parameters": {
+										"variable": "selectedAnimation",
+										"value": "PlayerAnimation.AnimationName"
+									}
+								}
+							],
+							"sid": 914658048896685
+						}
+					]
+				},
+				{
+					"functionName": "IsAnimationUnlocked",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "number",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "animationName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 948799734843694
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 839740376545033,
+							"parameters": {
+								"value": "find(unlockedAnimation, animationName) = -1 ? 0 : 1"
+							}
+						}
+					],
+					"sid": 398032009170930
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 543116861426461,
+							"parameters": {
+								"object": "PlayerAnimation"
+							}
+						},
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 868464297939504,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "PlayerAnimation"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 120337395530990,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "layer-is-interactive",
+									"objectClass": "System",
+									"sid": 444897357364671,
+									"parameters": {
+										"layer": "\"Character\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 462153083422092,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "evaluate-expression",
+											"objectClass": "System",
+											"sid": 813160320022082,
+											"parameters": {
+												"value": "Functions.IsAnimationUnlocked(PlayerAnimation.AnimationName)"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 783769695596770,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-children",
+													"objectClass": "PlayerAnimation",
+													"sid": 898714741803395,
+													"parameters": {
+														"child": "Text",
+														"which": "all"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 342917217736125,
+													"parameters": {
+														"first-value": "int(Text.Text)",
+														"comparison": 3,
+														"second-value": "coins"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 953714540930266,
+													"parameters": {
+														"variable": "coins",
+														"value": "int(Text.Text)"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 164295589529290,
+													"parameters": {
+														"variable": "unlockedAnimation",
+														"value": "unlockedAnimation & (unlockedAnimation <> \"\" ? \";\" : \"\") & PlayerAnimation.AnimationName"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Text",
+													"sid": 368965651015930,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-item",
+													"objectClass": "LocalStorage",
+													"sid": 351936671019117,
+													"parameters": {
+														"key": "\"coins\"",
+														"value": "coins"
+													}
+												},
+												{
+													"id": "set-item",
+													"objectClass": "LocalStorage",
+													"sid": 130884104924136,
+													"parameters": {
+														"key": "\"unlockedAnimation\"",
+														"value": "unlockedAnimation"
+													}
+												}
+											],
+											"sid": 775031083387232
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 787132599982085
+												}
+											],
+											"actions": [
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 156524701861373,
+													"parameters": {
+														"type": "log",
+														"message": "\"Not enough coins\""
+													}
+												}
+											],
+											"sid": 902964547699054
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "evaluate-expression",
+											"objectClass": "System",
+											"sid": 325113277714591,
+											"parameters": {
+												"value": "Functions.IsAnimationUnlocked(PlayerAnimation.AnimationName)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 849926180955780,
+											"parameters": {
+												"variable": "selectedAnimation",
+												"value": "PlayerAnimation.AnimationName"
+											}
+										},
+										{
+											"id": "set-position-to-another-object",
+											"objectClass": "PlayerAnimationSelected",
+											"sid": 155581825948492,
+											"parameters": {
+												"object": "PlayerAnimation",
+												"image-point-optional": "0"
+											}
+										},
+										{
+											"id": "set-item",
+											"objectClass": "LocalStorage",
+											"sid": 296694400259732,
+											"parameters": {
+												"key": "\"selectedAnimation\"",
+												"value": "selectedAnimation"
+											}
+										}
+									],
+									"sid": 798927471443657
+								}
+							]
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 648898630459890,
+							"parameters": {
+								"key": "\"unlockedAnimation\""
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 350060615105846,
+							"parameters": {
+								"first-value": "LocalStorage.ItemValue",
+								"comparison": 1,
+								"second-value": "\"\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 556771331157669,
+							"parameters": {
+								"variable": "unlockedAnimation",
+								"value": "LocalStorage.ItemValue"
+							}
+						}
+					],
+					"sid": 429117791355573
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 708973838604113,
+							"parameters": {
+								"key": "\"selectedAnimation\""
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 750409603693292,
+							"parameters": {
+								"first-value": "LocalStorage.ItemValue",
+								"comparison": 1,
+								"second-value": "\"\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 130459287089013,
+							"parameters": {
+								"variable": "selectedAnimation",
+								"value": "LocalStorage.ItemValue"
+							}
+						}
+					],
+					"sid": 369778291538963
 				}
 			],
 			"sid": 638809692234106

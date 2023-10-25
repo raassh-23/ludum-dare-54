@@ -1,0 +1,59 @@
+{
+	"name": "PlayerAnimationSelected",
+	"plugin-id": "Sprite",
+	"sid": 419213560360300,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "targetHeight",
+			"type": "number",
+			"desc": "",
+			"show": false,
+			"sid": 320451599405600
+		},
+		{
+			"name": "targetWidth",
+			"type": "number",
+			"desc": "",
+			"show": false,
+			"sid": 449679433307679
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 721725488186310
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8887544,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 208479202029119,
+				"name": "Box",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}
