@@ -1,5 +1,5 @@
 {
-	"name": "PlayerAnimationSelected",
+	"name": "SelectedIndicator",
 	"plugin-id": "Sprite",
 	"sid": 419213560360300,
 	"isGlobal": false,
@@ -17,6 +17,13 @@
 			"desc": "",
 			"show": false,
 			"sid": 449679433307679
+		},
+		{
+			"name": "id",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 678041979799469
 		}
 	],
 	"behaviorTypes": [

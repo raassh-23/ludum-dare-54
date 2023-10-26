@@ -1,9 +1,17 @@
+:root {
+    --background-color: #000000;
+}
+
 @font-face {
     font-family: 'LatoWeb';
     src: url('fonts/Lato-Regular.woff') format('woff');
     font-style: normal;
     font-weight: normal;
     text-rendering: optimizeLegibility;
+}
+
+body {
+    background-color: var(--background-color) !important;
 }
 
 .text-input {

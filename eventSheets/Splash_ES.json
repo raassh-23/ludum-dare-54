@@ -1,0 +1,373 @@
+{
+	"name": "Splash_ES",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Splash",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "activityCounter",
+					"type": "number",
+					"initialValue": "8",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 392385169406885
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 388568348705080
+						}
+					],
+					"actions": [
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 578522539972053,
+							"parameters": {
+								"key": "\"playCount\""
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 758500799371140,
+							"parameters": {
+								"key": "\"coins\""
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 863092825431925,
+							"parameters": {
+								"key": "\"best\""
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 518758123623328,
+							"parameters": {
+								"key": "\"unlockedAnimation\""
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 225163078583304,
+							"parameters": {
+								"key": "\"selectedAnimation\""
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 107486086285974,
+							"parameters": {
+								"tag": "\"theme0\"",
+								"file": "theme0.json"
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 565747687169953,
+							"parameters": {
+								"tag": "\"theme1\"",
+								"file": "theme1.json"
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 556660775504174,
+							"parameters": {
+								"tag": "\"theme2\"",
+								"file": "theme2.json"
+							}
+						}
+					],
+					"sid": 262057148051707
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 648898630459890,
+							"parameters": {
+								"key": "\"unlockedAnimation\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 519741604219372,
+							"parameters": {
+								"variable": "activityCounter",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 429117791355573,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 747194537685703,
+									"parameters": {
+										"first-value": "LocalStorage.ItemValue",
+										"comparison": 1,
+										"second-value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 758733370286703,
+									"parameters": {
+										"variable": "unlockedAnimation",
+										"value": "LocalStorage.ItemValue"
+									}
+								}
+							],
+							"sid": 581705590072082
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 708973838604113,
+							"parameters": {
+								"key": "\"selectedAnimation\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 587312302252609,
+							"parameters": {
+								"variable": "activityCounter",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 369778291538963,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 951937398227530,
+									"parameters": {
+										"first-value": "LocalStorage.ItemValue",
+										"comparison": 1,
+										"second-value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 237938898632577,
+									"parameters": {
+										"variable": "selectedAnimation",
+										"value": "LocalStorage.ItemValue"
+									}
+								}
+							],
+							"sid": 344170272985856
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 680463293980497,
+							"parameters": {
+								"key": "\"best\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 560220774096555,
+							"parameters": {
+								"variable": "best",
+								"value": "int(LocalStorage.ItemValue)"
+							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 345606146569864,
+							"parameters": {
+								"variable": "activityCounter",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 531745384353216
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 539434915148720,
+							"parameters": {
+								"key": "\"playCount\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 406363366723970,
+							"parameters": {
+								"variable": "playCount",
+								"value": "int(LocalStorage.ItemValue)"
+							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 596993561401991,
+							"parameters": {
+								"variable": "activityCounter",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 795955883798922
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 618404877128925,
+							"parameters": {
+								"key": "\"coins\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 938295895597660,
+							"parameters": {
+								"variable": "coins",
+								"value": "int(LocalStorage.ItemValue)"
+							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 234785561013548,
+							"parameters": {
+								"variable": "activityCounter",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 143551169010449
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-completed",
+							"objectClass": "AJAX",
+							"sid": 237591157124622
+						}
+					],
+					"actions": [
+						{
+							"id": "set-json",
+							"objectClass": "Themes",
+							"sid": 376693342220252,
+							"parameters": {
+								"path": "AJAX.Tag",
+								"json": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 963989824254140,
+							"parameters": {
+								"variable": "activityCounter",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 328839507192749
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 606748405982029,
+							"parameters": {
+								"variable": "activityCounter",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 110780287855914,
+							"parameters": {
+								"layout": "Menu"
+							}
+						}
+					],
+					"sid": 674829227200472
+				}
+			],
+			"sid": 910295490039801
+		}
+	],
+	"sid": 507411854134958
+}

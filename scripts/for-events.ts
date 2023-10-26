@@ -68,7 +68,7 @@ async function addToLeaderboard(runtime: IRuntime) {
     if (!nameInput) {
         throw new Error("Missing text input instance");
     }
-    
+
     const name = nameInput.text;
 
     if (!name || name.trim() === "") {
@@ -153,4 +153,21 @@ function setupTextInput(id: string, onEnter: () => void) {
             onEnter();
         }
     });
+}
+
+function colorHexToRGB(hex: string): [number, number, number] {
+    if (!(/^#[0-9A-F]{6}$/i.test(hex))) {
+        throw new Error(`${hex} is invalid color`)
+    }
+
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+
+    return [r, g, b];
+}
+
+function setBackgroundColor(hex: string) {
+    const root: HTMLElement = document.querySelector(':root')!;
+    root.style.setProperty('--background-color', hex);
 }

@@ -76,6 +76,16 @@
 			"sid": 955059543524185
 		},
 		{
+			"eventType": "variable",
+			"name": "selectedTheme",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": true,
+			"isConstant": false,
+			"sid": 308994810051308
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -271,46 +281,6 @@
 						}
 					],
 					"actions": [
-						{
-							"id": "get-item",
-							"objectClass": "LocalStorage",
-							"sid": 578522539972053,
-							"parameters": {
-								"key": "\"playCount\""
-							}
-						},
-						{
-							"id": "get-item",
-							"objectClass": "LocalStorage",
-							"sid": 758500799371140,
-							"parameters": {
-								"key": "\"coins\""
-							}
-						},
-						{
-							"id": "get-item",
-							"objectClass": "LocalStorage",
-							"sid": 863092825431925,
-							"parameters": {
-								"key": "\"best\""
-							}
-						},
-						{
-							"id": "get-item",
-							"objectClass": "LocalStorage",
-							"sid": 518758123623328,
-							"parameters": {
-								"key": "\"unlockedAnimation\""
-							}
-						},
-						{
-							"id": "get-item",
-							"objectClass": "LocalStorage",
-							"sid": 225163078583304,
-							"parameters": {
-								"key": "\"selectedAnimation\""
-							}
-						},
 						{
 							"callFunction": "PlayBGMMenu",
 							"sid": 478416584056952
@@ -1747,9 +1717,9 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-all-gets-complete",
-							"objectClass": "LocalStorage",
-							"sid": 752503396285475
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 658672740180100
 						}
 					],
 					"actions": [],
@@ -1927,66 +1897,170 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 404101294850648,
+									"id": "compare-instance-variable",
+									"objectClass": "SelectedIndicator",
+									"sid": 810525896772954,
 									"parameters": {
-										"variable": "selectedAnimation",
-										"comparison": 1,
-										"value": "\"\""
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"character\""
 									}
+								}
+							],
+							"actions": [],
+							"sid": 541352408457917,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 118984314512740,
+											"parameters": {
+												"variable": "selectedAnimation",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "PlayerAnimation",
+											"sid": 233953857876265,
+											"parameters": {
+												"animation": "selectedAnimation"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position-to-another-object",
+											"objectClass": "SelectedIndicator",
+											"sid": 549522704539995,
+											"parameters": {
+												"object": "PlayerAnimation",
+												"image-point-optional": "0"
+											}
+										}
+									],
+									"sid": 640166924440950
 								},
 								{
-									"id": "is-animation-playing",
-									"objectClass": "PlayerAnimation",
-									"sid": 636417343691466,
-									"parameters": {
-										"animation": "selectedAnimation"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 461676355100053
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "SelectedIndicator",
+											"sid": 727148692039921,
+											"parameters": {
+												"object": "PlayerAnimation"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 227763994897638,
+											"parameters": {
+												"variable": "selectedAnimation",
+												"value": "PlayerAnimation.AnimationName"
+											}
+										}
+									],
+									"sid": 950554877738990
 								}
-							],
-							"actions": [
-								{
-									"id": "set-position-to-another-object",
-									"objectClass": "PlayerAnimationSelected",
-									"sid": 888264234531520,
-									"parameters": {
-										"object": "PlayerAnimation",
-										"image-point-optional": "0"
-									}
-								}
-							],
-							"sid": 911627429605327
+							]
 						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 316687722964532
+									"id": "compare-instance-variable",
+									"objectClass": "SelectedIndicator",
+									"sid": 723981654247987,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"theme\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 452673153159819,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 431489384134000,
+											"parameters": {
+												"variable": "selectedTheme",
+												"comparison": 1,
+												"value": "0"
+											}
+										},
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "ThemeIcon",
+											"sid": 574432982440539,
+											"parameters": {
+												"comparison": 0,
+												"number": "selectedTheme"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position-to-another-object",
+											"objectClass": "SelectedIndicator",
+											"sid": 568177638380902,
+											"parameters": {
+												"object": "ThemeIcon",
+												"image-point-optional": "0"
+											}
+										}
+									],
+									"sid": 722153854431651
 								},
 								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "PlayerAnimationSelected",
-									"sid": 205583794590561,
-									"parameters": {
-										"object": "PlayerAnimation"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 254071258336525
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "SelectedIndicator",
+											"sid": 135133956761939,
+											"parameters": {
+												"object": "ThemeIcon"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 105720125469240,
+											"parameters": {
+												"variable": "selectedAnimation",
+												"value": "ThemeIcon.AnimationFrame"
+											}
+										}
+									],
+									"sid": 130050036085304
 								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 630042622661251,
-									"parameters": {
-										"variable": "selectedAnimation",
-										"value": "PlayerAnimation.AnimationName"
-									}
-								}
-							],
-							"sid": 914658048896685
+							]
 						}
 					]
 				},
@@ -2181,6 +2255,16 @@
 											"parameters": {
 												"value": "Functions.IsAnimationUnlocked(PlayerAnimation.AnimationName)"
 											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "SelectedIndicator",
+											"sid": 250505521121874,
+											"parameters": {
+												"instance-variable": "id",
+												"comparison": 0,
+												"value": "\"character\""
+											}
 										}
 									],
 									"actions": [
@@ -2195,7 +2279,7 @@
 										},
 										{
 											"id": "set-position-to-another-object",
-											"objectClass": "PlayerAnimationSelected",
+											"objectClass": "SelectedIndicator",
 											"sid": 155581825948492,
 											"parameters": {
 												"object": "PlayerAnimation",
@@ -2223,177 +2307,182 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-item-get",
-							"objectClass": "LocalStorage",
-							"sid": 648898630459890,
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 894865632490038,
 							"parameters": {
-								"key": "\"unlockedAnimation\""
+								"object": "ThemeIcon"
 							}
 						},
 						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 350060615105846,
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 672711155236821,
 							"parameters": {
-								"first-value": "LocalStorage.ItemValue",
-								"comparison": 1,
-								"second-value": "\"\""
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "ThemeIcon"
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 271693456455291,
+					"children": [
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 556771331157669,
-							"parameters": {
-								"variable": "unlockedAnimation",
-								"value": "LocalStorage.ItemValue"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "SelectedIndicator",
+									"sid": 223708481939572,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"theme\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 959329199080736,
+									"parameters": {
+										"variable": "selectedTheme",
+										"value": "ThemeIcon.AnimationFrame"
+									}
+								},
+								{
+									"id": "set-position-to-another-object",
+									"objectClass": "SelectedIndicator",
+									"sid": 338084219781977,
+									"parameters": {
+										"object": "ThemeIcon",
+										"image-point-optional": "0"
+									}
+								},
+								{
+									"callFunction": "setTheme",
+									"sid": 195322847406989,
+									"parameters": [
+										"\"theme\"&selectedTheme"
+									]
+								}
+							],
+							"sid": 587687689127168
 						}
 					],
-					"sid": 429117791355573
+					"isOrBlock": true
 				},
 				{
-					"eventType": "block",
-					"conditions": [
+					"functionName": "setTheme",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
 						{
-							"id": "on-item-get",
-							"objectClass": "LocalStorage",
-							"sid": 708973838604113,
+							"name": "theme",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 494907543239154
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-layer-background-color",
+							"objectClass": "System",
+							"sid": 883774820793749,
 							"parameters": {
-								"key": "\"selectedAnimation\""
+								"layer": "0",
+								"color": "Functions.convertColorHex(Themes.Get(theme&\".background\"))"
 							}
 						},
 						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 750409603693292,
-							"parameters": {
-								"first-value": "LocalStorage.ItemValue",
-								"comparison": 1,
-								"second-value": "\"\""
-							}
+							"type": "script",
+							"script": "const themes = runtime.objects.Themes.getFirstInstance().getJsonDataCopy();\nconst selectedTheme = localVars.theme;\n\nsetBackgroundColor(themes[selectedTheme][\"background\"]);"
 						}
 					],
-					"actions": [
+					"sid": 182213040027907
+				},
+				{
+					"functionName": "convertColorHex",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "any",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 130459287089013,
-							"parameters": {
-								"variable": "selectedAnimation",
-								"value": "LocalStorage.ItemValue"
-							}
+							"name": "hex",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 879237014995947
 						}
 					],
-					"sid": 369778291538963
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 719083941265711,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "r",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 173576914186463
+						},
+						{
+							"eventType": "variable",
+							"name": "g",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 114734565767187
+						},
+						{
+							"eventType": "variable",
+							"name": "b",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 407109255113101
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const { hex } = localVars;\n\nconst [r, g, b] = colorHexToRGB(hex);\n\nlocalVars.r = r/255 * 100;\nlocalVars.g = g/255 * 100;\nlocalVars.b = b/255 * 100;"
+								},
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 910917472069915,
+									"parameters": {
+										"value": "rgbEx(r, g, b)"
+									}
+								}
+							],
+							"sid": 835200615075644
+						}
+					]
 				}
 			],
 			"sid": 638809692234106
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-item-get",
-					"objectClass": "LocalStorage",
-					"sid": 680463293980497,
-					"parameters": {
-						"key": "\"best\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 560220774096555,
-					"parameters": {
-						"variable": "best",
-						"value": "int(LocalStorage.ItemValue)"
-					}
-				}
-			],
-			"sid": 531745384353216,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Text",
-							"sid": 639697673148358,
-							"parameters": {
-								"instance-variable": "id",
-								"comparison": 0,
-								"value": "\"best\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "Text",
-							"sid": 130601736573689,
-							"parameters": {
-								"text": "best"
-							}
-						}
-					],
-					"sid": 749275785027667
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-item-get",
-					"objectClass": "LocalStorage",
-					"sid": 539434915148720,
-					"parameters": {
-						"key": "\"playCount\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 406363366723970,
-					"parameters": {
-						"variable": "playCount",
-						"value": "int(LocalStorage.ItemValue)"
-					}
-				}
-			],
-			"sid": 795955883798922
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-item-get",
-					"objectClass": "LocalStorage",
-					"sid": 618404877128925,
-					"parameters": {
-						"key": "\"coins\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 938295895597660,
-					"parameters": {
-						"variable": "coins",
-						"value": "int(LocalStorage.ItemValue)"
-					}
-				}
-			],
-			"sid": 143551169010449
 		},
 		{
 			"eventType": "block",

@@ -1,0 +1,14 @@
+{
+	"ui": "#007acc",
+    "ground": "#007acc",
+    "player": "#007acc",
+    "background": "#0a0139",
+    "stars": "#ffd700",
+    "coins": "#f0e68c",
+    "straightHomingEnemy": "#ff5733",
+    "straightEnemy": "#9c27b0",
+    "bouncingEnemy": "#ff9800",
+    "homingEnemy": "#03a9f4",
+    "sineEnemy": "#ff4081",
+    "bouncingRotatingEnemy": "#ff6f61"
+}

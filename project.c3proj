@@ -8,6 +8,13 @@
 	"usedAddons": [
 		{
 			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Audio",
 			"name": "Audio",
 			"author": "Scirra",
@@ -24,6 +31,13 @@
 			"type": "plugin",
 			"id": "Date",
 			"name": "Date",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Json",
+			"name": "JSON",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -181,7 +195,9 @@
 			"SineEnemy",
 			"BouncingRotatingEnemy",
 			"Coin",
-			"PlayerAnimationSelected"
+			"SelectedIndicator",
+			"Themes",
+			"ThemeIcon"
 		],
 		"subfolders": [
 			{
@@ -194,7 +210,8 @@
 					"LocalStorage",
 					"MobileAdvert",
 					"Mouse",
-					"Touch"
+					"Touch",
+					"AJAX"
 				],
 				"subfolders": [],
 				"name": "Misc"
@@ -212,7 +229,8 @@
 	"layouts": {
 		"items": [
 			"Game",
-			"Menu"
+			"Menu",
+			"Splash"
 		],
 		"subfolders": []
 	},
@@ -220,7 +238,8 @@
 		"items": [
 			"Game_ES",
 			"Menu_ES",
-			"Common_ES"
+			"Common_ES",
+			"Splash_ES"
 		],
 		"subfolders": []
 	},
@@ -417,7 +436,38 @@
 					}
 				}
 			],
-			"subfolders": []
+			"subfolders": [
+				{
+					"items": [
+						{
+							"name": "theme0.json",
+							"type": "application/json",
+							"sid": 956966195251664,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "theme1.json",
+							"type": "application/json",
+							"sid": 179905780890915,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "theme2.json",
+							"type": "application/json",
+							"sid": 963504471792013,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "themes"
+				}
+			]
 		}
 	},
 	"timelines": {
@@ -452,9 +502,9 @@
 			0
 		],
 		"splashColor": [
-			1,
-			1,
-			1,
+			0,
+			0,
+			0,
 			0
 		],
 		"useThemeColor": false,
@@ -487,5 +537,5 @@
 	},
 	"viewportWidth": 512,
 	"viewportHeight": 512,
-	"firstLayout": "Menu"
+	"firstLayout": "Splash"
 }

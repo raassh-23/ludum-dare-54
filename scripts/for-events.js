@@ -119,3 +119,16 @@ function setupTextInput(id, onEnter) {
         }
     });
 }
+function colorHexToRGB(hex) {
+    if (!(/^#[0-9A-F]{6}$/i.test(hex))) {
+        throw new Error(`${hex} is invalid color`);
+    }
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return [r, g, b];
+}
+function setBackgroundColor(hex) {
+    const root = document.querySelector(':root');
+    root.style.setProperty('--background-color', hex);
+}

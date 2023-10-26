@@ -479,6 +479,160 @@
 										"angle": 0,
 										"zElevation": 0
 									}
+								},
+								{
+									"type": "ThemeIcon",
+									"properties": {
+										"initially-visible": true,
+										"initial-animation": "Animation 1",
+										"initial-frame": 0,
+										"enable-collisions": true,
+										"live-preview": false
+									},
+									"uid": 118,
+									"instanceVariables": {},
+									"behaviors": {},
+									"world": {
+										"x": 112,
+										"y": 240.57864557626328,
+										"width": 100,
+										"height": 100,
+										"originX": 0.5,
+										"originY": 0.5,
+										"color": [
+											1,
+											1,
+											1,
+											1
+										],
+										"angle": 0,
+										"zElevation": 0
+									}
+								},
+								{
+									"type": "ThemeIcon",
+									"properties": {
+										"initially-visible": true,
+										"initial-animation": "Animation 1",
+										"initial-frame": 1,
+										"enable-collisions": true,
+										"live-preview": false
+									},
+									"uid": 119,
+									"instanceVariables": {},
+									"behaviors": {},
+									"world": {
+										"x": 255,
+										"y": 240.57864557626328,
+										"width": 100,
+										"height": 100,
+										"originX": 0.5,
+										"originY": 0.5,
+										"color": [
+											1,
+											1,
+											1,
+											1
+										],
+										"angle": 0,
+										"zElevation": 0
+									}
+								},
+								{
+									"type": "ThemeIcon",
+									"properties": {
+										"initially-visible": true,
+										"initial-animation": "Animation 1",
+										"initial-frame": 2,
+										"enable-collisions": true,
+										"live-preview": false
+									},
+									"uid": 120,
+									"instanceVariables": {},
+									"behaviors": {},
+									"world": {
+										"x": 398,
+										"y": 240.57864557626328,
+										"width": 100,
+										"height": 100,
+										"originX": 0.5,
+										"originY": 0.5,
+										"color": [
+											1,
+											1,
+											1,
+											1
+										],
+										"angle": 0,
+										"zElevation": 0
+									}
+								},
+								{
+									"type": "SelectedIndicator",
+									"properties": {
+										"initially-visible": true,
+										"initial-animation": "Box",
+										"initial-frame": 0,
+										"enable-collisions": true,
+										"live-preview": false
+									},
+									"uid": 121,
+									"instanceVariables": {
+										"targetHeight": 0,
+										"targetWidth": 0,
+										"id": "theme"
+									},
+									"behaviors": {
+										"Tween": {
+											"properties": {
+												"enabled": true
+											}
+										}
+									},
+									"sceneGraphData": {
+										"parent-uid": null,
+										"uid": 121,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": false,
+											"h": false,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										},
+										"preview": {
+											"transformX": 0,
+											"transformY": 0,
+											"transformZElevation": 0,
+											"transformW": 0,
+											"transformH": 0,
+											"transformA": 0,
+											"transformSX": 0,
+											"transformSY": 0,
+											"transformO": 0,
+											"previewSceneGraph": false
+										}
+									},
+									"world": {
+										"x": 112,
+										"y": 240.578646,
+										"width": 128,
+										"height": 128,
+										"originX": 0.5,
+										"originY": 0.5,
+										"color": [
+											1,
+											1,
+											1,
+											1
+										],
+										"angle": 0,
+										"zElevation": 0
+									}
 								}
 							],
 							"sid": 658817087935854,
@@ -1796,7 +1950,7 @@
 									}
 								},
 								{
-									"type": "PlayerAnimationSelected",
+									"type": "SelectedIndicator",
 									"properties": {
 										"initially-visible": true,
 										"initial-animation": "Box",
@@ -1807,7 +1961,8 @@
 									"uid": 101,
 									"instanceVariables": {
 										"targetHeight": 0,
-										"targetWidth": 0
+										"targetWidth": 0,
+										"id": "character"
 									},
 									"behaviors": {
 										"Tween": {

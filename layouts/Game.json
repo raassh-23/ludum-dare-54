@@ -2594,7 +2594,14 @@
 		}
 	],
 	"sid": 512909316606255,
-	"nonworld-instances": [],
+	"nonworld-instances": [
+		{
+			"type": "Themes",
+			"properties": {},
+			"uid": 116,
+			"instanceVariables": {}
+		}
+	],
 	"effectTypes": [],
 	"width": 512,
 	"height": 512,
