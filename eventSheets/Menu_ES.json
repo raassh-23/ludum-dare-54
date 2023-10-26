@@ -1506,9 +1506,9 @@
 								{
 									"id": "set-font-color",
 									"objectClass": "Text",
-									"sid": 782052326428871,
+									"sid": 857886970794554,
 									"parameters": {
-										"color": "rgbEx255(0, 0, 0)"
+										"color": "Functions.getColorFromTheme(\"background\")"
 									}
 								}
 							],
@@ -1540,9 +1540,9 @@
 								{
 									"id": "set-font-color",
 									"objectClass": "Text",
-									"sid": 866657264020217,
+									"sid": 358226468090424,
 									"parameters": {
-										"color": "rgbEx255(255, 255, 255)"
+										"color": "Functions.getColorFromTheme(\"ui\")"
 									}
 								}
 							],
@@ -1635,9 +1635,9 @@
 								{
 									"id": "set-font-color",
 									"objectClass": "Text",
-									"sid": 589833134373898,
+									"sid": 444433074387634,
 									"parameters": {
-										"color": "rgbEx255(255, 255, 255)"
+										"color": "Functions.getColorFromTheme(\"ui\")"
 									}
 								}
 							],
@@ -1669,9 +1669,9 @@
 								{
 									"id": "set-font-color",
 									"objectClass": "Text",
-									"sid": 630371598577612,
+									"sid": 403447379169834,
 									"parameters": {
-										"color": "rgbEx255(0, 0, 0)"
+										"color": "Functions.getColorFromTheme(\"background\")"
 									}
 								}
 							],
@@ -2051,14 +2051,25 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 105720125469240,
+											"sid": 761773457759869,
 											"parameters": {
-												"variable": "selectedAnimation",
+												"variable": "selectedTheme",
 												"value": "ThemeIcon.AnimationFrame"
 											}
 										}
 									],
 									"sid": 130050036085304
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"callFunction": "setTheme",
+											"sid": 921872361955831
+										}
+									],
+									"sid": 490138658875541
 								}
 							]
 						}
@@ -2332,6 +2343,14 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "layer-is-interactive",
+									"objectClass": "System",
+									"sid": 407601126866982,
+									"parameters": {
+										"layer": "\"Theme\""
+									}
+								},
+								{
 									"id": "compare-instance-variable",
 									"objectClass": "SelectedIndicator",
 									"sid": 223708481939572,
@@ -2363,198 +2382,276 @@
 								},
 								{
 									"callFunction": "setTheme",
-									"sid": 195322847406989,
-									"parameters": [
-										"\"theme\"&selectedTheme"
-									]
+									"sid": 195322847406989
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 697243151549605,
+									"parameters": {
+										"key": "\"selectedTheme\"",
+										"value": "selectedTheme"
+									}
 								}
 							],
 							"sid": 587687689127168
 						}
 					],
 					"isOrBlock": true
-				},
-				{
-					"functionName": "setTheme",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": false,
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "theme",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"sid": 494907543239154
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-layer-background-color",
-							"objectClass": "System",
-							"sid": 883774820793749,
-							"parameters": {
-								"layer": "0",
-								"color": "Functions.convertColorHex(Themes.Get(theme&\".background\"))"
-							}
-						},
-						{
-							"type": "script",
-							"script": "const themes = runtime.objects.Themes.getFirstInstance().getJsonDataCopy();\nconst selectedTheme = localVars.theme;\n\nsetBackgroundColor(themes[selectedTheme][\"background\"]);"
-						}
-					],
-					"sid": 182213040027907
-				},
-				{
-					"functionName": "convertColorHex",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "any",
-					"functionCopyPicked": false,
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "hex",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"sid": 879237014995947
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [],
-					"sid": 719083941265711,
-					"children": [
-						{
-							"eventType": "variable",
-							"name": "r",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 173576914186463
-						},
-						{
-							"eventType": "variable",
-							"name": "g",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 114734565767187
-						},
-						{
-							"eventType": "variable",
-							"name": "b",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 407109255113101
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"type": "script",
-									"script": "const { hex } = localVars;\n\nconst [r, g, b] = colorHexToRGB(hex);\n\nlocalVars.r = r/255 * 100;\nlocalVars.g = g/255 * 100;\nlocalVars.b = b/255 * 100;"
-								},
-								{
-									"id": "set-function-return-value",
-									"objectClass": "Functions",
-									"sid": 910917472069915,
-									"parameters": {
-										"value": "rgbEx(r, g, b)"
-									}
-								}
-							],
-							"sid": 835200615075644
-						}
-					]
 				}
 			],
 			"sid": 638809692234106
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"functionName": "setTheme",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
 				{
-					"id": "on-configuration-complete",
-					"objectClass": "MobileAdvert",
-					"sid": 673193890099174
+					"id": "set-layer-background-color",
+					"objectClass": "System",
+					"sid": 758234719507266,
+					"parameters": {
+						"layer": "0",
+						"color": "Functions.getColorFromTheme(\"background\")"
+					}
+				},
+				{
+					"id": "set-default-color",
+					"objectClass": "SelectedIndicator",
+					"sid": 991338553583652,
+					"parameters": {
+						"color": "Functions.getColorFromTheme(\"ui\")"
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "Text",
+					"sid": 875170237386434,
+					"parameters": {
+						"color": "Functions.getColorFromTheme(\"ui\")"
+					}
+				},
+				{
+					"id": "set-default-color",
+					"objectClass": "PlayerAnimation",
+					"sid": 276003951130243,
+					"parameters": {
+						"color": "Functions.getColorFromTheme(\"player\")"
+					}
+				},
+				{
+					"id": "set-default-color",
+					"objectClass": "Ground",
+					"sid": 485672617619926,
+					"parameters": {
+						"color": "Functions.getColorFromTheme(\"ground\")"
+					}
+				},
+				{
+					"id": "set-default-color",
+					"objectClass": "Blank",
+					"sid": 256174448359205,
+					"parameters": {
+						"color": "Functions.getColorFromTheme(\"background\")"
+					}
+				},
+				{
+					"id": "set-default-color",
+					"objectClass": "Coin",
+					"sid": 951853538960513,
+					"parameters": {
+						"color": "Functions.getColorFromTheme(\"coin\")"
+					}
+				},
+				{
+					"type": "script",
+					"script": "const themes = runtime.objects.Themes.getFirstInstance().getJsonDataCopy();\nconst selectedTheme = runtime.globalVars.selectedTheme;\n\nsetBackgroundColor(themes[`theme${selectedTheme}`][\"background\"]);"
 				}
 			],
-			"actions": [],
-			"sid": 521684297796388,
-			"disabled": true,
+			"sid": 650578009230908,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-showing-banner",
-							"objectClass": "MobileAdvert",
-							"sid": 736031224925525,
-							"isInverted": true
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 487063045400439,
+							"parameters": {
+								"variable": "shopMenu",
+								"comparison": 0,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 646773305451688,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"character\""
+							}
 						}
 					],
 					"actions": [
 						{
-							"callFunction": "ShowBannerAd",
-							"sid": 944246777454957
+							"id": "set-font-color",
+							"objectClass": "Text",
+							"sid": 319131649782668,
+							"parameters": {
+								"color": "Functions.getColorFromTheme(\"background\")"
+							}
 						}
 					],
-					"sid": 897744623783747,
-					"disabled": true
+					"sid": 175620404444218
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-loaded-interstitial",
-							"objectClass": "MobileAdvert",
-							"sid": 449049149458969,
-							"isInverted": true
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 628324916225370,
+							"parameters": {
+								"variable": "shopMenu",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 916294581362615,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"theme\""
+							}
 						}
 					],
 					"actions": [
 						{
-							"callFunction": "SetupInterstitialAd",
-							"sid": 692541743308113
+							"id": "set-font-color",
+							"objectClass": "Text",
+							"sid": 568755706941775,
+							"parameters": {
+								"color": "Functions.getColorFromTheme(\"background\")"
+							}
 						}
 					],
-					"sid": 717655601156022,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-loaded-rewarded",
-							"objectClass": "MobileAdvert",
-							"sid": 849094537941225,
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "SetupRewardedAd",
-							"sid": 800239355316789
-						}
-					],
-					"sid": 570172435018544,
-					"disabled": true
+					"sid": 788174569592110
 				}
 			]
+		},
+		{
+			"functionName": "convertColorHex",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "any",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "hex",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 879237014995947
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 438468398756169,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "r",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 413892351808566
+				},
+				{
+					"eventType": "variable",
+					"name": "g",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 140002825487903
+				},
+				{
+					"eventType": "variable",
+					"name": "b",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 348193947700795
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const { hex } = localVars;\n\nconst [r, g, b] = colorHexToRGB(hex);\n\nlocalVars.r = r/255 * 100;\nlocalVars.g = g/255 * 100;\nlocalVars.b = b/255 * 100;"
+						},
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 534672140169325,
+							"parameters": {
+								"value": "rgbEx(r, g, b)"
+							}
+						}
+					],
+					"sid": 223172567665898
+				}
+			]
+		},
+		{
+			"functionName": "getColorFromTheme",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "any",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "path",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 292437216321183
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 605442909666281,
+					"parameters": {
+						"value": "Functions.convertColorHex(Themes.Get(\"theme\"&selectedTheme&\".\"&path))"
+					}
+				}
+			],
+			"sid": 361283844436392
 		},
 		{
 			"functionName": "underlineText",
@@ -2585,6 +2682,78 @@
 				}
 			],
 			"sid": 932171156733771
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-configuration-complete",
+					"objectClass": "MobileAdvert",
+					"sid": 947956189080884
+				}
+			],
+			"actions": [],
+			"sid": 301947009907959,
+			"disabled": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-showing-banner",
+							"objectClass": "MobileAdvert",
+							"sid": 309896465156852,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ShowBannerAd",
+							"sid": 987625539315173
+						}
+					],
+					"sid": 659281787283312,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-loaded-interstitial",
+							"objectClass": "MobileAdvert",
+							"sid": 445108287343671,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetupInterstitialAd",
+							"sid": 540096026677352
+						}
+					],
+					"sid": 341083715542373,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-loaded-rewarded",
+							"objectClass": "MobileAdvert",
+							"sid": 672332106410118,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetupRewardedAd",
+							"sid": 986298887548879
+						}
+					],
+					"sid": 606533435218230,
+					"disabled": true
+				}
+			]
 		}
 	],
 	"sid": 728013641924937

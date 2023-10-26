@@ -12,7 +12,7 @@
 					"eventType": "variable",
 					"name": "activityCounter",
 					"type": "number",
-					"initialValue": "8",
+					"initialValue": "9",
 					"comment": "",
 					"isStatic": true,
 					"isConstant": false,
@@ -66,6 +66,14 @@
 							"sid": 225163078583304,
 							"parameters": {
 								"key": "\"selectedAnimation\""
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 430158995734776,
+							"parameters": {
+								"key": "\"selectedTheme\""
 							}
 						},
 						{
@@ -203,6 +211,60 @@
 								}
 							],
 							"sid": 344170272985856
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 836344339428095,
+							"parameters": {
+								"key": "\"selectedTheme\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 956337828579350,
+							"parameters": {
+								"variable": "activityCounter",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 718646767470397,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 402686515458236,
+									"parameters": {
+										"first-value": "LocalStorage.ItemValue",
+										"comparison": 1,
+										"second-value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 441313144903694,
+									"parameters": {
+										"variable": "selectedTheme",
+										"value": "int(LocalStorage.ItemValue)"
+									}
+								}
+							],
+							"sid": 197184092902741
 						}
 					]
 				},

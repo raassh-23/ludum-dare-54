@@ -166,6 +166,10 @@
 			],
 			"actions": [
 				{
+					"callFunction": "setTheme",
+					"sid": 814215510015850
+				},
+				{
 					"id": "set-animation",
 					"objectClass": "PlayerAnimation",
 					"sid": 711198057317625,
@@ -1480,6 +1484,14 @@
 							],
 							"actions": [
 								{
+									"id": "set-default-color",
+									"objectClass": "PlayerAnimation",
+									"sid": 151389625078694,
+									"parameters": {
+										"color": "Functions.getColorFromTheme(\"player\")"
+									}
+								},
+								{
 									"id": "set-opacity",
 									"objectClass": "PlayerAnimation",
 									"sid": 626484798462877,
@@ -1656,6 +1668,14 @@
 								"layer": "\"Game\"",
 								"image-point": "0",
 								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "Particles",
+							"sid": 886438685204188,
+							"parameters": {
+								"color": "Functions.getColorFromTheme(\"player\")"
 							}
 						},
 						{
@@ -2588,6 +2608,14 @@
 							}
 						},
 						{
+							"id": "set-default-color",
+							"objectClass": "StraightHomingEnemy",
+							"sid": 489540333413161,
+							"parameters": {
+								"color": "Functions.getColorFromTheme(\"straightHomingEnemy\")"
+							}
+						},
+						{
 							"id": "set-opacity",
 							"objectClass": "StraightHomingEnemy",
 							"sid": 493886457298102,
@@ -2821,6 +2849,14 @@
 							}
 						},
 						{
+							"id": "set-default-color",
+							"objectClass": "StraightEnemy",
+							"sid": 236070298004145,
+							"parameters": {
+								"color": "Functions.getColorFromTheme(\"straightEnemy\")"
+							}
+						},
+						{
 							"id": "set-angle-of-motion",
 							"objectClass": "StraightEnemy",
 							"sid": 781029198973284,
@@ -2876,6 +2912,14 @@
 								"y": "y",
 								"create-hierarchy": false,
 								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "BouncingEnemy",
+							"sid": 666691563320437,
+							"parameters": {
+								"color": "Functions.getColorFromTheme(\"bouncingEnemy\")"
 							}
 						},
 						{
@@ -3079,6 +3123,14 @@
 								"y": "y",
 								"create-hierarchy": false,
 								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "HomingEnemy",
+							"sid": 576790143906915,
+							"parameters": {
+								"color": "Functions.getColorFromTheme(\"homingEnemy\")"
 							}
 						}
 					],
@@ -3385,6 +3437,14 @@
 							}
 						},
 						{
+							"id": "set-default-color",
+							"objectClass": "SineEnemy",
+							"sid": 216986582162251,
+							"parameters": {
+								"color": "Functions.getColorFromTheme(\"sineEnemy\")"
+							}
+						},
+						{
 							"id": "set-angle",
 							"objectClass": "SineEnemy",
 							"sid": 181216592762034,
@@ -3441,6 +3501,14 @@
 								"y": "y",
 								"create-hierarchy": false,
 								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "BouncingRotatingEnemy",
+							"sid": 570379900291781,
+							"parameters": {
+								"color": "Functions.getColorFromTheme(\"bouncingRotatingEnemy\")"
 							}
 						},
 						{
@@ -4411,6 +4479,14 @@
 						"width": "0",
 						"height": "0"
 					}
+				},
+				{
+					"id": "set-default-color",
+					"objectClass": "Star",
+					"sid": 868491659223524,
+					"parameters": {
+						"color": "Functions.getColorFromTheme(\"star\")"
+					}
 				}
 			],
 			"sid": 419292663866135,
@@ -4487,6 +4563,14 @@
 					"parameters": {
 						"width": "0",
 						"height": "0"
+					}
+				},
+				{
+					"id": "set-default-color",
+					"objectClass": "Coin",
+					"sid": 553426889690863,
+					"parameters": {
+						"color": "Functions.getColorFromTheme(\"coin\")"
 					}
 				}
 			],
