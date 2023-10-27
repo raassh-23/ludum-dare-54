@@ -3132,6 +3132,13 @@
 							"parameters": {
 								"color": "Functions.getColorFromTheme(\"homingEnemy\")"
 							}
+						},
+						{
+							"callFunction": "UnlockAchievement",
+							"sid": 909429180424772,
+							"parameters": [
+								"\"CgkIjZK_y-MREAIQBA\""
+							]
 						}
 					],
 					"sid": 366933412226589
@@ -3460,6 +3467,13 @@
 							"parameters": {
 								"angle": "angle(SineEnemy.X, SineEnemy.Y, 256, 256)"
 							}
+						},
+						{
+							"callFunction": "UnlockAchievement",
+							"sid": 639040797961673,
+							"parameters": [
+								"\"CgkIjZK_y-MREAIQBQ\""
+							]
 						}
 					],
 					"sid": 647061944378721
@@ -3602,6 +3616,13 @@
 							"parameters": {
 								"angle": "random(360)"
 							}
+						},
+						{
+							"callFunction": "UnlockAchievement",
+							"sid": 355281133856071,
+							"parameters": [
+								"\"CgkIjZK_y-MREAIQBg\""
+							]
 						}
 					],
 					"sid": 655686806600933
@@ -5388,6 +5409,106 @@
 						}
 					],
 					"sid": 376908909017790
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 751291347273354,
+							"parameters": {
+								"variable": "score",
+								"comparison": 5,
+								"value": "10"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "UnlockAchievement",
+							"sid": 613160043628580,
+							"parameters": [
+								"\"CgkIjZK_y-MREAIQBw\""
+							]
+						}
+					],
+					"sid": 120588298472241
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 606439514846030,
+							"parameters": {
+								"variable": "score",
+								"comparison": 5,
+								"value": "25"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "UnlockAchievement",
+							"sid": 131323391524095,
+							"parameters": [
+								"\"CgkIjZK_y-MREAIQCA\""
+							]
+						}
+					],
+					"sid": 268272054960756
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 824000201714620,
+							"parameters": {
+								"variable": "score",
+								"comparison": 5,
+								"value": "50"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "UnlockAchievement",
+							"sid": 950338814772406,
+							"parameters": [
+								"\"CgkIjZK_y-MREAIQCQ\""
+							]
+						}
+					],
+					"sid": 854473304420328
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 528005096221224,
+							"parameters": {
+								"variable": "score",
+								"comparison": 5,
+								"value": "100"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "UnlockAchievement",
+							"sid": 190248414304736,
+							"parameters": [
+								"\"CgkIjZK_y-MREAIQCQ\""
+							]
+						}
+					],
+					"sid": 547362908290062
 				},
 				{
 					"eventType": "block",

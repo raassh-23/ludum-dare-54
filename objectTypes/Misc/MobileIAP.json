@@ -1,0 +1,12 @@
+{
+	"name": "MobileIAP",
+	"plugin-id": "CORDOVAIAP",
+	"sid": 885281885404223,
+	"singleglobal-inst": {
+		"type": "MobileIAP",
+		"properties": {
+			"validator-url": ""
+		},
+		"uid": 122
+	}
+}
