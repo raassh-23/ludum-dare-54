@@ -187,7 +187,7 @@
 						},
 						{
 							"id": "set-position",
-							"objectClass": "Blank",
+							"objectClass": "BlankTransition",
 							"sid": 623595309699303,
 							"parameters": {
 								"x": "0",
@@ -225,7 +225,7 @@
 							"actions": [
 								{
 									"id": "tween-two-properties",
-									"objectClass": "Blank",
+									"objectClass": "BlankTransition",
 									"sid": 848752045633057,
 									"behaviorType": "Tween",
 									"parameters": {
@@ -258,7 +258,7 @@
 					"actions": [
 						{
 							"id": "set-position",
-							"objectClass": "Blank",
+							"objectClass": "BlankTransition",
 							"sid": 306357017728700,
 							"parameters": {
 								"x": "-LayoutWidth",
@@ -459,7 +459,7 @@
 						},
 						{
 							"id": "set-position",
-							"objectClass": "Blank",
+							"objectClass": "BlankTransition",
 							"sid": 828242644195130,
 							"parameters": {
 								"x": "-LayoutWidth",
@@ -468,7 +468,7 @@
 						},
 						{
 							"id": "tween-two-properties",
-							"objectClass": "Blank",
+							"objectClass": "BlankTransition",
 							"sid": 179810613867215,
 							"behaviorType": "Tween",
 							"parameters": {
@@ -583,172 +583,164 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "layer-is-interactive",
-							"objectClass": "System",
-							"sid": 355383308103944,
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 622199530203240,
 							"parameters": {
-								"layer": "\"Leaderboard\""
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"back-leaderboard\""
 							}
 						}
 					],
-					"actions": [],
-					"sid": 638477321097971,
-					"children": [
+					"actions": [
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Text",
-									"sid": 218802615226008,
-									"parameters": {
-										"instance-variable": "id",
-										"comparison": 0,
-										"value": "\"back-leaderboard\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "PlayClick",
-									"sid": 425740740330852
-								},
-								{
-									"callFunction": "hideLeaderboard",
-									"sid": 347090262185058
-								}
-							],
-							"sid": 608689685027095
+							"callFunction": "PlayClick",
+							"sid": 597756897732757
 						},
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Text",
-									"sid": 923342451356084,
-									"parameters": {
-										"instance-variable": "id",
-										"comparison": 0,
-										"value": "\"more\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "PlayClick",
-									"sid": 603820591501528
-								},
-								{
-									"id": "open-url-in-new-window",
-									"objectClass": "Browser",
-									"sid": 948569776271754,
-									"parameters": {
-										"url": "\"https://ludum-dare-54-leaderboard-66c60535be63.herokuapp.com/\"",
-										"tag": "\"Leaderboard\""
-									}
-								}
-							],
-							"sid": 998691337356063
+							"callFunction": "hideLeaderboard",
+							"sid": 346104245151707
 						}
-					]
+					],
+					"sid": 879676429568917
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "layer-is-interactive",
-							"objectClass": "System",
-							"sid": 521455672503836,
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 219046265535503,
 							"parameters": {
-								"layer": "\"Shop\""
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"more\""
 							}
 						}
 					],
-					"actions": [],
-					"sid": 564954804615428,
-					"children": [
+					"actions": [
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Text",
-									"sid": 817189170700447,
-									"parameters": {
-										"instance-variable": "id",
-										"comparison": 0,
-										"value": "\"back-shop\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "PlayClick",
-									"sid": 479467532068398
-								},
-								{
-									"callFunction": "hideShop",
-									"sid": 712818731346300
-								}
-							],
-							"sid": 472100012128650
+							"callFunction": "PlayClick",
+							"sid": 870123134181693
 						},
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Text",
-									"sid": 597085624527901,
-									"parameters": {
-										"instance-variable": "id",
-										"comparison": 0,
-										"value": "\"character\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 117850155967920,
-									"parameters": {
-										"variable": "shopMenu",
-										"value": "0"
-									}
-								}
-							],
-							"sid": 778697040182873
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Text",
-									"sid": 623293150097605,
-									"parameters": {
-										"instance-variable": "id",
-										"comparison": 0,
-										"value": "\"theme\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 395130946742778,
-									"parameters": {
-										"variable": "shopMenu",
-										"value": "1"
-									}
-								}
-							],
-							"sid": 755447467238926
+							"id": "open-url-in-new-window",
+							"objectClass": "Browser",
+							"sid": 524329155657600,
+							"parameters": {
+								"url": "\"https://ludum-dare-54-leaderboard-66c60535be63.herokuapp.com/\"",
+								"tag": "\"Leaderboard\""
+							}
 						}
-					]
+					],
+					"sid": 770879050054936
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 125401536063203,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"back-shop\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PlayClick",
+							"sid": 877150345195488
+						},
+						{
+							"callFunction": "hideShop",
+							"sid": 476343166345149
+						}
+					],
+					"sid": 411509998955472
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 750838884209900,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"character\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 582578252433284,
+							"parameters": {
+								"variable": "shopMenu",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 768589676002141
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 133036159149129,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"theme\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 371566391950055,
+							"parameters": {
+								"variable": "shopMenu",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 723944381687366
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 815752681178932,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"theme-support-price\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "purchase-product",
+							"objectClass": "MobileIAP",
+							"sid": 701294946764467,
+							"parameters": {
+								"product-id": "THEME_SUPPORT"
+							}
+						}
+					],
+					"sid": 906175345137835
 				}
 			],
 			"isOrBlock": true
@@ -1676,6 +1668,278 @@
 								}
 							],
 							"sid": 795833987150627
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "store-registered",
+									"objectClass": "MobileIAP",
+									"sid": 432010699842943
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 443682380333062,
+									"parameters": {
+										"layer": "\"ThemeError\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 228771519658060,
+									"parameters": {
+										"layer": "\"ThemeError\"",
+										"interactive": false
+									}
+								}
+							],
+							"sid": 294851318253544,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "product-available",
+											"objectClass": "MobileIAP",
+											"sid": 270733228527298,
+											"parameters": {
+												"product-id": "THEME_SUPPORT"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-layer-interactive",
+											"objectClass": "System",
+											"sid": 830544673114966,
+											"parameters": {
+												"layer": "\"ThemeBuy\"",
+												"interactive": true
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 981854544232495,
+											"parameters": {
+												"layer": "\"ThemeBuy\"",
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-layer-interactive",
+											"objectClass": "System",
+											"sid": 605797783012393,
+											"parameters": {
+												"layer": "\"ThemeContent\"",
+												"interactive": false
+											}
+										}
+									],
+									"sid": 609298804006393,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Text",
+													"sid": 476382224916433,
+													"parameters": {
+														"instance-variable": "id",
+														"comparison": 0,
+														"value": "\"theme-support-name\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Text",
+													"sid": 224102763549589,
+													"parameters": {
+														"text": "MobileIAP.ProductName(THEME_SUPPORT)"
+													}
+												}
+											],
+											"sid": 719126019224456
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Text",
+													"sid": 828832979661150,
+													"parameters": {
+														"instance-variable": "id",
+														"comparison": 0,
+														"value": "\"theme-support-desc\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Text",
+													"sid": 840458573880738,
+													"parameters": {
+														"text": "MobileIAP.ProductDescription(THEME_SUPPORT)"
+													}
+												}
+											],
+											"sid": 383125608676476
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Text",
+													"sid": 409672384514203,
+													"parameters": {
+														"instance-variable": "id",
+														"comparison": 0,
+														"value": "\"theme-support-price\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Text",
+													"sid": 519658737425102,
+													"parameters": {
+														"text": "MobileIAP.ProductPrice(THEME_SUPPORT)"
+													}
+												}
+											],
+											"sid": 189671338401692
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 716450493103486
+										}
+									],
+									"actions": [
+										{
+											"id": "set-layer-interactive",
+											"objectClass": "System",
+											"sid": 709431599412441,
+											"parameters": {
+												"layer": "\"ThemeBuy\"",
+												"interactive": false
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 788497159183741,
+											"parameters": {
+												"layer": "\"ThemeBuy\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-interactive",
+											"objectClass": "System",
+											"sid": 549919850403878,
+											"parameters": {
+												"layer": "\"ThemeContent\"",
+												"interactive": true
+											}
+										}
+									],
+									"sid": 535186071433132
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 328304470577131
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 341336382502364,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"theme-support-error\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 435818555343946,
+									"parameters": {
+										"layer": "\"ThemeError\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 922847597354848,
+									"parameters": {
+										"layer": "\"ThemeError\"",
+										"interactive": true
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 842723410837466,
+									"parameters": {
+										"layer": "\"ThemeBuy\"",
+										"interactive": false
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 739019748222358,
+									"parameters": {
+										"layer": "\"ThemeBuy\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 911043627776777,
+									"parameters": {
+										"layer": "\"ThemeContent\"",
+										"interactive": false
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 774114928979418,
+									"parameters": {
+										"text": "\"Error while loading:\"&newline&(MobileIAP.ErrorMessage = \"\" ? \"Unknown error\" : MobileIAP.ErrorMessage)"
+									}
+								}
+							],
+							"sid": 116420628399576
 						}
 					]
 				},
@@ -2343,14 +2607,6 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "layer-is-interactive",
-									"objectClass": "System",
-									"sid": 407601126866982,
-									"parameters": {
-										"layer": "\"Theme\""
-									}
-								},
-								{
 									"id": "compare-instance-variable",
 									"objectClass": "SelectedIndicator",
 									"sid": 223708481939572,
@@ -2398,6 +2654,49 @@
 						}
 					],
 					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-purchase-success",
+							"objectClass": "MobileIAP",
+							"sid": 765128791956974,
+							"parameters": {
+								"product-id": "THEME_SUPPORT"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 274818604970808,
+							"parameters": {
+								"layer": "\"ThemeBuy\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 291862249347344,
+							"parameters": {
+								"layer": "\"ThemeBuy\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 430108335094777,
+							"parameters": {
+								"layer": "\"ThemeContent\"",
+								"interactive": true
+							}
+						}
+					],
+					"sid": 718508948426199
 				}
 			],
 			"sid": 638809692234106
@@ -2456,7 +2755,7 @@
 				},
 				{
 					"id": "set-default-color",
-					"objectClass": "Blank",
+					"objectClass": "BlankTransition",
 					"sid": 256174448359205,
 					"parameters": {
 						"color": "Functions.getColorFromTheme(\"background\")"

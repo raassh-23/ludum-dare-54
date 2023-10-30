@@ -2,6 +2,16 @@
 	"name": "Splash_ES",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "THEME_SUPPORT",
+			"type": "string",
+			"initialValue": "theme_support",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 987675823602745
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Splash",
@@ -12,7 +22,7 @@
 					"eventType": "variable",
 					"name": "activityCounter",
 					"type": "number",
-					"initialValue": "9",
+					"initialValue": "10",
 					"comment": "",
 					"isStatic": true,
 					"isConstant": false,
@@ -102,6 +112,20 @@
 								"tag": "\"theme2\"",
 								"file": "theme2.json"
 							}
+						},
+						{
+							"id": "register-product",
+							"objectClass": "MobileIAP",
+							"sid": 164338843173973,
+							"parameters": {
+								"product-id": "THEME_SUPPORT",
+								"product-type": "non-consumable"
+							}
+						},
+						{
+							"id": "complete-registration",
+							"objectClass": "MobileIAP",
+							"sid": 130161451008776
 						}
 					],
 					"sid": 262057148051707
@@ -400,6 +424,61 @@
 						}
 					],
 					"sid": 328839507192749
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-registration-success",
+							"objectClass": "MobileIAP",
+							"sid": 382480736839020
+						},
+						{
+							"id": "on-registration-failure",
+							"objectClass": "MobileIAP",
+							"sid": 469820529456976
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 577380281554418,
+							"parameters": {
+								"variable": "activityCounter",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 574977413043852,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-web-export",
+							"objectClass": "PlatformInfo",
+							"sid": 237912313382168
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 896200321756223
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 867537112693400,
+							"parameters": {
+								"variable": "activityCounter",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 107487913550307
 				},
 				{
 					"eventType": "block",

@@ -1,14 +1,14 @@
 {
-	"name": "Blank",
+	"name": "BlankTransition",
 	"plugin-id": "TiledBg",
-	"sid": 571988645452359,
+	"sid": 591964045136431,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [
 		{
 			"behaviorId": "Tween",
 			"name": "Tween",
-			"sid": 937725851373246
+			"sid": 328382604158097
 		}
 	],
 	"effectTypes": [],
@@ -20,7 +20,7 @@
 		"originalSource": "",
 		"exportFormat": "lossless",
 		"exportQuality": 0.8,
-		"imageSpriteId": 2404922,
+		"imageSpriteId": 6735231,
 		"useCollisionPoly": true,
 		"tag": ""
 	}

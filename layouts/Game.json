@@ -2519,7 +2519,7 @@
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "Blank",
+					"type": "BlankTransition",
 					"properties": {
 						"initially-visible": true,
 						"origin": "top-left",
