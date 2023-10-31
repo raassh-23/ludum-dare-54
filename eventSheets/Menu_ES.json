@@ -1813,13 +1813,39 @@
 												{
 													"id": "set-text",
 													"objectClass": "Text",
-													"sid": 519658737425102,
+													"sid": 517083970512132,
 													"parameters": {
-														"text": "MobileIAP.ProductPrice(THEME_SUPPORT)"
+														"text": "Functions.underlineText(MobileIAP.ProductPrice(THEME_SUPPORT))"
 													}
 												}
 											],
 											"sid": 189671338401692
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Text",
+													"sid": 717435133161307,
+													"parameters": {
+														"instance-variable": "id",
+														"comparison": 0,
+														"value": "\"theme-support-buy-error\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "Text",
+													"sid": 681810768775339,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												}
+											],
+											"sid": 754003178725846
 										}
 									]
 								},
@@ -2697,6 +2723,40 @@
 						}
 					],
 					"sid": 718508948426199
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-purchase-failed",
+							"objectClass": "MobileIAP",
+							"sid": 682904985325664,
+							"parameters": {
+								"product-id": "THEME_SUPPORT"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 283358461593633,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"theme-support-buy-error\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 138295060208949,
+							"parameters": {
+								"text": "\"Error while buying:\"&newline&(MobileIAP.ErrorMessage = \"\" ? \"Unknown error\" : MobileIAP.ErrorMessage)&newline&\"Please try again\""
+							}
+						}
+					],
+					"sid": 158137881028705
 				}
 			],
 			"sid": 638809692234106

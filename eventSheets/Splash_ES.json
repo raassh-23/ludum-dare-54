@@ -12,6 +12,16 @@
 			"sid": 987675823602745
 		},
 		{
+			"eventType": "variable",
+			"name": "themeLoadingError",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 214612262639031
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Splash",
@@ -432,11 +442,6 @@
 							"id": "on-registration-success",
 							"objectClass": "MobileIAP",
 							"sid": 382480736839020
-						},
-						{
-							"id": "on-registration-failure",
-							"objectClass": "MobileIAP",
-							"sid": 469820529456976
 						}
 					],
 					"actions": [
@@ -451,6 +456,38 @@
 						}
 					],
 					"sid": 574977413043852,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-registration-failure",
+							"objectClass": "MobileIAP",
+							"sid": 818306981872156
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 421159087155553,
+							"parameters": {
+								"variable": "themeLoadingError",
+								"value": "MobileIAP.ErrorMessage"
+							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 764975942678683,
+							"parameters": {
+								"variable": "activityCounter",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 790620739391620,
 					"isOrBlock": true
 				},
 				{

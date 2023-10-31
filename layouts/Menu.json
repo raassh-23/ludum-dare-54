@@ -769,7 +769,7 @@
 											"world": {
 												"x": 256,
 												"y": 321.2672137194796,
-												"width": 90.65036346863056,
+												"width": 303.0204333317764,
 												"height": 30.450362745221682,
 												"originX": 0.5,
 												"originY": 0.5,
@@ -827,6 +827,62 @@
 												"y": 251.2672137194796,
 												"width": 381.9577034239764,
 												"height": 90.29585484298262,
+												"originX": 0.5,
+												"originY": 0.5,
+												"color": [
+													1,
+													1,
+													1,
+													1
+												],
+												"angle": 0,
+												"zElevation": 0
+											}
+										},
+										{
+											"type": "Text",
+											"properties": {
+												"text": "Error while buying theme support, please try again",
+												"enable-bbcode": true,
+												"font": "Lato-Regular",
+												"size": 18,
+												"line-height": 0,
+												"bold": false,
+												"italic": false,
+												"color": [
+													1,
+													1,
+													1,
+													1
+												],
+												"horizontal-alignment": "center",
+												"vertical-alignment": "center",
+												"wrapping": "word",
+												"icon-set": -1,
+												"initially-visible": true,
+												"origin": "center",
+												"read-aloud": false
+											},
+											"uid": 130,
+											"instanceVariables": {
+												"initialX": 0,
+												"initialY": 0,
+												"initialFontSize": 0,
+												"initialAngle": 0,
+												"id": "theme-support-buy-error"
+											},
+											"behaviors": {
+												"Tween": {
+													"properties": {
+														"enabled": true
+													}
+												}
+											},
+											"world": {
+												"x": 256,
+												"y": 379.9020130493101,
+												"width": 381.9577034239764,
+												"height": 63.98875249825629,
 												"originX": 0.5,
 												"originY": 0.5,
 												"color": [
