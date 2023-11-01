@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 36400,
+	"savedWithRelease": 36500,
 	"name": "Boxed In",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -500,7 +500,7 @@
 	},
 	"properties": {
 		"description": "Collect all the stars",
-		"version": "1.0.1.7",
+		"version": "1.0.1.8",
 		"author": "Raassh",
 		"authorEmail": "",
 		"authorWebsite": "",

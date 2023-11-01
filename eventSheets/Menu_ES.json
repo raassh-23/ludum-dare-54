@@ -1837,11 +1837,11 @@
 											],
 											"actions": [
 												{
-													"id": "set-visible",
+													"id": "set-text",
 													"objectClass": "Text",
-													"sid": 681810768775339,
+													"sid": 193123918868943,
 													"parameters": {
-														"visibility": "invisible"
+														"text": "\"\""
 													}
 												}
 											],
