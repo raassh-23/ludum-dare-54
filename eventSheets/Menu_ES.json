@@ -2750,9 +2750,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "Text",
-							"sid": 138295060208949,
+							"sid": 898024000900809,
 							"parameters": {
-								"text": "\"Error while buying:\"&newline&(MobileIAP.ErrorMessage = \"\" ? \"Unknown error\" : MobileIAP.ErrorMessage)&newline&\"Please try again\""
+								"text": "\"Error while buying: \"&(MobileIAP.ErrorMessage = \"\" ? \"Unknown error\" : MobileIAP.ErrorMessage)&newline&\"Please try again\""
 							}
 						}
 					],

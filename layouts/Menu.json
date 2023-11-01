@@ -768,7 +768,7 @@
 											},
 											"world": {
 												"x": 256,
-												"y": 321.2672137194796,
+												"y": 316.2672137194796,
 												"width": 303.0204333317764,
 												"height": 30.450362745221682,
 												"originX": 0.5,
@@ -842,10 +842,10 @@
 										{
 											"type": "Text",
 											"properties": {
-												"text": "Error while buying theme support, please try again",
+												"text": "Error while buying theme support, please try again adsfads fadsfadsfadsf adsfadsfads fdsa fads",
 												"enable-bbcode": true,
 												"font": "Lato-Regular",
-												"size": 18,
+												"size": 16,
 												"line-height": 0,
 												"bold": false,
 												"italic": false,
@@ -880,9 +880,9 @@
 											},
 											"world": {
 												"x": 256,
-												"y": 379.9020130493101,
-												"width": 381.9577034239764,
-												"height": 63.98875249825629,
+												"y": 378.5968962656117,
+												"width": 421.7001418805003,
+												"height": 90.39963518038608,
 												"originX": 0.5,
 												"originY": 0.5,
 												"color": [
