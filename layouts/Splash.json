@@ -5,7 +5,64 @@
 			"name": "Layer 0",
 			"overriden": 0,
 			"subLayers": [],
-			"instances": [],
+			"instances": [
+				{
+					"type": "Text",
+					"properties": {
+						"text": "Loading...",
+						"enable-bbcode": true,
+						"font": "Lato-Regular",
+						"size": 36,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"icon-set": -1,
+						"initially-visible": true,
+						"origin": "center",
+						"read-aloud": false
+					},
+					"uid": 131,
+					"instanceVariables": {
+						"initialX": 0,
+						"initialY": 0,
+						"initialFontSize": 0,
+						"initialAngle": 0,
+						"id": "loading"
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 256,
+						"y": 256,
+						"width": 235.09467986094546,
+						"height": 60.91836940763551,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
 			"sid": 779248988136066,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
